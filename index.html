@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; with Slider</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template with model slider">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <style>
+      /* Add basic styles for the slider */
+      .slider-container {
+        display: flex;
+        justify-content: flex-start; /* Align items to the start */
+        margin-bottom: 100px; /* Adjust this value to move the slider up */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Ensure items stay in a single row */
+        padding: 10px 0; /* Add some padding to the slider */
+      }
+      
+      .slider-item {
+        display: inline-block; /* Make each item inline to stay in a single row */
+        margin: 0 10px;
+        cursor: pointer;
+      }
+      
+      .slider-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        background-color: transparent; /* Default transparent background */
+        padding: 5px; /* Add some padding to the images */
+      }
+      
+      .slider-item img.active {
+        background-color: #00274E; /* Blue background for active image */
+        border-radius: 8px; /* Keep the rounded corners */
+      }
+    
+      /* Hide scrollbar for webkit browsers */
+      .slider-container::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* For all other browsers, you can customize scrollbar */
+      .slider-container {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;     /* Firefox */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <model-viewer> HTML element -->
+    <model-viewer id="model-viewer" src="asset/ZeroErrorsModel.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+    </model-viewer>  
+
+    <!-- Slider for selecting models -->
+    <div class="slider-container">
+      <div class="slider-item" data-model="asset/ZeroErrorsModel.gltf">
+        <img src="asset/ZeroErrorsModel.webp" alt="Model 1"></div>
+
+      <div class="slider-item" data-model="asset/OpenBlackGlass.gltf">
+        <img src="asset/OpenBlackGlass.webp" alt="Model 2"></div> 
+        
+      <div class="slider-item" data-model="asset/WallInfillsOpened.gltf">
+        <img src="asset/WallInfillsOpened.webp" alt="Model 2"></div>
+      
+      <div class="slider-item" data-model="asset/WallNoInfill.gltf">
+        <img src="asset/WallNoInfill.webp" alt="Model 2"></div>
+        <!-- test size -->
+      <div class="slider-item" data-model="asset/WallNoInfill.gltf">
+        <img src="asset/WallNoInfill.webp" alt="Model 2"></div>
+
+      <div class="slider-item" data-model="asset/WallNoInfill.gltf">
+        <img src="asset/WallNoInfill.webp" alt="Model 2"></div>
+
+      <div class="slider-item" data-model="asset/WallNoInfill.gltf">
+        <img src="asset/WallNoInfill.webp" alt="Model 2"></div>
+
+      <div class="slider-item" data-model="asset/WallNoInfill.gltf">
+        <img src="asset/WallNoInfill.webp" alt="Model 2"></div>
+
+
+    </div>
+
+    <script>
+      // JavaScript to handle model changes from the slider
+      const modelViewer = document.getElementById('model-viewer');
+      const sliderItems = document.querySelectorAll('.slider-item img');
+    
+      // Function to set the active model
+      const setActiveModel = (item) => {
+        // Remove active class from all items
+        sliderItems.forEach(i => i.classList.remove('active'));
+    
+        // Add active class to the clicked item
+        item.classList.add('active');
+    
+        // Change the model based on the clicked item
+        const selectedModel = item.parentElement.getAttribute('data-model');
+        modelViewer.setAttribute('src', selectedModel);
+      };
+    
+      // Set the first model as active when the page loads
+      window.addEventListener('DOMContentLoaded', () => {
+        setActiveModel(sliderItems[0]); // Set first slider item as active
+      });
+    
+      // Add click event to each slider item
+      sliderItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+          setActiveModel(event.target);
+        });
+      });
+    </script>
+    
+
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+  </body>
+</html>
