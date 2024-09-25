@@ -16,19 +16,18 @@
     <meta name="theme-color" content="#ffffff">
 
     <style>
-      
       /* Add basic styles for the slider */
       .slider-container {
         display: flex;
-        justify-content: flex-start; /* Align items to the start */
-        margin-bottom: 100px; /* Adjust this value to move the slider up */
-        overflow-x: auto; /* Enable horizontal scrolling */
-        white-space: nowrap; /* Ensure items stay in a single row */
-        padding: 10px 0; /* Add some padding to the slider */
+        justify-content: flex-start;
+        margin-bottom: 100px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px 0;
       }
       
       .slider-item {
-        display: inline-block; /* Make each item inline to stay in a single row */
+        display: inline-block;
         margin: 0 10px;
         cursor: pointer;
       }
@@ -38,13 +37,13 @@
         height: 80px;
         object-fit: cover;
         border-radius: 8px;
-        background-color: transparent; /* Default transparent background */
-        padding: 5px; /* Add some padding to the images */
+        background-color: transparent;
+        padding: 5px;
       }
       
       .slider-item img.active {
-        background-color: #00274E; /* Blue background for active image */
-        border-radius: 8px; /* Keep the rounded corners */
+        background-color: #00274E;
+        border-radius: 8px;
       }
     
       /* Hide scrollbar for webkit browsers */
@@ -54,25 +53,28 @@
       
       /* For all other browsers, you can customize scrollbar */
       .slider-container {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;     /* Firefox */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }      
     </style>
   </head>
 
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="model-viewer" src="asset/ZeroErrorsModel.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
+    <model-viewer id="model-viewer" src="asset/ZeroErrorsModel.gltf" ar ar-modes="webxr scene-viewer quick-look" ar-placement="floor" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
       <div class="progress-bar hide" slot="progress-bar">
-          <div class="update-bar"></div>
+        <div class="update-bar"></div>
       </div>
       <button slot="ar-button" id="ar-button">
-          View in your space
+        View in your space
       </button>
       <div id="ar-prompt">
-          <img src="ar_hand_prompt.png">
+        <img src="ar_hand_prompt.png">
       </div>
     </model-viewer>  
+
+    <!-- Toggle AR Placement Button -->
+    <button id="toggle-ar-placement-button">AR-placement: floor</button>
 
     <!-- Slider for selecting models -->
     <div class="slider-container">
@@ -96,13 +98,12 @@
 
       <div class="slider-item" data-model="asset/Camargue2.gltf">
         <img src="asset/Camargue2.webp" alt="Camargue2"></div>
-        
     </div>
 
     <script>
-      // JavaScript to handle model changes from the slider
       const modelViewer = document.getElementById('model-viewer');
       const sliderItems = document.querySelectorAll('.slider-item img');
+      const toggleButton = document.getElementById('toggle-ar-placement-button');
     
       // Function to set the active model
       const setActiveModel = (item) => {
@@ -128,8 +129,15 @@
           setActiveModel(event.target);
         });
       });
+
+      // Function to toggle ar-placement between "wall" and "floor"
+      let currentPlacement = 'floor'; // Default placement
+      toggleButton.addEventListener('click', () => {
+        currentPlacement = (currentPlacement === 'floor') ? 'wall' : 'floor';
+        modelViewer.setAttribute('ar-placement', currentPlacement);
+        toggleButton.textContent = `AR-placement: ${currentPlacement}`; // Update button label
+      });
     </script>
-    
 
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
