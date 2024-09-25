@@ -107,3 +107,43 @@ model-viewer[ar-status="session-started"] > #ar-prompt {
 model-viewer > #ar-prompt > img {
   animation: circle 4s linear infinite;
 }
+
+.slider-container {
+  display: flex;
+  justify-content: flex-start; /* Align items to the start */
+  margin-bottom: 100px; /* Adjust this value to move the slider up */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Ensure items stay in a single row */
+  padding: 10px 0; /* Add some padding to the slider */
+}
+
+.slider-item {
+  display: inline-block; /* Make each item inline to stay in a single row */
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.slider-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: transparent; /* Default transparent background */
+  padding: 5px; /* Add some padding to the images */
+}
+
+.slider-item img.active {
+  background-color: #00274E; /* Blue background for active image */
+  border-radius: 8px; /* Keep the rounded corners */
+}
+
+/* Hide scrollbar for webkit browsers */
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* For all other browsers, you can customize scrollbar */
+.slider-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
