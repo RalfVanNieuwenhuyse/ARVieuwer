@@ -21,7 +21,7 @@
       .slider-container {
         display: flex;
         justify-content: flex-start; /* Align items to the start */
-        margin-bottom: 100px; /* Adjust this value to move the slider up */
+        margin-bottom: 0px; /* Adjust this value to move the slider up */
         overflow-x: auto; /* Enable horizontal scrolling */
         white-space: nowrap; /* Ensure items stay in a single row */
         padding: 10px 0; /* Add some padding to the slider */
@@ -56,7 +56,56 @@
       .slider-container {
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;     /* Firefox */
-      }      
+      }   
+      
+      .popup {
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;            
+        }
+
+        .popup-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888888;
+            width: 300px;
+            font-weight: bolder;
+            border-radius: 30px;
+        }
+
+        .popup-content button {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .show {
+            display: block;
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media all and (min-width: 480px) {
+        .deskContent {display:block;}
+        .phoneContent {display:none;}
+        }
+
+        @media all and (max-width: 479px) {
+        .deskContent {display:none;}
+        .phoneContent {display:block;}
+        }
+
+
     </style>
   </head>
 
@@ -103,9 +152,34 @@
         
       <!-- online model test -->
       <div class="slider-item" data-model="https://raw.githubusercontent.com/RalfVanNieuwenhuyse/ARVieuwer/refs/heads/main/asset/OpenBlackGlass.gltf">
-        <img src="browser_assets/cloud-online-server.png" alt="Online"></div>
-        
+        <img src="https://raw.githubusercontent.com/RalfVanNieuwenhuyse/ARVieuwer/refs/heads/main/browser_assets/cloud-online-server.png" alt="Online"></div>
+    
     </div>
+
+
+    <div class="deskContent">
+      <button id="myButton">View in your space</button>
+      <div id="myPopup" class="popup">
+        <div class="popup-content">
+
+            <div style="text-align:center">
+                <h1 style="color: #00274E">Scan me!</h1>
+              </div> 
+
+            <img src="asset/QRCode.png" alt="QRCode" width="256" height="256" class="center">
+
+            <div style="text-align:center">
+                <p style="color: black">Or click <a href="https://ralfvannieuwenhuyse.github.io/ARVieuwer/">here</a></p>
+              </div> 
+
+            <button id="closePopup">
+                Close
+            </button>
+
+        </div>
+      </div>
+    </div>
+
 
     <script>
       // JavaScript to handle model changes from the slider
@@ -136,6 +210,32 @@
           setActiveModel(event.target);
         });
       });
+
+      myButton.addEventListener(
+            "click",
+            function () {
+                myPopup.classList.add("show");
+            }
+        );
+        closePopup.addEventListener(
+            "click",
+            function () {
+                myPopup.classList.remove(
+                    "show"
+                );
+            }
+        );
+        window.addEventListener(
+            "click",
+            function (event) {
+                if (event.target == myPopup) {
+                    myPopup.classList.remove(
+                        "show"
+                    );
+                }
+            }
+        );
+
     </script>
     
 
