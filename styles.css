@@ -22,7 +22,7 @@ model-viewer {
 
 .progress-bar {
   display: block;
-  width: 33%;
+  width: 50%;
   height: 10%;
   max-height: 2%;
   position: absolute;
