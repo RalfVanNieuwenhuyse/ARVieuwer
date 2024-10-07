@@ -15,10 +15,10 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <style>
-      
+    <style>      
       /* Add basic styles for the slider */
-      .slider-container {
+      .slider-container 
+      {
         display: flex;
         justify-content: flex-start; /* Align items to the start */
         margin-bottom: 0px; /* Adjust this value to move the slider up */
@@ -27,13 +27,15 @@
         padding: 10px 0; /* Add some padding to the slider */
       }
       
-      .slider-item {
+      .slider-item 
+      {
         display: inline-block; /* Make each item inline to stay in a single row */
         margin: 0 10px;
         cursor: pointer;
       }
       
-      .slider-item img {
+      .slider-item img
+      {
         width: 80px;
         height: 80px;
         object-fit: cover;
@@ -42,23 +44,27 @@
         padding: 5px; /* Add some padding to the images */
       }
       
-      .slider-item img.active {
+      .slider-item img.active 
+      {
         background-color: #00274E; /* Blue background for active image */
         border-radius: 8px; /* Keep the rounded corners */
       }
     
       /* Hide scrollbar for webkit browsers */
-      .slider-container::-webkit-scrollbar {
+      .slider-container::-webkit-scrollbar 
+      {
         display: inside;
       }
       
       /* For all other browsers, you can customize scrollbar */
-      .slider-container {
+      .slider-container 
+      {
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: 5%;     /* Firefox */
       }   
       
-      .popup {
+      .popup 
+      {
         position: fixed;
         z-index: 1;
         left: 0;
@@ -70,7 +76,8 @@
         overflow: hidden; /* Prevent scrolling in the popup */
       }
 
-      .popup-content {
+      .popup-content 
+      {
         background-color: white;
         margin: auto;
         padding: 20px;
@@ -85,52 +92,61 @@
         max-width: 90%;
       }
 
-      .popup-content button {
+      .popup-content button 
+      {
         display: block;
         margin: 0 auto;
       }
 
-      .popup-content img {
+      .popup-content img 
+      {
         width: 100%;
         height: auto;
         max-width: 100%;
       }
 
-        .show {
-            display: block;
-        }
+      .show 
+      {
+        display: block;
+      }
 
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+      img 
+      {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-        @media all and (min-width: 480px) {
+      @media all and (min-width: 480px) 
+      {
         .deskContent {display:block;}
-        .phoneContent {display:none;}
-        
-        }
+        .phoneContent {display:none;}        
+      }
 
-        @media all and (max-width: 479px) {
+      @media all and (max-width: 479px) 
+      {
         .deskContent {display:none;}
         .phoneContent {display:block;}
         .progress-bar {width: 80%;}
-        }
+      }
         
-        .pNT { 
-          font-family: Arial; 
-          color:black ;
-        }
-        .pWT {
-          font-family: Arial;
-          color:red;
-        }
+      .pNT 
+      { 
+        font-family: Arial; 
+        color:black ;
+      }
 
-        .hRT { 
-          font-family: Arial;
-          color: #00274E;        
-        }
+      .pWT 
+      {
+        font-family: Arial;
+        color:red;
+      }
+
+      .hRT 
+      { 
+        font-family: Arial;
+        color: #00274E;        
+      }
 
     </style>
   </head>
@@ -151,9 +167,11 @@
       <button slot="ar-button" id="ar-button">
           View in your space
       </button>
+
       <div id="ar-prompt">
           <img src="ar_hand_prompt.png">
       </div>
+
     </model-viewer>
     <script src="script.js"></script>  
 
@@ -217,7 +235,6 @@
          <img src="asset/Dev/dev_tools_icon.png" alt="Window I think not"></div>
 
     </div>
-
 
     <div class="deskContent">
       <button id="myButton">View in your space</button>
@@ -310,7 +327,6 @@
 
     </script>
     
-
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
   </body>
