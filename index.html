@@ -236,6 +236,13 @@
         border: none;
         color: white;
         border-radius: 2px;
+
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        bottom: 16px;
+        
       }
 
       .RensonButton:hover
@@ -243,7 +250,19 @@
         background-color: #0023ac;
         border: none;
         color: white;
-        
+                
+      }
+
+      .warningbox
+      {
+        background-color: #fef6f6;
+        border: 1px solid #DF2828;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        /*white-space: nowrap;*/
+        top: 16px;
+        border-radius: 5px;
       }
 
     </style>
@@ -283,8 +302,44 @@
           <img src="ar_hand_prompt.png">
       </div>
 
+      <div class="deskContent">
+        <button class="RensonButton" id="myButton">View in your space</button>        
+      </div>
+
+      <div class="phoneContent">
+        <div class="warningbox" id="myTimeOut">
+          <div style="text-align:center">
+            <p class="pWT"> scan far enough with enough space or model will be to small</p>
+            </div>
+        </div>      
+      </div>
+
     </model-viewer>
     <script src="script.js"></script>  
+
+    <div id="myPopup" class="popup">
+      <div class="popup-content">
+
+          <div style="text-align:center">
+              <h1 class="hRT">Scan me!</h1>
+            </div> 
+
+          <img src="asset/QRCode.png" alt="QRCode" width="256" height="256" class="center">
+
+          <div style="text-align:center">
+              <p class="pNT" >Or click <a href="https://ralfvannieuwenhuyse.github.io/ARVieuwer/">here</a></p>
+            </div> 
+
+          <div style="text-align:center">
+            <p class="pWT"> make sure you have enough space to scan if the model looks to small close out of the AR application and try again but scan more in the distance! </p>
+            </div>
+          
+
+          <button id="closePopup">
+              Close
+          </button>
+      </div>
+    </div>
 
     <div class="BackgroundGrey">
     <!-- Slider for selecting models -->
@@ -352,39 +407,6 @@
     <button id="next" class="nav-arrow">&#10095;</button>
     </div>
 
-    
-    <div class="deskContent">
-      <button class="RensonButton" id="myButton">View in your space</button>
-      <div id="myPopup" class="popup">
-        <div class="popup-content">
-
-            <div style="text-align:center">
-                <h1 class="hRT">Scan me!</h1>
-              </div> 
-
-            <img src="asset/QRCode.png" alt="QRCode" width="256" height="256" class="center">
-
-            <div style="text-align:center">
-                <p class="pNT" >Or click <a href="https://ralfvannieuwenhuyse.github.io/ARVieuwer/">here</a></p>
-              </div> 
-
-            <div style="text-align:center">
-              <p class="pWT"> make sure you have enough space to scan if the model looks to small close out of the AR application and try again but scan more in the distance! </p>
-              </div>
-            
-
-            <button id="closePopup">
-                Close
-            </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="phoneContent">
-      <div style="text-align:center">
-        <p class="pWT"> scan far enough with enough space or model will be to small</p>
-        </div>
-    </div>
   </div>
 
     <script>
@@ -409,6 +431,7 @@
       // Set the first model as active when the page loads
       window.addEventListener('DOMContentLoaded', () => {
         setActiveModel(sliderItems[0]); // Set first slider item as active
+        setTimeout();
       });
     
       // Add click event to each slider item
@@ -464,6 +487,19 @@
         behavior: 'smooth'
         });
         });
+        
+
+      var elementTime = document.getElementById('myTimeOut');
+      // Set the time in milliseconds
+      var time = 5000;
+      // Show the element
+      elementTime.style.display = 'block';
+      // Hide the element after the specified time
+      setTimeout(function() 
+      {
+       elementTime.style.display = 'none';
+
+      }, time);
 
 
     </script>
