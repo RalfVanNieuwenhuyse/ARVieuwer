@@ -15,7 +15,49 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <style>      
+    <style>  
+    
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background-color: #00274E;
+        color: white;
+        font-family: Arial;
+        height: 5%;
+      }
+
+      header .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+      }
+
+      header .logo img {
+        max-width: 100%; /* Ensures the logo does not exceed the header width */
+        height: auto; /* Maintains the aspect ratio */
+        max-height: 50px; /* Adjust this value based on your desired header height */
+      }
+
+      header nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 15px;
+      }
+
+      header nav ul li {
+        display: inline;
+      }
+
+      header nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
       /* Add basic styles for the slider */
       .slider-container 
       {
@@ -25,6 +67,8 @@
         overflow-x: auto; /* Enable horizontal scrolling */
         white-space: nowrap; /* Ensure items stay in a single row */
         padding: 10px 0; /* Add some padding to the slider */
+        background-color: #f0f3ff;
+        border-top: 10px solid #002855 ;
       }
       
       .slider-item 
@@ -40,7 +84,7 @@
         height: 80px;
         object-fit: cover;
         border-radius: 10px;
-        background-color: transparent; /* Default transparent background */
+        background-color: white; /* Default transparent background */
         padding: 5px; /* Add some padding to the images */
       }
       
@@ -147,11 +191,26 @@
         font-family: Arial;
         color: #00274E;        
       }
+     
+      
 
     </style>
   </head>
 
   <body>
+
+    <header>
+      <div class="logo"><img src="browser_assets/logo-renson-23.png"> </div>
+      <nav>
+        <ul>
+          <!-- <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Contact</a></li> -->
+        </ul>
+      </nav>
+    </header>
+
+
     <!-- <model-viewer> HTML element -->
     <model-viewer id="model-viewer" src="asset/ZeroErrorsModel.gltf" ar ar-modes="webxr quick-look"
                   camera-controls interaction-prompt="none" tone-mapping="neutral" 
