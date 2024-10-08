@@ -59,17 +59,17 @@
       }
 
       /* Add basic styles for the slider */
-      .slider-container 
+      .slider-container
       {
         display: flex;
-        justify-content: flex-start; /* Align items to the start */
-        margin-bottom: 0px; /* Adjust this value to move the slider up */
-        overflow-x: auto; /* Enable horizontal scrolling */
-        white-space: nowrap; /* Ensure items stay in a single row */
-        padding: 10px 0; /* Add some padding to the slider */
-        background-color: #f0f3ff;
-        border-top: 10px solid #002855 ;
-      }
+      justify-content: flex-start; /* Align items to the start */
+      overflow-x: auto; /* Enable horizontal scrolling */
+      white-space: nowrap; /* Ensure items stay in a single row */
+      padding: 10px 0; /* Add some padding to the slider */
+      /*background-color: #f0f3ff; /* Same background color for consistency */
+      /*border-top: 10px solid #002855; /* Match with the arrows */
+    }
+
       
       .slider-item 
       {
@@ -80,8 +80,8 @@
       
       .slider-item img
       {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         object-fit: cover;
         border-radius: 10px;
         background-color: white; /* Default transparent background */
@@ -97,15 +97,45 @@
       /* Hide scrollbar for webkit browsers */
       .slider-container::-webkit-scrollbar 
       {
-        display: inside;
+        display: none;
       }
       
       /* For all other browsers, you can customize scrollbar */
       .slider-container 
       {
         -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: 5%;     /* Firefox */
+        scrollbar-width: none;     /* Firefox */
       }   
+
+      .slider-navigation
+      {
+        display: flex;
+        align-items: center; /* Center the arrows vertically */
+        justify-content: center; /* Center the whole container */
+        background-color: #f0f3ff; /* Match the background of the slider container */
+        padding: 10px; /* Add padding for better spacing */
+        /*border-top: 10px solid #002855; /* Top border to match the slider */
+      }
+
+      .nav-arrow {
+        background-color: transparent; /* Transparent background */
+        color: #000e1d; /* Arrow color */
+        border: none; /* Border color */
+        border-radius: 5px; /* Slightly rounded corners */
+        /*padding: 20px; /* Padding around the arrow */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 24px; /* Adjust the size of the arrows */
+        margin: 0 5px; /* Space between the arrows and the slider */
+        transition: background-color 0.3s, color 0.3s; /* Transition effect for hover */
+        /*height: 95px;
+        width: 50px;*/
+      }
+
+      .nav-arrow:hover
+      {
+        background-color: #00135c; /* Change background on hover */
+        color: white; /* Change arrow color on hover */
+      }
       
       .popup 
       {
@@ -191,8 +221,30 @@
         font-family: Arial;
         color: #00274E;        
       }
-     
-      
+
+      .BackgroundGrey
+      {
+        border-top: 5px solid #002855;
+        background-color: #f0f3ff;
+      }
+
+      .RensonButton
+      {
+        font-family: Arial;
+        font-size: 14px;
+        background-color: #002855;
+        border: none;
+        color: white;
+        border-radius: 2px;
+      }
+
+      .RensonButton:hover
+      {
+        background-color: #0023ac;
+        border: none;
+        color: white;
+        
+      }
 
     </style>
   </head>
@@ -234,7 +286,10 @@
     </model-viewer>
     <script src="script.js"></script>  
 
+    <div class="BackgroundGrey">
     <!-- Slider for selecting models -->
+    <div class="slider-navigation">
+      <button id="prev" class="nav-arrow">&#10094;</button>
     <div class="slider-container">
       <div class="slider-item" data-model="asset/ZeroErrorsModel.gltf">
         <img src="asset/ZeroErrorsModel.webp" alt="ZeroErrorsModel"></div>
@@ -294,9 +349,12 @@
          <img src="asset/Dev/dev_tools_icon.png" alt="Window I think not"></div>
 
     </div>
+    <button id="next" class="nav-arrow">&#10095;</button>
+    </div>
 
+    
     <div class="deskContent">
-      <button id="myButton">View in your space</button>
+      <button class="RensonButton" id="myButton">View in your space</button>
       <div id="myPopup" class="popup">
         <div class="popup-content">
 
@@ -327,6 +385,7 @@
         <p class="pWT"> scan far enough with enough space or model will be to small</p>
         </div>
     </div>
+  </div>
 
     <script>
       // JavaScript to handle model changes from the slider
@@ -383,6 +442,29 @@
                 }
             }
         );
+
+      const prevButton = document.getElementById('prev');
+      const nextButton = document.getElementById('next');
+      const sliderContainer = document.querySelector('.slider-container');
+
+      prevButton.addEventListener('click', () => {
+      // Scroll left by 200 pixels (you can adjust this value)
+        sliderContainer.scrollBy({
+        top: 0,
+        left: -200,
+        behavior: 'smooth'
+        });
+      });
+
+        nextButton.addEventListener('click', () => {
+        // Scroll right by 200 pixels (you can adjust this value)
+        sliderContainer.scrollBy({
+        top: 0,
+        left: 200,
+        behavior: 'smooth'
+        });
+        });
+
 
     </script>
     
