@@ -241,8 +241,7 @@
         left: 50%;
         transform: translateX(-50%);
         white-space: nowrap;
-        bottom: 16px;
-        
+        bottom: 16px;        
       }
 
       .RensonButton:hover
@@ -263,6 +262,10 @@
         /*white-space: nowrap;*/
         top: 16px;
         border-radius: 5px;
+      }
+
+      #custom-div {
+        display: none; /* Initially hidden */
       }
 
     </style>
@@ -302,7 +305,7 @@
           <img src="ar_hand_prompt.png">
       </div>
 
-      <div class="deskContent">
+      <div class="deskContent" id="custom-div">
         <button class="RensonButton" id="myButton">View in your space</button>        
       </div>
 
@@ -500,6 +503,24 @@
        elementTime.style.display = 'none';
 
       }, time);
+
+      //const modelViewer = document.querySelector('#model-viewer');
+      const customDiv = document.querySelector('#custom-div');
+
+  // Function to check for AR compatibility
+  const checkARSupport = async () => {
+    const isARSupported = await modelViewer.canActivateAR;
+    if (!isARSupported) {
+      // If AR is not supported, show the custom div
+      customDiv.style.display = 'block';
+    } else {
+      // If AR is supported, hide the custom div
+      customDiv.style.display = 'none';
+    }
+  };
+
+  // Run the AR check once the model viewer is ready
+  modelViewer.addEventListener('load', checkARSupport);
 
 
     </script>
