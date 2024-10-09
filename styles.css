@@ -23,7 +23,7 @@ model-viewer {
 
 .progress-bar {
   display: block;
-  width: 50%;
+  width: 35%;
   height: 10%;
   max-height: 2%;
   position: absolute;
@@ -213,5 +213,5 @@ header nav ul li a {
 .sidenav-Infobox
 {
   padding: 10px;
-  
+  padding-left: 15px;
 }
