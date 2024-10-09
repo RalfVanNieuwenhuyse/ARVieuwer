@@ -160,7 +160,7 @@ header nav ul li a {
   left: 0;
   background-color: #f0f3ff;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 0.15s;
   padding-top: 30px;
 }
 
@@ -213,4 +213,5 @@ header nav ul li a {
 .sidenav-Infobox
 {
   padding: 10px;
+  
 }

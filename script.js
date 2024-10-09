@@ -20,16 +20,20 @@ document.querySelector('model-viewer').addEventListener('progress', onProgress);
 //https://github.com/google/model-viewer/discussions/4142
 
 function openNav() {
+  document.getElementById("mySidenav").style.textWrap = "nowrap";
   if (window.matchMedia("(max-width: 480px)").matches) {
     document.getElementById("mySidenav").style.width = "100%"; //phone
+    
   } else {
     document.getElementById("mySidenav").style.width = "30%"; //pc
   }
-  
+  document.getElementById("mySidenav").style.textWrap = "wrap";
+  //https://stackoverflow.com/questions/54044739/how-can-i-define-a-variable-depending-on-the-width-of-the-screen
 }
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("mySidenav").style.textWrap = "nowrap";
 }
 
 //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav
