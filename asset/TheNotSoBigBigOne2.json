@@ -1,0 +1,15 @@
+{
+    "title": "Amani big",
+    "description": "This is the max size Amani that has an a few infills to show the capability of this tool. From testing it seems like 50MB is the maximum size a fill can be to work in AR this one is more around 30MB. It has some glass pannels for the transparency and some loggias to make the lighting more difficult to be calculated so we can see how this model performs on different devices.",
+    "dimensions": "18.6m x 2.8m x 4.5m",
+    "features": [
+      "wall",
+      "screen",
+      "door",
+      "logia",
+      "glass",
+      "heating elements",
+      "lights",
+      "BIG"
+    ]
+}
