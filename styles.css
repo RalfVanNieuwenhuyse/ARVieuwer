@@ -149,3 +149,62 @@ header nav ul li a {
   text-decoration: none;
   font-weight: bold;
 }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #f0f3ff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #002855;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #0023ac;
+}
+
+.sidenav-arrow {
+  background-color: transparent; /* Transparent background */
+  color: #000e1d; /* Arrow color */
+  border: none; /* Border color */
+  /*border-radius: 5px; /* Slightly rounded corners */
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 24px; /* Adjust the size of the arrows */
+  /*margin: 0 5px; /* Space between the arrows and the slider */
+  transition: background-color 0.3s, color 0.3s; /* Transition effect for hover */
+  height: 80px;
+  width: 40px;
+  position: absolute;
+  top: 2%;
+  left: 0;
+}
+
+.sidenav-arrow:hover
+{
+  background-color: #00135c; /* Change background on hover */
+  color: white; /* Change arrow color on hover */
+}

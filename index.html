@@ -233,6 +233,7 @@
       #custom-div {
         display: none; /* Initially hidden */
       }
+
     </style>
   </head>
 
@@ -284,7 +285,16 @@
         </div>      
       </div>
 
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        info info
+      </div>
+      <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
+      <button class="sidenav-arrow" onclick="openNav()">&#10095;</button>
+
     </model-viewer>
+
+
     <div id="myPopup" class="popup">
       <div class="popup-content">
 

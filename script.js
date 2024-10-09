@@ -18,3 +18,18 @@ const onProgress = (event) => {
 };
 document.querySelector('model-viewer').addEventListener('progress', onProgress);
 //https://github.com/google/model-viewer/discussions/4142
+
+function openNav() {
+  if (window.matchMedia("(max-width: 480px)").matches) {
+    document.getElementById("mySidenav").style.width = "60%";
+  } else {
+    document.getElementById("mySidenav").style.width = "30%";
+  }
+  
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
+//https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav
