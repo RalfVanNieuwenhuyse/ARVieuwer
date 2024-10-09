@@ -287,7 +287,13 @@
 
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        info info
+        <div id="model-info" class="sidenav-Infobox">
+          <h2 id="model-title"></h2>
+          <p id="model-description"></p>
+          <p><strong>Dimensions:</strong> <span id="model-dimensions"></span></p>
+          <p><strong>Features:</strong></p>
+          <ul id="model-features"></ul>
+        </div>
       </div>
       <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
       <button class="sidenav-arrow" onclick="openNav()">&#10095;</button>
@@ -367,18 +373,78 @@
       const modelViewer = document.getElementById('model-viewer');
       const sliderItems = document.querySelectorAll('.slider-item img');
     
-      // Function to set the active model
+      const loadModelInfo = (modelFile) => 
+      {
+        fetch(`asset/${modelFile}`)
+        .then(response => 
+        {
+          if (!response.ok) {
+            // If file is not found or there's another network error
+            throw new Error('File not found');
+          }
+          return response.json();
+        })
+        .then(data => 
+        {
+          // Update the sidenav with model info
+          document.getElementById('model-title').textContent = data.title;
+          document.getElementById('model-description').textContent = data.description;
+          document.getElementById('model-dimensions').textContent = data.dimensions;
+
+          const featuresList = document.getElementById('model-features');
+          featuresList.innerHTML = ''; // Clear previous features
+          data.features.forEach(feature => 
+          {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            featuresList.appendChild(li);
+          });
+        })
+        .catch(error => {
+        console.error('Error fetching model info:', error);
+
+        // Display default text if the file is not found
+        document.getElementById('model-title').textContent = 'Model Information';
+        document.getElementById('model-description').textContent = 'No information is available for this model.';
+        document.getElementById('model-dimensions').textContent = 'Unknown';
+
+        const featuresList = document.getElementById('model-features');
+        featuresList.innerHTML = ''; // Clear previous features
+        const defaultFeature = document.createElement('li');
+        defaultFeature.textContent = 'No features available.';
+        featuresList.appendChild(defaultFeature);
+      });
+      };
+
+      // Function to set the active model and load corresponding info
       const setActiveModel = (item) => {
-        // Remove active class from all items
         sliderItems.forEach(i => i.classList.remove('active'));
-    
-        // Add active class to the clicked item
         item.classList.add('active');
-        
-        // Change the model based on the clicked item
+
         const selectedModel = item.parentElement.getAttribute('data-model');
-        //modelViewer.setAttribute('src', selectedModel);
         modelViewer.src = selectedModel;
+
+        // Determine the JSON file based on the selected model
+        const modelFile = selectedModel.includes('ZeroErrorsModel') ? 'ZeroErrorsModel.json' :
+                          selectedModel.includes('OpenBlackGlass') ? 'OpenBlackGlass.json' :
+                          selectedModel.includes('WallInfillsOpened') ? 'WallInfillsOpened.json':
+                          selectedModel.includes('WallNoInfill') ? 'WallNoInfill.json':
+                          null; // Add more conditions as needed
+
+        if (modelFile) {
+          loadModelInfo(modelFile);
+        } else {
+          // Show default text if no modelFile is set
+          document.getElementById('model-title').textContent = 'Model Information';
+          document.getElementById('model-description').textContent = 'No information is available for this model.';
+          document.getElementById('model-dimensions').textContent = 'Unknown';
+
+          const featuresList = document.getElementById('model-features');
+          featuresList.innerHTML = ''; // Clear previous features
+          const defaultFeature = document.createElement('li');
+          defaultFeature.textContent = 'No features available.';
+          featuresList.appendChild(defaultFeature);
+        }
       };
     
       // Set the first model as active when the page loads

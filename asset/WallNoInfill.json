@@ -1,0 +1,10 @@
+{
+    "title": "Wall no infill Amani",
+    "description": "default with a wall",
+    "dimensions": "6.2m x 2.3m x 3m",
+    "features": [
+      "Small",
+      "Exists",
+      "Wall"
+    ]
+}

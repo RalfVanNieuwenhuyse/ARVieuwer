@@ -21,9 +21,9 @@ document.querySelector('model-viewer').addEventListener('progress', onProgress);
 
 function openNav() {
   if (window.matchMedia("(max-width: 480px)").matches) {
-    document.getElementById("mySidenav").style.width = "60%";
+    document.getElementById("mySidenav").style.width = "100%"; //phone
   } else {
-    document.getElementById("mySidenav").style.width = "30%";
+    document.getElementById("mySidenav").style.width = "30%"; //pc
   }
   
 }
