@@ -17,59 +17,15 @@
 
     <style>  
     
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 30px;
-        background-color: #00274E;
-        color: white;
-        font-family: Arial;
-        height: 5%;
-      }
-
-      header .logo {
-        font-size: 24px;
-        font-weight: bold;
-        color: white;
-      }
-
-      header .logo img {
-        max-width: 100%; /* Ensures the logo does not exceed the header width */
-        height: auto; /* Maintains the aspect ratio */
-        max-height: 50px; /* Adjust this value based on your desired header height */
-      }
-
-      header nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 15px;
-      }
-
-      header nav ul li {
-        display: inline;
-      }
-
-      header nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
       /* Add basic styles for the slider */
       .slider-container
       {
         display: flex;
-      justify-content: flex-start; /* Align items to the start */
-      overflow-x: auto; /* Enable horizontal scrolling */
-      white-space: nowrap; /* Ensure items stay in a single row */
-      padding: 10px 0; /* Add some padding to the slider */
-      /*background-color: #f0f3ff; /* Same background color for consistency */
-      /*border-top: 10px solid #002855; /* Match with the arrows */
-    }
-
+        justify-content: flex-start; /* Align items to the start */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Ensure items stay in a single row */
+        padding: 10px 0; /* Add some padding to the slider */      
+      }
       
       .slider-item 
       {
@@ -122,7 +78,6 @@
         color: #000e1d; /* Arrow color */
         border: none; /* Border color */
         border-radius: 5px; /* Slightly rounded corners */
-        /*padding: 20px; /* Padding around the arrow */
         cursor: pointer; /* Pointer cursor on hover */
         font-size: 24px; /* Adjust the size of the arrows */
         margin: 0 5px; /* Space between the arrows and the slider */
@@ -208,6 +163,7 @@
       { 
         font-family: Arial; 
         color:black ;
+        margin-bottom: 10px;
       }
 
       .pWT 
@@ -226,6 +182,7 @@
       {
         border-top: 5px solid #002855;
         background-color: #f0f3ff;
+        height: 20%;
       }
 
       .RensonButton
@@ -237,6 +194,7 @@
         color: white;
         border-radius: 5px;
         height: 25px;
+        cursor: pointer;
 
         position: absolute;
         left: 50%;
@@ -265,15 +223,22 @@
         border-radius: 5px;
       }
 
+      .warningbox2
+      {
+        background-color: #fef6f6;
+        border: 1px solid #DF2828;
+        /*position: absolute;
+        /*left: 50%;
+        transform: translateX(-50%);
+        /*white-space: nowrap;*/
+        /*top: 16px;*/
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+
       #custom-div {
         display: none; /* Initially hidden */
       }
-
-      body
-      {
-        background-color: #f0f3ff;
-      }
-
     </style>
   </head>
 
@@ -294,7 +259,7 @@
     <!-- <model-viewer> HTML element -->
     <model-viewer id="model-viewer" src="asset/ZeroErrorsModel.gltf" ar ar-modes="webxr quick-look"
                   camera-controls interaction-prompt="none" tone-mapping="neutral" 
-                  shadow-intensity="1"
+                  shadow-intensity="2"
                   shadow-softness="1"
                   orientation="0 0 180deg" 
                   min-camera-orbit="auto 0deg auto" 
@@ -326,8 +291,6 @@
       </div>
 
     </model-viewer>
-    <script src="script.js"></script>  
-
     <div id="myPopup" class="popup">
       <div class="popup-content">
 
@@ -341,7 +304,7 @@
               <p class="pNT" >Or click <a href="https://ralfvannieuwenhuyse.github.io/ARVieuwer/">here</a></p>
             </div> 
 
-          <div style="text-align:center">
+          <div style="text-align:center" class="warningbox2">
             <p class="pWT"> make sure you have enough space to scan if the model looks to small close out of the AR application and try again but scan more in the distance! </p>
             </div>
           
@@ -452,18 +415,18 @@
             }
         );
 
-      const prevButton = document.getElementById('prev');
-      const nextButton = document.getElementById('next');
-      const sliderContainer = document.querySelector('.slider-container');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        const sliderContainer = document.querySelector('.slider-container');
 
-      prevButton.addEventListener('click', () => {
-      // Scroll left by 200 pixels (you can adjust this value)
-        sliderContainer.scrollBy({
-        top: 0,
-        left: -200,
-        behavior: 'smooth'
+        prevButton.addEventListener('click', () => {
+          // Scroll left by 200 pixels (you can adjust this value)
+          sliderContainer.scrollBy({
+          top: 0,
+          left: -200,
+          behavior: 'smooth'
+          });
         });
-      });
 
         nextButton.addEventListener('click', () => {
         // Scroll right by 200 pixels (you can adjust this value)
@@ -478,44 +441,37 @@
         var elementTime = document.getElementById('myTimeOut');
         // Set the time in milliseconds for fade-out
         var time = 3000;
-
         // Show the element by setting opacity to 1 and display block
         elementTime.style.display = 'block';
         elementTime.style.opacity = '1'; // Make sure it's fully visible
-
         // Hide the element with a fade-out effect after the specified time
-        setTimeout(function() {
-        // Gradually reduce the opacity to 0
-        elementTime.style.transition = 'opacity 1s'; // 1 second fade effect
-        elementTime.style.opacity = '0'; // Fades out
-
-        // Optional: Set display to 'none' after the fade-out is done (after 1 second)
-        setTimeout(function() {
-          elementTime.style.display = 'none';
-        }     , 1000); // Time to match the fade-out duration
+        setTimeout(function() 
+        {
+          // Gradually reduce the opacity to 0
+          elementTime.style.transition = 'opacity 1s'; // 1 second fade effect
+          elementTime.style.opacity = '0'; // Fades out
+          // Optional: Set display to 'none' after the fade-out is done (after 1 second)
+          setTimeout(function() 
+          {
+            elementTime.style.display = 'none';
+          }, 1000); // Time to match the fade-out duration
 
         }, time);
 
 
-      //const modelViewer = document.querySelector('#model-viewer');
+      
       const customDiv = document.querySelector('#custom-div');
-
-      // Function to check for AR compatibility
       const checkARSupport = async () => {
         const isARSupported = await modelViewer.canActivateAR;
         if (!isARSupported)
         {
-          // If AR is not supported, show the custom div
           customDiv.style.display = 'block';
         } 
         else 
         {
-          // If AR is supported, hide the custom div
           customDiv.style.display = 'none';
         }
-      };
-
-      // Run the AR check once the model viewer is ready
+      };      
       modelViewer.addEventListener('load', checkARSupport);
 
 
@@ -523,5 +479,6 @@
     
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
