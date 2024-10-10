@@ -36,3 +36,23 @@ function closeNav() {
 }
 
 //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav
+
+var elementTime = document.getElementById('myTimeOut');
+// Set the time in milliseconds for fade-out
+var time = 3000;
+// Show the element by setting opacity to 1 and display block
+elementTime.style.display = 'block';
+elementTime.style.opacity = '1'; // Make sure it's fully visible
+// Hide the element with a fade-out effect after the specified time
+setTimeout(function() 
+{
+  // Gradually reduce the opacity to 0
+  elementTime.style.transition = 'opacity 1s'; // 1 second fade effect
+  elementTime.style.opacity = '0'; // Fades out
+  // Optional: Set display to 'none' after the fade-out is done (after 1 second)
+  setTimeout(function() 
+  {
+    elementTime.style.display = 'none';
+  }, 1000); // Time to match the fade-out duration
+
+}, time);
