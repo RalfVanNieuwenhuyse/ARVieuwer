@@ -17,8 +17,104 @@
 
     <style>  
     
-      /* Add basic styles for the slider */
-      
+        .grid-container-col 
+        {
+          display: grid;
+          gap: 50px;
+          grid-template-columns: 1fr 1fr;
+          background-color: white;
+          padding: 10px;
+          margin: 0 auto; /* Centers the grid horizontally */
+          width: 75%;
+        }
+
+        .grid-container-row {
+          display: grid;
+          gap: 10px;
+          grid-template-rows: auto;      
+          background-color: white;
+          padding: 10px;
+        }
+
+        .grid-item 
+        {
+          background-color: white;  
+          padding: 0;
+          font-size: 30px;
+          /*text-align: center;*/     
+          /*margin: 0 auto;*/
+          width: 100%;
+
+          box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
+        }
+
+        .grid-item img 
+        {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+        }
+
+        .grid-itemText
+        {
+          padding-left: 10px;
+          margin: 0;
+        }
+
+        @media all and (max-width: 479px) 
+        {
+          .grid-container-col {grid-template-columns: auto}
+        }
+
+        .hNTGrid
+        {
+          font-size: 30px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+        }
+
+        .pNTGrid
+        {
+          font-size: 14px;
+          margin-top: 5px;
+        }
+
+        .check {
+            padding-left: 0; /* Reset padding */
+            margin: 0; /* Reset margin */
+            list-style: none; /* Remove default bullet points */
+        }
+
+        .check li 
+        {
+            position: relative;
+            padding-left: 30px; /* Adjust padding to make space for the checkmark */
+            margin-bottom: 10px; /* Add spacing between list items */
+            font-weight: 600;
+            color: black;
+        }
+
+        .check li::before 
+        {
+            content: "✔"; /* Unicode for checkmark */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 12px; /* Adjust checkmark size */
+            line-height: 1.5;
+            color: green; /* Checkmark color */
+            
+            /* Create circle with green border */
+            border: 2px solid green; /* Green border */
+            border-radius: 50%; /* Make it a circle */
+            width: 15px; /* Circle size */
+            height: 15px; /* Circle size */
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white; /* Optional: set background to white or transparent */
+        }
 
     </style>
   </head>
@@ -26,7 +122,7 @@
   <body>
 
     <header>
-      <div class="logo"><a href="https://renson.net/gd-gb"><img src="browser_assets/logo-renson-23.png"></a> </div>
+      <div class="logo"><a href=""><img src="browser_assets/logo-renson-23.png"></a> </div>
       <nav>
         <ul>
           <li><a href="AmaniAR.html">Amani</a></li>
@@ -38,6 +134,28 @@
     </header>
 
 
+    <div class="grid-container-col">
+      <div class="grid-item">
+        <img src="asset/Home/AmaniIcon.webp">
+        <div class="grid-itemText">
+          <h1 class="hNTGrid">Amani</h1>
+          <p class="pNTGrid"> The essence of comfort in a modern, luxurious outdoor living space inspired by the power of nature. One where you can fully unwind all year round.</p>
+          <ul class="check pNTGrid">            
+            <li>free-standing or built-on</li>
+            <li>rotating bladed roof, fixed canvas roof and open roof</li>
+            <li>extensive design freedom, moveable overhang and corner columns (corner column not essential)</li>
+            <li>integrated lighting possible</li>
+            <li>unique architectural features and largest offer of accessories (integrating up to 4 side inserts/wall)</li>            
+          </ul>
+        </div>
+      </div>
+      <div class="grid-item">
+        <img src="asset/Home/AmaniIcon.webp">
+
+
+      </div>
+    </div>
+    
 
   </body>
 </html>
