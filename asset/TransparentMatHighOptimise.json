@@ -1,0 +1,9 @@
+{
+    "title": "New glass demo Amani",
+    "description": "As you can see this is the same model as the second one except it isn’t this model has been optimised and the glass now works on both IOS and Android AR. This model went trough a 3d software where a lot of vertices have been merged and where the glass material has been optimised and by coincidence is now transparent on IOS. ",
+    "dimensions": "6.2m x 2.3m x 3m",
+    "features": [
+      "glass works on IOS and Android",
+      "Default test"
+    ]
+}
