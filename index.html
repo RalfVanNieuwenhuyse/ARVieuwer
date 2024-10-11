@@ -45,6 +45,8 @@
           /*margin: 0 auto;*/
           width: 100%;
 
+          /*height: 600px;*/
+
           box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
         }
 
@@ -58,6 +60,8 @@
         .grid-itemText
         {
           padding-left: 10px;
+          padding-right: 10px;
+          padding-bottom: 10px;
           margin: 0;
         }
 
@@ -116,6 +120,119 @@
             background-color: white; /* Optional: set background to white or transparent */
         }
 
+        .containerImageSlide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative; /* This keeps the buttons aligned relative to the container */
+          width: 100%; /* Take up the full width */
+        }
+
+        .sliderImage-wrapper {
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .innerImage-wrapper {
+          width: 500%; /* Keep this as it is since it shows 5 slides */
+          position: relative;
+          left: -100%;
+        }
+
+        .slideImage {
+          width: calc(100% / 5); /* Ensure each slide takes the correct width */
+          float: left;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+        }
+
+        .slideImage img {
+          width: 100%;
+          height: auto;
+          object-fit: cover; /* Ensures image keeps aspect ratio */
+        }
+
+        .ImageSlidebutton {
+          /*width: 30px;
+          height: 60px;*/
+          
+          position: absolute;
+          cursor: pointer;
+          top: 50%; /* Center vertically */
+          transform: translateY(-50%);
+
+          background-color: transparent; /* Transparent background */
+          color: #000e1d; /* Arrow color */
+          border: none; /* Border color */
+           /* Slightly rounded corners */
+          cursor: pointer; /* Pointer cursor on hover */
+          font-size: 30px; /* Adjust the size of the arrows */
+          /*margin: 0 5px; /* Space between the arrows and the slider */
+          transition: background-color 0.3s, color 0.3s; /* Transition effect for hover */
+          padding: 6px;          
+        }
+
+        .containerImageSlide:hover
+        {          
+          .ImageSlidebutton{background-color: #ffffffaa;};
+          .ImageSlidebutton:hover
+          {
+            background-color: #00135c; /* Change background on hover */
+            color: white; /* Change arrow color on hover */
+          };
+        }
+
+        .prevImage {          
+          left: 0;
+          border-bottom-right-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+
+        .nextImage {          
+          right: 0;
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
+        }
+
+        .grid-item-button {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #00135c;
+          text-decoration: none; /* Remove underline */
+          color: white; /* Change the text color */
+          font-weight: bold; /* Make the text bold if you prefer */
+          height: 30px;
+        }
+
+        .grid-item-button:hover {
+          text-decoration: none; /* Ensure no underline appears on hover */
+          /*color: white; /* Keep the same color on hover */
+          background-color: #0023ac;
+        }
+
+        .grid-item-button2 {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: white;
+          text-decoration: none; /* Remove underline */
+          color: black; /* Change the text color */
+          font-weight: bold; /* Make the text bold if you prefer */
+          height: 30px;
+          border: 1px solid #aaaaaa;
+        }
+
+        .grid-item-button2:hover {
+          text-decoration: none; /* Ensure no underline appears on hover */
+          /*color: white; /* Keep the same color on hover */
+          background-color: #aaaaaa;
+        }
+
     </style>
   </head>
 
@@ -147,15 +264,64 @@
             <li>integrated lighting possible</li>
             <li>unique architectural features and largest offer of accessories (integrating up to 4 side inserts/wall)</li>            
           </ul>
+          <a class="grid-item-button pNTGrid" href="AmaniAR.html">Start expierence</a>
+          <a class="grid-item-button2 pNTGrid" href="https://renson.net/en-us/products/pergolas/amani">More information</a>
+
         </div>
       </div>
+
       <div class="grid-item">
-        <img src="asset/Home/AmaniIcon.webp">
-
-
+        <div class="containerImageSlide">
+          <div class="sliderImage-wrapper">
+            <div class="innerImage-wrapper">
+                <div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>
+                <div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>
+                <div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>
+                <!--<div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>-->
+                <!--<div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>-->
+            </div>
+          </div>
+          <div class="ImageSlidebutton prevImage">&#10094;</div>
+          <div class="ImageSlidebutton nextImage">&#10095;</div>
+        </div>
+        <div class="grid-itemText">
+          <h1 class="hNTGrid">Amani</h1>
+          <p class="pNTGrid"> The essence of comfort in a modern, luxurious outdoor living space inspired by the power of nature. One where you can fully unwind all year round.</p>
+          <ul class="check pNTGrid">            
+            <li>free-standing or built-on</li>
+            <li>rotating bladed roof, fixed canvas roof and open roof</li>
+            <li>extensive design freedom, moveable overhang and corner columns (corner column not essential)</li>
+            <li>integrated lighting possible</li>
+            <li>unique architectural features and largest offer of accessories (integrating up to 4 side inserts/wall)</li>            
+          </ul>
+        </div>
       </div>
+
     </div>
-    
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function(){
+          var inWrap = $('.innerImage-wrapper');
+          var ANiTime = 300;
+  
+          $('.prevImage').on('click', function(){
+              inWrap.animate({left:'0%'},ANiTime,function(){
+                  inWrap.css('left','-100%');
+                  $('.slideImage').first().before($('.slideImage').last());
+              });
+          });
+  
+          $('.nextImage').on('click', function(){
+              inWrap.animate({left:'-200%'},ANiTime,function(){
+                  inWrap.css('left','-100%');
+                  $('.slideImage').last().before($('.slideImage').first());
+              });
+          });
+  
+      });
+  </script>    
 
   </body>
 </html>
