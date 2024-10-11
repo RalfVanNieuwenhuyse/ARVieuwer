@@ -277,6 +277,26 @@
           transform: translateY(-50%);
         }
 
+        .centerSeperator
+        {
+          text-align: center; 
+          margin: 20px;         
+        }
+
+        .hCenterSeperator
+        {
+          color:#002855;
+          font-size: 30px;
+          margin: 0;          
+        }
+
+        .pCenterSeperator
+        {
+          color: #6774A6;
+          font-size: 20px;
+          margin: 0;          
+        }
+
     </style>
   </head>
 
@@ -296,6 +316,7 @@
 
     <div style="margin: 20px;"></div>
     
+    <!--Welcome text-->
     <div class="grid-container-col">
       <div class="grid-item-noShadow">
         <div class="grid-itemTextnoShadow">
@@ -310,35 +331,23 @@
       </div>
     </div>
 
+    <!--Product-->
+    <div class="centerSeperator">
+      <h1 class="hCenterSeperator">Our Products</h1>
+      <p class="pCenterSeperator"> Select one of the Renson patio covers to start experiencing.</p>
+    </div>
 
+    <!--Amani Camargue-->
     <div class="grid-container-col">
-      <div class="grid-item">
-        <img src="asset/Home/AmaniIcon.webp">
-        <div class="grid-itemText">
-          <h1 class="hNTGrid">Amani</h1>
-          <p class="pNTGrid"> The essence of comfort in a modern, luxurious outdoor living space inspired by the power of nature. One where you can fully unwind all year round.</p>
-          <ul class="check pNTGrid">            
-            <li>free-standing or built-on</li>
-            <li>rotating bladed roof, fixed canvas roof and open roof</li>
-            <li>extensive design freedom, moveable overhang and corner columns (corner column not essential)</li>
-            <li>integrated lighting possible</li>
-            <li>unique architectural features and largest offer of accessories (integrating up to 4 side inserts/wall)</li>            
-          </ul>
-          <a class="grid-item-button pNTGrid" href="AmaniAR.html">Start expierence</a>
-          <a class="grid-item-button2 pNTGrid" href="https://renson.net/en-us/products/pergolas/amani">More information</a>
 
-        </div>
-      </div>
-
+      <!--Amani-->
       <div class="grid-item">
         <div class="containerImageSlide">
           <div class="sliderImage-wrapper">
             <div class="innerImage-wrapper">
                 <div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>
                 <div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>
-                <div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>
-                <!--<div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>-->
-                <!--<div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>-->
+                <div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>                
             </div>
           </div>
           <div class="ImageSlidebutton prevImage">&#10094;</div>
@@ -359,29 +368,63 @@
         </div>
       </div>
 
+      <!--Camargue-->
+      <div class="grid-item">
+        <div class="containerImageSlide">
+          <div class="sliderImage-wrapper">
+            <div class="innerImage-wrapper">
+                <div class="slideImage"><img src="asset/Home/camargue.jpg"></div>
+                <div class="slideImage"><img src="asset/Home/camargue.jpg"></div>
+                <div class="slideImage"><img src="asset/Home/camargue.jpg"></div>
+                <!--<div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>-->
+                <!--<div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>-->
+            </div>
+          </div>
+          <div class="ImageSlidebutton prevImage">&#10094;</div>
+          <div class="ImageSlidebutton nextImage">&#10095;</div>
+        </div>
+        <div class="grid-itemText">
+          <h1 class="hNTGrid">Camargue</h1>
+          <p class="pNTGrid"> A streamlined design with perfect integration of options or side panels for an attractive, sleek result.</p>
+          <ul class="check pNTGrid">            
+            <li>free-standing or built-on</li>
+            <li>rotating bladed roof</li>
+            <li>integrated motor & screen</li>
+            <li>largest offer of side inserts and finishes on the market</li>
+            <li>high structural strength and water flow</li>            
+          </ul>
+          <a class="grid-item-button pNTGrid" href="AmaniAR.html">Start expierence</a>
+          <a class="grid-item-button2 pNTGrid" href="https://renson.net/en-us/products/pergolas/Camargue">More information</a>
+        </div>
+      </div>
+
     </div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $(function(){
-          var inWrap = $('.innerImage-wrapper');
+        // Select all containerImageSlide elements
+        var containers = $('.containerImageSlide');
+        // Loop through each container
+        containers.each(function() {
+          var container = $(this);
+          var inWrap = container.find('.innerImage-wrapper');
           var ANiTime = 300;
-  
-          $('.prevImage').on('click', function(){
-              inWrap.animate({left:'0%'},ANiTime,function(){
-                  inWrap.css('left','-100%');
-                  $('.slideImage').first().before($('.slideImage').last());
-              });
+          // Target prevImage and nextImage buttons within the current container
+          container.find('.prevImage').on('click', function(){
+            inWrap.animate({left:'0%'},ANiTime,function(){
+              inWrap.css('left','-100%');
+              inWrap.find('.slideImage').first().before(inWrap.find('.slideImage').last());
+            });
           });
-  
-          $('.nextImage').on('click', function(){
-              inWrap.animate({left:'-200%'},ANiTime,function(){
-                  inWrap.css('left','-100%');
-                  $('.slideImage').last().before($('.slideImage').first());
-              });
+          container.find('.nextImage').on('click', function(){
+            inWrap.animate({left:'-200%'},ANiTime,function(){
+              inWrap.css('left','-100%');
+              inWrap.find('.slideImage').last().before(inWrap.find('.slideImage').first());
+            });
           });
-  
+        });
       });
   </script>    
 
