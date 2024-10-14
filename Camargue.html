@@ -34,7 +34,7 @@
 
 
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="model-viewer" src="asset/Camargue/Camargue.gltf" ar ar-modes="webxr quick-look"
+    <model-viewer id="model-viewer" src="asset/Camargue/Camargue_CL.gltf" ar ar-modes="webxr quick-look"
                   camera-controls interaction-prompt="none" tone-mapping="neutral" 
                   shadow-intensity="2"
                   shadow-softness="1"
@@ -112,12 +112,23 @@
     <div class="slider-navigation">
       <div class="deskContent"><button id="prev" class="nav-arrow">&#10094;</button></div>
     <div class="slider-container">
-      <div class="slider-item" data-model="asset/Camargue/Camargue.gltf">
-        <img src="asset/Camargue/Camargue.webp" alt="ZeroErrorsModel"></div>
+        <div class="slider-item" data-model="asset/Camargue/Camargue_CL.gltf">
+        <img src="asset/Camargue/Camargue_CL.webp" alt="ZeroErrorsModel"></div>
 
-      <div class="slider-item" data-model="asset/Camargue/Camargue2.gltf">
-        <img src="asset/Camargue/Camargue2.webp" alt="OpenBlackGlass"></div> 
+        <div class="slider-item" data-model="asset/Camargue/Camargue_eo.gltf">
+            <img src="asset/Camargue/Camargue_eo.webp" alt="ZeroErrorsModel"></div>
 
+        <div class="slider-item" data-model="asset/Camargue/Camargue_ig.gltf">
+            <img src="asset/Camargue/Camargue_ig.webp" alt="ZeroErrorsModel"></div>
+
+        <div class="slider-item" data-model="asset/Camargue/Camargue_pe.gltf">
+            <img src="asset/Camargue/Camargue_pe.webp" alt="ZeroErrorsModel"></div>
+
+        <div class="slider-item" data-model="asset/Camargue/Camargue_sh.gltf">
+            <img src="asset/Camargue/Camargue_sh.webp" alt="ZeroErrorsModel"></div>
+        
+        <div class="slider-item" data-model="asset/Camargue/Camargue_tc.gltf">
+            <img src="asset/Camargue/Camargue_tc.webp" alt="ZeroErrorsModel"></div>
     </div>
     <div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>
     </div>
@@ -181,8 +192,12 @@
         modelViewer.src = selectedModel;
 
         // Determine the JSON file based on the selected model
-        const modelFile = selectedModel.includes('Camargue2') ? 'Camargue2.json' :
-                          selectedModel.includes('Camargue') ? 'Camargue.json' :                          
+        const modelFile = selectedModel.includes('Camargue_CL') ? 'Camargue_CL.json' :
+                          selectedModel.includes('Camargue_eo') ? 'Camargue_eo.json' :
+                          selectedModel.includes('Camargue_ig') ? 'Camargue_ig.json' :
+                          selectedModel.includes('Camargue_pe') ? 'Camargue_pe.json' :
+                          selectedModel.includes('Camargue_sh') ? 'Camargue_sh.json' :
+                          selectedModel.includes('Camargue_tc') ? 'Camargue_tc.json' :
                           null; // Add more conditions as needed
 
         if (modelFile) {
