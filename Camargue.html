@@ -115,20 +115,20 @@
         <div class="slider-item" data-model="asset/Camargue/CamargueCL.gltf">
         <img src="asset/Camargue/CamargueCL.webp" alt="ZeroErrorsModel"></div>
 
-        <div class="slider-item" data-model="asset/Camargue/Camargueeo.gltf">
-            <img src="asset/Camargue/Camargueeo.webp" alt="ZeroErrorsModel"></div>
+        <div class="slider-item" data-model="asset/Camargue/camargueeo.gltf">
+            <img src="asset/Camargue/camargueeo.webp" alt="ZeroErrorsModel"></div>
 
-        <div class="slider-item" data-model="asset/Camargue/Camargueig.gltf">
-            <img src="asset/Camargue/Camargueig.webp" alt="ZeroErrorsModel"></div>
+        <div class="slider-item" data-model="asset/Camargue/camargueig.gltf">
+            <img src="asset/Camargue/camargueig.webp" alt="ZeroErrorsModel"></div>
 
-        <div class="slider-item" data-model="asset/Camargue/Camarguepe.gltf">
-            <img src="asset/Camargue/Camarguepe.webp" alt="ZeroErrorsModel"></div>
+        <div class="slider-item" data-model="asset/Camargue/camarguepe.gltf">
+            <img src="asset/Camargue/camarguepe.webp" alt="ZeroErrorsModel"></div>
 
-        <div class="slider-item" data-model="asset/Camargue/Camarguesh.gltf">
-            <img src="asset/Camargue/Camarguesh.webp" alt="ZeroErrorsModel"></div>
+        <div class="slider-item" data-model="asset/Camargue/camarguesh.gltf">
+            <img src="asset/Camargue/camarguesh.webp" alt="ZeroErrorsModel"></div>
         
-        <div class="slider-item" data-model="asset/Camargue/Camarguetc.gltf">
-            <img src="asset/Camargue/Camarguetc.webp" alt="ZeroErrorsModel"></div>
+        <div class="slider-item" data-model="asset/Camargue/camarguetc.gltf">
+            <img src="asset/camargue/Camarguetc.webp" alt="ZeroErrorsModel"></div>
     </div>
     <div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>
     </div>
@@ -192,12 +192,12 @@
         modelViewer.src = selectedModel;
 
         // Determine the JSON file based on the selected model
-        const modelFile = selectedModel.includes('CamargueCL') ? 'CamargueCL.json' :
-                          selectedModel.includes('Camargueeo') ? 'Camargueeo.json' :
-                          selectedModel.includes('Camargueig') ? 'Camargueig.json' :
-                          selectedModel.includes('Camarguepe') ? 'Camarguepe.json' :
-                          selectedModel.includes('Camarguesh') ? 'Camarguesh.json' :
-                          selectedModel.includes('Camarguetc') ? 'Camarguetc.json' :
+        const modelFile = selectedModel.includes('camargueCL') ? 'CamargueCL.json' :
+                          selectedModel.includes('camargueeo') ? 'Camargueeo.json' :
+                          selectedModel.includes('camargueig') ? 'Camargueig.json' :
+                          selectedModel.includes('camarguepe') ? 'Camarguepe.json' :
+                          selectedModel.includes('camarguesh') ? 'Camarguesh.json' :
+                          selectedModel.includes('camarguetc') ? 'Camarguetc.json' :
                           null; // Add more conditions as needed
 
         if (modelFile) {
