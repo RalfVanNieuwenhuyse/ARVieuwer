@@ -48,6 +48,8 @@
           /*height: 600px;*/
 
           box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
+          display: flex;
+          flex-direction: column;
         }
 
         .grid-item-noShadow 
@@ -231,7 +233,7 @@
         }
 
         .grid-item-button2 {
-          width: 100%;
+          width: 100% -1px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -294,6 +296,14 @@
           margin: 0;          
         }
 
+        .bottom
+        {
+          margin-top: auto;
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-bottom: 10px;
+        }
+
         @media all and (max-width: 479px) 
         {
           .grid-container-col {grid-template-columns: auto}
@@ -347,10 +357,12 @@
       <div class="grid-item">
         <div class="containerImageSlide">
           <div class="sliderImage-wrapper">
-            <div class="innerImage-wrapper">
+            <div class="innerImage-wrapper">                
+                <div class="slideImage"><img src="asset/Home/Amani01.jpg"></div>
                 <div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>
-                <div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>
-                <div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>                
+                <div class="slideImage"><img src="asset/Home/Amani02.jpg"></div>
+                <div class="slideImage"><img src="asset/Home/Amani03.jpg"></div>
+                <div class="slideImage"><img src="asset/Home/Amani04.jpg"></div>
             </div>
           </div>
           <div class="ImageSlidebutton prevImage">&#10094;</div>
@@ -366,9 +378,12 @@
             <li>integrated lighting possible</li>
             <li>unique architectural features and largest offer of accessories (integrating up to 4 side inserts/wall)</li>            
           </ul>
+          
+        </div>
+        <div class="bottom">
           <a class="grid-item-button pNTGrid" href="AmaniAR.html">Start expierence</a>
           <a class="grid-item-button2 pNTGrid" href="https://renson.net/en-us/products/pergolas/amani">More information</a>
-        </div>
+        </div>        
       </div>
 
       <!--Camargue-->
@@ -376,11 +391,11 @@
         <div class="containerImageSlide">
           <div class="sliderImage-wrapper">
             <div class="innerImage-wrapper">
-                <div class="slideImage"><img src="asset/Home/camargue.jpg"></div>
-                <div class="slideImage"><img src="asset/Home/camargue.jpg"></div>
-                <div class="slideImage"><img src="asset/Home/camargue.jpg"></div>
-                <!--<div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>-->
-                <!--<div class="slideImage"><img src="asset/Home/AmaniIcon.webp"></div>-->
+                <div class="slideImage"><img src="asset/Home/camargue01.jpg"></div>
+                <div class="slideImage"><img src="asset/Home/camargue05.jpg"></div>
+                <div class="slideImage"><img src="asset/Home/camargue02.jpg"></div>
+                <div class="slideImage"><img src="asset/Home/camargue03.jpg"></div>
+                <div class="slideImage"><img src="asset/Home/camargue04.jpg"></div>                
             </div>
           </div>
           <div class="ImageSlidebutton prevImage">&#10094;</div>
@@ -396,9 +411,13 @@
             <li>largest offer of side inserts and finishes on the market</li>
             <li>high structural strength and water flow</li>            
           </ul>
+          
+        </div>
+
+        <div class="bottom">
           <a class="grid-item-button pNTGrid" href="AmaniAR.html">Start expierence</a>
           <a class="grid-item-button2 pNTGrid" href="https://renson.net/en-us/products/pergolas/Camargue">More information</a>
-        </div>
+        </div>        
       </div>
 
     </div>
