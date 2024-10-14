@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>model-viewer Amani</title>
+    <title>model-viewer Camargue</title>
     <meta charset="utf-8">
-    <meta name="description" content="model-viewer Amani">
+    <meta name="description" content="model-viewer Camargue">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
 
@@ -34,7 +34,7 @@
 
 
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="model-viewer" src="asset/Amani/ZeroErrorsModel.gltf" ar ar-modes="webxr quick-look"
+    <model-viewer id="model-viewer" src="asset/Camargue/Camargue.gltf" ar ar-modes="webxr quick-look"
                   camera-controls interaction-prompt="none" tone-mapping="neutral" 
                   shadow-intensity="2"
                   shadow-softness="1"
@@ -112,31 +112,11 @@
     <div class="slider-navigation">
       <div class="deskContent"><button id="prev" class="nav-arrow">&#10094;</button></div>
     <div class="slider-container">
-      <div class="slider-item" data-model="asset/Amani/ZeroErrorsModel.gltf">
-        <img src="asset/Amani/ZeroErrorsModel.webp" alt="ZeroErrorsModel"></div>
+      <div class="slider-item" data-model="asset/Camargue/Camargue.gltf">
+        <img src="asset/Camargue/Camargue.webp" alt="ZeroErrorsModel"></div>
 
-      <div class="slider-item" data-model="asset/Amani/OpenBlackGlass.gltf">
-        <img src="asset/Amani/OpenBlackGlass.webp" alt="OpenBlackGlass"></div> 
-        
-      <div class="slider-item" data-model="asset/Amani/WallInfillsOpened.gltf">
-        <img src="asset/Amani/WallInfillsOpened.webp" alt="WallInfillsOpened"></div>
-      
-      <div class="slider-item" data-model="asset/Amani/WallNoInfill.gltf">
-        <img src="asset/Amani/WallNoInfill.webp" alt="WallNoInfill"></div>
-
-      <div class="slider-item" data-model="asset/Amani/MaxSize.gltf">
-        <img src="asset/Amani/MaxSize.webp" alt="MaxSize"></div>
-
-      <!-- online model test -->
-      <div class="slider-item" data-model="https://raw.githubusercontent.com/RalfVanNieuwenhuyse/ARVieuwer/refs/heads/main/asset/OpenBlackGlass.gltf">
-        <img src="https://raw.githubusercontent.com/RalfVanNieuwenhuyse/ARVieuwer/refs/heads/main/browser_assets/cloud-online-server.png" alt="Online"></div>
-      <!-- end online model test -->
-
-      <div class="slider-item" data-model="asset/Amani/TransparentMatHighOptimise.gltf"> <!-- combi lower glass and less vert more -->
-        <img src="asset/Amani/TransparentMatHighOptimise.webp" alt="Window I think not"></div>      
-
-      <div class="slider-item" data-model="asset/Amani/TheNotSoBigBigOne2.gltf"> <!-- combi lower glass and less vert more -->
-         <img src="asset/Amani/TheNotSoBigBigOne2.webp" alt="Window I think not"></div>
+      <div class="slider-item" data-model="asset/Camargue/Camargue2.gltf">
+        <img src="asset/Camargue/Camargue2.webp" alt="OpenBlackGlass"></div> 
 
     </div>
     <div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>
@@ -151,7 +131,7 @@
     
       const loadModelInfo = (modelFile) => 
       {
-        fetch(`asset/Amani/${modelFile}`)
+        fetch(`asset/Camargue/${modelFile}`)
         .then(response => 
         {
           if (!response.ok) {
@@ -201,13 +181,8 @@
         modelViewer.src = selectedModel;
 
         // Determine the JSON file based on the selected model
-        const modelFile = selectedModel.includes('ZeroErrorsModel') ? 'ZeroErrorsModel.json' :
-                          selectedModel.includes('OpenBlackGlass') ? 'OpenBlackGlass.json' :
-                          selectedModel.includes('WallInfillsOpened') ? 'WallInfillsOpened.json':
-                          selectedModel.includes('WallNoInfill') ? 'WallNoInfill.json':
-                          selectedModel.includes('MaxSize') ? 'MaxSize.json':                          
-                          selectedModel.includes('TheNotSoBigBigOne2') ? 'TheNotSoBigBigOne2.json':
-                          selectedModel.includes('TransparentMatHighOptimise') ? 'TransparentMatHighOptimise.json':
+        const modelFile = selectedModel.includes('Camargue2') ? 'Camargue2.json' :
+                          selectedModel.includes('Camargue') ? 'Camargue.json' :                          
                           null; // Add more conditions as needed
 
         if (modelFile) {
