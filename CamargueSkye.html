@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>model-viewer Camargue Skye</title>
+    <meta charset="utf-8">
+    <meta name="description" content="model-viewer Camargue Skye">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="browser_assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="browser_assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="browser_assets/favicon-16x16.png">
+    <link rel="manifest" href="browser_assets/site.webmanifest">
+    <link rel="mask-icon" href="browser_assets/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <style> 
+    </style>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="logo"><a href="index.html"><img src="browser_assets/logo-renson-23.png"></a> </div>
+      <nav>
+        <ul>
+          <!-- <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Contact</a></li> -->
+        </ul>
+      </nav>
+    </header>
+
+
+    <!-- <model-viewer> HTML element -->
+    <model-viewer id="model-viewer" src="asset/Camargue/Camargue_CL.gltf" ar ar-modes="webxr quick-look"
+                  camera-controls interaction-prompt="none" tone-mapping="neutral" 
+                  shadow-intensity="2"
+                  shadow-softness="1"                  
+                  min-camera-orbit="auto 0deg auto" 
+                  max-camera-orbit="auto 95deg auto"                  
+                  >
+      <!-- ios-src="asset/Dev/newTransparentMat.usdz" the transparancy works if made in blender one -->
+
+      <div class="progress-bar" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+
+      <div class="deskContent" id="custom-div">
+        <button class="RensonButton" id="myButton">View in your space</button>        
+      </div>
+
+      <div class="phoneContent">
+        <div class="warningbox" id="myTimeOut">
+          <div style="text-align:center">
+            <p class="pWT"> scan far enough with enough space or model will be to small</p>
+            </div>
+        </div>      
+      </div>
+
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div id="model-info" class="sidenav-Infobox">
+          <h2 id="model-title"></h2>
+          <p id="model-description"></p>
+          <p><strong>Dimensions:</strong> <span id="model-dimensions"></span></p>
+          <p><strong>Features:</strong></p>
+          <ul id="model-features"></ul>
+        </div>
+      </div>
+      <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
+      <button class="sidenav-arrow" onclick="openNav()">&#10095;</button>
+
+    </model-viewer>
+
+
+    <div id="myPopup" class="popup">
+      <div class="popup-content">
+
+          <div style="text-align:center">
+              <h1 class="hRT">Scan me!</h1>
+            </div> 
+
+          <img src="asset/QRCode.png" alt="QRCode" width="256" height="256" class="center">
+
+          <div style="text-align:center">
+              <p class="pNT" >Or click <a href="https://ralfvannieuwenhuyse.github.io/ARVieuwer/">here</a></p>
+            </div> 
+
+          <div style="text-align:center" class="warningbox2">
+            <p class="pWT"> make sure you have enough space to scan if the model looks to small close out of the AR application and try again but scan more in the distance! </p>
+            </div>
+          
+
+          <button id="closePopup">
+              Close
+          </button>
+      </div>
+    </div>
+
+    <div class="BackgroundGrey">
+    <!-- Slider for selecting models -->
+    <div class="slider-navigation">
+      <div class="deskContent"><button id="prev" class="nav-arrow">&#10094;</button></div>
+    <div class="slider-container">
+        <div class="slider-item" data-model="asset/CamargueSkye/CamargueSkyeCL.gltf">
+        <img src="asset/CamargueSkye/CamargueSkyeCL.webp" alt="ZeroErrorsModel"></div>
+
+        <div class="slider-item" data-model="asset/CamargueSkye/CamargueSkyeEO.gltf">
+            <img src="asset/CamargueSkye/CamargueSkyeEO.webp" alt="ZeroErrorsModel"></div>
+
+        <div class="slider-item" data-model="asset/CamargueSkye/CamargueSkyeIG.gltf">
+            <img src="asset/CamargueSkye/CamargueSkyeIG.webp" alt="ZeroErrorsModel"></div>
+
+        <div class="slider-item" data-model="asset/CamargueSkye/CamargueSkyePE.gltf">
+            <img src="asset/CamargueSkye/CamargueSkyePE.webp" alt="ZeroErrorsModel"></div>
+
+        <div class="slider-item" data-model="asset/CamargueSkye/CamargueSkyeSH.gltf">
+            <img src="asset/CamargueSkye/CamargueSkyeSH.webp" alt="ZeroErrorsModel"></div>
+        
+        <div class="slider-item" data-model="asset/CamargueSkye/CamargueSkyeTC.gltf">
+            <img src="asset/CamargueSkye/CamargueSkyeTC.webp" alt="ZeroErrorsModel"></div>
+    </div>
+    <div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>
+    </div>
+
+  </div>
+
+    <script>
+      // JavaScript to handle model changes from the slider
+      const modelViewer = document.getElementById('model-viewer');
+      const sliderItems = document.querySelectorAll('.slider-item img');
+    
+      const loadModelInfo = (modelFile) => 
+      {
+        fetch(`asset/CamargueSkye/${modelFile}`)
+        .then(response => 
+        {
+          if (!response.ok) {
+            // If file is not found or there's another network error
+            throw new Error('File not found');
+          }
+          return response.json();
+        })
+        .then(data => 
+        {
+          // Update the sidenav with model info
+          document.getElementById('model-title').textContent = data.title;
+          document.getElementById('model-description').textContent = data.description;
+          document.getElementById('model-dimensions').textContent = data.dimensions;
+
+          const featuresList = document.getElementById('model-features');
+          featuresList.innerHTML = ''; // Clear previous features
+          data.features.forEach(feature => 
+          {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            featuresList.appendChild(li);
+          });
+        })
+        .catch(error => {
+        console.error('Error fetching model info:', error);
+
+        // Display default text if the file is not found
+        document.getElementById('model-title').textContent = 'Model Information';
+        document.getElementById('model-description').textContent = 'No information is available for this model.';
+        document.getElementById('model-dimensions').textContent = 'Unknown';
+
+        const featuresList = document.getElementById('model-features');
+        featuresList.innerHTML = ''; // Clear previous features
+        const defaultFeature = document.createElement('li');
+        defaultFeature.textContent = 'No features available.';
+        featuresList.appendChild(defaultFeature);
+      });
+      };
+
+      // Function to set the active model and load corresponding info
+      const setActiveModel = (item) => {
+        sliderItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+
+        const selectedModel = item.parentElement.getAttribute('data-model');
+        modelViewer.src = selectedModel;
+
+        // Determine the JSON file based on the selected model
+        const modelFile = //selectedModel.includes('camargueCL') ? 'CamargueCL.json' :
+                          //selectedModel.includes('camargueeo') ? 'Camargueeo.json' :
+                          //selectedModel.includes('camargueig') ? 'Camargueig.json' :
+                          //selectedModel.includes('camarguepe') ? 'Camarguepe.json' :
+                          //selectedModel.includes('camarguesh') ? 'Camarguesh.json' :
+                          //selectedModel.includes('camarguetc') ? 'Camarguetc.json' :
+                          null; // Add more conditions as needed
+
+        if (modelFile) {
+          loadModelInfo(modelFile);
+        } else {
+          // Show default text if no modelFile is set
+          document.getElementById('model-title').textContent = 'Model Information';
+          document.getElementById('model-description').textContent = 'No information is available for this model.';
+          document.getElementById('model-dimensions').textContent = 'Unknown';
+
+          const featuresList = document.getElementById('model-features');
+          featuresList.innerHTML = ''; // Clear previous features
+          const defaultFeature = document.createElement('li');
+          defaultFeature.textContent = 'No features available.';
+          featuresList.appendChild(defaultFeature);
+        }
+      };
+    
+      // Set the first model as active when the page loads
+      window.addEventListener('DOMContentLoaded', () => {
+        setActiveModel(sliderItems[0]); // Set first slider item as active
+        setTimeout();
+      });
+    
+      // Add click event to each slider item
+      sliderItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+          setActiveModel(event.target);
+        });
+      });
+
+      myButton.addEventListener(
+            "click",
+            function () {
+                myPopup.classList.add("show");
+            }
+        );
+        closePopup.addEventListener(
+            "click",
+            function () {
+                myPopup.classList.remove(
+                    "show"
+                );
+            }
+        );
+        window.addEventListener(
+            "click",
+            function (event) {
+                if (event.target == myPopup) {
+                    myPopup.classList.remove(
+                        "show"
+                    );
+                }
+            }
+        );
+
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        const sliderContainer = document.querySelector('.slider-container');
+
+        prevButton.addEventListener('click', () => {
+          // Scroll left by 200 pixels (you can adjust this value)
+          sliderContainer.scrollBy({
+          top: 0,
+          left: -200,
+          behavior: 'smooth'
+          });
+        });
+
+        nextButton.addEventListener('click', () => {
+        // Scroll right by 200 pixels (you can adjust this value)
+        sliderContainer.scrollBy({
+        top: 0,
+        left: 200,
+        behavior: 'smooth'
+        });
+        });
+      
+      const customDiv = document.querySelector('#custom-div');
+      const checkARSupport = async () => {
+        const isARSupported = await modelViewer.canActivateAR;
+        if (!isARSupported)
+        {
+          customDiv.style.display = 'block';
+        } 
+        else 
+        {
+          customDiv.style.display = 'none';
+        }
+      };      
+      modelViewer.addEventListener('load', checkARSupport);
+
+
+    </script>
+    
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
