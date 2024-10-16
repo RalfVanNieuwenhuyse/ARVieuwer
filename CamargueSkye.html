@@ -192,13 +192,13 @@
         modelViewer.src = selectedModel;
 
         // Determine the JSON file based on the selected model
-        const modelFile = //selectedModel.includes('camargueCL') ? 'CamargueCL.json' :
-                          //selectedModel.includes('camargueeo') ? 'Camargueeo.json' :
-                          //selectedModel.includes('camargueig') ? 'Camargueig.json' :
-                          //selectedModel.includes('camarguepe') ? 'Camarguepe.json' :
-                          //selectedModel.includes('camarguesh') ? 'Camarguesh.json' :
-                          //selectedModel.includes('camarguetc') ? 'Camarguetc.json' :
-                          null; // Add more conditions as needed
+        const modelFile = selectedModel.includes('CamargueSkyeCL') ? 'CamargueSkyeCL.json' :
+                          selectedModel.includes('CamargueSkyeEO') ? 'CamargueSkyeEO.json' :
+                          selectedModel.includes('CamargueSkyeIG') ? 'CamargueSkyeIG.json' :
+                          selectedModel.includes('CamargueSkyePE') ? 'CamargueSkyePE.json' :
+                          selectedModel.includes('CamargueSkyeSH') ? 'CamargueSkyeSH.json' :
+                          selectedModel.includes('CamargueSkyeTC') ? 'CamargueSkyeTC.json' :
+                          null; // Add more conditions as needed                          
 
         if (modelFile) {
           loadModelInfo(modelFile);
