@@ -358,6 +358,7 @@ header nav ul li a {
         .deskContent {display:none;}
         .phoneContent {display:block;}
         .progress-bar {width: 80%;}
+        header nav ul {display: none;}
       }
         
       .pNT 
