@@ -15,6 +15,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
+    
     <style>  
     
         .grid-container-col 
@@ -93,12 +94,14 @@
           font-size: 30px;
           margin-top: 10px;
           margin-bottom: 0px;
+          color: #002855;
         }
 
         .pNTGrid
         {
-          font-size: 14px;
+          font-size: 15px;
           margin-top: 5px;
+          color: #002855;
         }
 
         .check {
@@ -116,27 +119,39 @@
             color: black;
         }
 
-        .check li::before 
-        {
-            content: "✔"; /* Unicode for checkmark */
+        .check li::before {
+            content: "";
             position: absolute;
             left: 0;
             top: 0;
-            font-size: 12px; /* Adjust checkmark size */
-            line-height: 1.5;
-            color: green; /* Checkmark color */
-            
-            /* Create circle with green border */
-            border: 2px solid green; /* Green border */
-            border-radius: 50%; /* Make it a circle */
-            width: 15px; /* Circle size */
-            height: 15px; /* Circle size */
-
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 2px solid green; /* Circle border */
+            background-color: white; /* Circle background */
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: white; /* Optional: set background to white or transparent */
         }
+
+
+        .check li::after {
+
+          content: "";
+          position: absolute;
+          left: 1.5px; 
+          top: 2px;               
+          width: 15px;
+          height: 15px;
+          background-image: url('browser_assets/chechmark.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          z-index: 1;
+          /*https://angel-rs.github.io/css-color-filter-generator/*/                
+          filter: brightness(0) saturate(100%) invert(25%) sepia(32%) saturate(6973%) hue-rotate(96deg) brightness(93%) contrast(104%);
+        }
+
+        
 
         .containerImageSlide {
           display: flex;
@@ -307,6 +322,20 @@
           padding-right: 10px;
           padding-bottom: 10px;
         }
+        
+        /*.sticky {
+          position: sticky;
+          top: 0;
+          width: 100%;
+          padding-right: 30px;          
+        }
+
+        /*header
+        {
+          position: fixed;
+          width: 100%;
+          top: 0;
+        }*/
 
         @media all and (max-width: 479px) 
         {
@@ -320,7 +349,7 @@
 
   <body>
 
-    <header>
+    <header id="StickyHeader">
       <div class="logo"><a href=""><img src="browser_assets/logo-renson-23.png"></a> </div>
       <nav>
         <ul>
@@ -349,11 +378,15 @@
       </div>
     </div>
 
+    <div style="margin: 30px;"></div>
+
     <!--Product-->
     <div class="centerSeperator">
       <h1 class="hCenterSeperator">Our Products</h1>
       <p class="pCenterSeperator"> Select one of the Renson patio covers to start experiencing.</p>
     </div>
+
+    <div style="margin: 20px;"></div>
 
     <!--grid-container-->
     <div class="grid-container-col">
@@ -545,6 +578,21 @@
           });
         });
       });
+
+
+      window.onscroll = function() {StickyHeader()};
+
+      var header = document.getElementById("StickyHeader");
+        var sticky = header.offsetTop;
+
+        function StickyHeader() {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      }
+
   </script>    
 
   </body>
