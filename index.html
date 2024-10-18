@@ -25,7 +25,7 @@
           grid-template-columns: 1fr 1fr;
           background-color: white;
           padding: 10px;
-          margin: 0 auto; /* Centers the grid horizontally */
+          margin: 0 auto;
           width: 80%;
         }
 
@@ -41,13 +41,8 @@
         {
           background-color: white;  
           padding: 0;
-          font-size: 30px;
-          /*text-align: center;*/     
-          /*margin: 0 auto;*/
+          font-size: 30px;          
           width: 100%;
-
-          /*height: 600px;*/
-
           box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
           display: flex;
           flex-direction: column;
@@ -57,12 +52,8 @@
         {
           background-color: white;  
           padding: 0;
-          font-size: 30px;
-          /*text-align: center;*/     
-          /*margin: 0 auto;*/
-          width: 100%;
-          /*height: 600px;*/
-          /*box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);*/
+          font-size: 30px;          
+          width: 100%;          
         }
 
         .grid-item img 
@@ -91,10 +82,11 @@
 
         .hNTGrid
         {
-          font-size: 30px;
+          font-size: 28px;
           margin-top: 10px;
           margin-bottom: 0px;
           color: #002855;
+          font-weight: 600;
         }
 
         .pNTGrid
@@ -105,16 +97,16 @@
         }
 
         .check {
-            padding-left: 0; /* Reset padding */
-            margin: 0; /* Reset margin */
-            list-style: none; /* Remove default bullet points */
+            padding-left: 0;
+            margin: 0;
+            list-style: none;
         }
 
         .check li 
         {
             position: relative;
-            padding-left: 30px; /* Adjust padding to make space for the checkmark */
-            margin-bottom: 10px; /* Add spacing between list items */
+            padding-left: 30px;
+            margin-bottom: 10px;
             font-weight: 600;
             color: black;
         }
@@ -127,8 +119,8 @@
             width: 15px;
             height: 15px;
             border-radius: 50%;
-            border: 2px solid green; /* Circle border */
-            background-color: white; /* Circle background */
+            border: 2px solid green;
+            background-color: white;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -157,8 +149,8 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          position: relative; /* This keeps the buttons aligned relative to the container */
-          width: 100%; /* Take up the full width */
+          position: relative; 
+          width: 100%;
         }
 
         .sliderImage-wrapper {
@@ -167,13 +159,13 @@
         }
 
         .innerImage-wrapper {
-          width: 500%; /* Keep this as it is since it shows 5 slides */
+          width: 500%;
           position: relative;
           left: -100%;
         }
 
         .slideImage {
-          width: calc(100% / 5); /* Ensure each slide takes the correct width */
+          width: calc(100% / 5); 
           float: left;
           display: flex;
           justify-content: center;
@@ -184,26 +176,20 @@
         .slideImage img {
           width: 100%;
           height: auto;
-          object-fit: cover; /* Ensures image keeps aspect ratio */
+          object-fit: cover;
         }
 
-        .ImageSlidebutton {
-          /*width: 30px;
-          height: 60px;*/
-          
+        .ImageSlidebutton {          
           position: absolute;
           cursor: pointer;
-          top: 50%; /* Center vertically */
+          top: 50%;
           transform: translateY(-50%);
-
-          background-color: transparent; /* Transparent background */
-          color: #000e1d; /* Arrow color */
-          border: none; /* Border color */
-           /* Slightly rounded corners */
-          cursor: pointer; /* Pointer cursor on hover */
-          font-size: 30px; /* Adjust the size of the arrows */
-          /*margin: 0 5px; /* Space between the arrows and the slider */
-          transition: background-color 0.3s, color 0.3s; /* Transition effect for hover */
+          background-color: transparent; 
+          color: #000e1d;
+          border: none;           
+          cursor: pointer; 
+          font-size: 30px;          
+          transition: background-color 0.3s, color 0.3s;
           padding: 6px;          
         }
 
@@ -216,8 +202,8 @@
           };
           .ImageSlidebutton:hover
           {
-            background-color: #00135c; /* Change background on hover */
-            color: white; /* Change arrow color on hover */
+            background-color: #00135c;
+            color: white;
           };
         }
 
@@ -239,15 +225,15 @@
           justify-content: center;
           align-items: center;
           background-color: #00135c;
-          text-decoration: none; /* Remove underline */
-          color: white; /* Change the text color */
-          font-weight: bold; /* Make the text bold if you prefer */
+          text-decoration: none;
+          color: white;
+          font-weight: bold; 
           height: 30px;
+          font-weight: 600;
         }
 
         .grid-item-button:hover {
-          text-decoration: none; /* Ensure no underline appears on hover */
-          /*color: white; /* Keep the same color on hover */
+          text-decoration: none;          
           background-color: #0023ac;
         }
 
@@ -257,16 +243,16 @@
           justify-content: center;
           align-items: center;
           background-color: white;
-          text-decoration: none; /* Remove underline */
-          color: black; /* Change the text color */
-          font-weight: bold; /* Make the text bold if you prefer */
+          text-decoration: none;
+          color: black;
+          font-weight: bold; 
           height: 30px;
           border: 1px solid #aaaaaa;
+          font-weight: 600;
         }
 
         .grid-item-button2:hover {
-          text-decoration: none; /* Ensure no underline appears on hover */
-          /*color: white; /* Keep the same color on hover */
+          text-decoration: none;          
           background-color: #aaaaaa;
         }
 
@@ -386,6 +372,7 @@
         </ul>
       </nav>
     </header>
+    <div id="header-placeholder" style="height: 60px; display: none;"></div>
 
     <div style="margin: 20px;"></div>
     
@@ -395,7 +382,7 @@
         <div class="grid-itemTextnoShadow">
           <h2 class="hWelcome">Welcome</h2>
           <h class="hTitle">Start expierencing your new</h>
-          <h1 class="hTitle">outdoor experience</h1>
+          <h1 class="hTitle" style="font-weight: 600;">outdoor experience</h1>
           <p class="pTitleText">With the Renson Outdoor experience, you can experience the patio cover of before you buy. When you are happy and ready to buy contact one of our dealers in your area.</p>
         </div>
       </div>
@@ -408,7 +395,7 @@
 
     <!--Product-->
     <div class="centerSeperator">
-      <h1 class="hCenterSeperator">Our Products</h1>
+      <h1 class="hCenterSeperator" style="font-weight: 600;">Our Products</h1>
       <p class="pCenterSeperator"> Select one of the Renson patio covers to start experiencing.</p>
     </div>
 
@@ -616,8 +603,10 @@
         
         if (window.pageYOffset > sticky) {
           header.classList.add("sticky");
+          document.getElementById("header-placeholder").style.display = "block";
         } else {
-          header.classList.remove("sticky");          
+          header.classList.remove("sticky"); 
+          document.getElementById("header-placeholder").style.display = "none";         
         }
       }
 
