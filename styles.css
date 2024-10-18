@@ -221,7 +221,8 @@ header nav ul li a {
 
 .sidenavtext
 {
-  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 0px;
 }
 
 .slider-container
