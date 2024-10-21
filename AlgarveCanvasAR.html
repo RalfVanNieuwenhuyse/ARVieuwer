@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>model-viewer Camargue</title>
+    <title>model-viewer Algarve Canvas</Canvas></title>
     <meta charset="utf-8">
-    <meta name="description" content="model-viewer Camargue">
+    <meta name="description" content="model-viewer Algarve Canvas">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
 
@@ -26,12 +26,12 @@
 
     <header>
       <div class="logo"><a href="index.html"><img src="browser_assets/logo-renson-23.png"></a> </div>
-      <div class="logo" style="font-weight: 350; padding: 20px;">Camargue <div style="font-weight: 350; font-size: small;">&#174;</div> </div>
+      <div class="logo" style="font-weight: 350; padding: 20px;">Algarve <div style="font-weight: 350; font-size: small;">&#174;</div> Canvas<div style="font-weight: 350; font-size: small;">&#174;</div> </div>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="https://renson.net/en-gb/dealers">Find a dealer</a></li>
-          <li><a href="https://renson.net/en-us/products/pergolas/camargue">Camargue</a></li>
+          <li><a href="https://renson.net/en-us/products/pergolas/algarve-canvas">Algarve Canvas</a></li>
         </ul>
       </nav>
       <button class="phoneContent sidenav-lines" onclick="openNav2()">&#8801;</button>
@@ -43,12 +43,12 @@
           <a href="index.html">Home</a>
           <a href="https://renson.net/en-gb">Renson website</a>
           <a href="https://renson.net/en-gb/dealers">Find a dealer</a>
-          <a href="https://renson.net/en-us/products/pergolas/camargue">Camargue</a>
+          <a href="https://renson.net/en-us/products/pergolas/algarve-canvas">Algarve Canvas</a>
       </div>
     </div>
 
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="model-viewer" src="asset/Camargue/Camargue_CL.glb" ar ar-modes="webxr quick-look"
+    <model-viewer id="model-viewer" src="" ar ar-modes="webxr quick-look"
                   camera-controls interaction-prompt="none" tone-mapping="neutral" 
                   shadow-intensity="2"
                   shadow-softness="1"                  
@@ -126,23 +126,9 @@
     <div class="slider-navigation">
       <div class="deskContent"><button id="prev" class="nav-arrow">&#10094;</button></div>
     <div class="slider-container">
-        <div class="slider-item" data-model="asset/Camargue/CamargueCL.glb">
-        <img src="asset/Camargue/CamargueCL.webp" alt="ZeroErrorsModel"></div>
+        <div class="slider-item" data-model="">
+        <img src="" alt=""></div>
 
-        <div class="slider-item" data-model="asset/Camargue/camargueeo.glb">
-            <img src="asset/Camargue/camargueeo.webp" alt="ZeroErrorsModel"></div>
-
-        <div class="slider-item" data-model="asset/Camargue/camargueig.glb">
-            <img src="asset/Camargue/camargueig.webp" alt="ZeroErrorsModel"></div>
-
-        <div class="slider-item" data-model="asset/Camargue/camarguepe.glb">
-            <img src="asset/Camargue/camarguepe.webp" alt="ZeroErrorsModel"></div>
-
-        <div class="slider-item" data-model="asset/Camargue/camarguesh.glb">
-            <img src="asset/Camargue/camarguesh.webp" alt="ZeroErrorsModel"></div>
-        
-        <div class="slider-item" data-model="asset/Camargue/camarguetc.glb">
-            <img src="asset/Camargue/camarguetc.webp" alt="ZeroErrorsModel"></div>
     </div>
     <div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>
     </div>
@@ -206,12 +192,7 @@
         modelViewer.src = selectedModel;
 
         // Determine the JSON file based on the selected model
-        const modelFile = selectedModel.includes('CamargueCL') ? 'CamargueCL.json' :
-                          selectedModel.includes('camargueeo') ? 'Camargueeo.json' :
-                          selectedModel.includes('camargueig') ? 'Camargueig.json' :
-                          selectedModel.includes('camarguepe') ? 'Camarguepe.json' :
-                          selectedModel.includes('camarguesh') ? 'Camarguesh.json' :
-                          selectedModel.includes('camarguetc') ? 'Camarguetc.json' :
+        const modelFile = 
                           null; // Add more conditions as needed
 
         if (modelFile) {
@@ -319,7 +300,7 @@
         document.getElementById("mySidenav2").style.width = "0";
         document.getElementById("mySidenav2").style.textWrap = "nowrap";
       }
-
+      
     </script>
     
     <!-- Loads <model-viewer> for browsers: -->
