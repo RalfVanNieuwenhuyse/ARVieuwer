@@ -329,15 +329,7 @@
   
         }
 
-        .sticky {
-          position: fixed;
-          top: 0;
-          width: 100%;
-          padding-right: 100px;
-          z-index: 1000;
-          box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
-          .headerBSnavul {margin-right: 60px;};          
-        }
+        
 
         header {          
           background-color: white;
@@ -361,7 +353,18 @@
           cursor: pointer; /* Pointer cursor on hover */
           font-size: 40px; /* Adjust the size of the arrows */
           font-family: "Font Awesome 6 Free";  
-          font-weight: 800;                  
+          font-weight: 800;                                  
+        }
+
+        .sticky {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          padding-right: 100px;
+          z-index: 2;
+          box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
+          .headerBSnavul {margin-right: 60px;};
+          .sidenav-lines {margin-right: 60px;};
         }
 
         @media all and (max-width: 479px) 
