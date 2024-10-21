@@ -308,8 +308,6 @@
           padding-right: 10px;
           padding-bottom: 10px;
         }
-        
-        
 
         .headerBSnavul {
           list-style-type: none;
@@ -325,11 +323,8 @@
 
         .headerBSnavul li a {
           color: #00274E;
-          text-decoration: none;
-  
-        }
-
-        
+          text-decoration: none;  
+        }        
 
         header {          
           background-color: white;
@@ -338,9 +333,7 @@
 
         header .logo img {
           filter: brightness(0) saturate(100%) invert(11%) sepia(56%) saturate(2766%) hue-rotate(191deg) brightness(99%) contrast(106%);
-          
         }
-
 
         .sidenav {
             right: 0;
@@ -579,8 +572,6 @@
 
 
     </div> <!--end grid-container-->
-    
-    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
@@ -609,13 +600,11 @@
         });
       });
 
-
       window.onscroll = function() {StickyHeader()};
 
       var header = document.getElementById("StickyHeader");
       var sticky = header.offsetTop;
       
-
       function StickyHeader() {
         
         if (window.pageYOffset > sticky) {
