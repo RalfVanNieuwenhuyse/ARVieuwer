@@ -16,6 +16,9 @@
     <meta name="theme-color" content="#ffffff">
 
     <style> 
+    .sidenav-lines {
+      color: white;
+    }
     </style>
   </head>
 
@@ -31,8 +34,17 @@
           <li><a href="https://renson.net/en-us/products/pergolas/camargue-skye">Camargue Skye</a></li>
         </ul>
       </nav>
+      <button class="phoneContent sidenav-lines" onclick="openNav2()">&#8801;</button>
     </header>
 
+    <div id="mySidenav2" class="sidenav" style="right: 0; left: auto;">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+      <div id="model-info" class="sidenav-Infobox">
+          <a href="index.html">Home</a>
+          <a href="https://renson.net/en-gb">Renson website</a>
+          <a href="https://renson.net/en-gb/dealers">Find a dealer</a>
+      </div>
+    </div>
 
     <!-- <model-viewer> HTML element -->
     <model-viewer id="model-viewer" src="asset/CamargueSkye/CamargueSkyeCL.glb" ar ar-modes="webxr quick-look"
@@ -290,6 +302,22 @@
         }
       };      
       modelViewer.addEventListener('load', checkARSupport);
+
+      function openNav2() {  
+        if (window.matchMedia("(max-width: 480px)").matches) {
+        document.getElementById("mySidenav2").style.width = "100%"; //phone
+        }
+        else {
+          document.getElementById("mySidenav2").style.width = "30%"; //pc
+        }
+        //https://stackoverflow.com/questions/54044739/how-can-i-define-a-variable-depending-on-the-width-of-the-screen
+        document.getElementById("mySidenav2").style.textWrap = "wrap";
+      }
+
+      function closeNav2() {
+        document.getElementById("mySidenav2").style.width = "0";
+        document.getElementById("mySidenav2").style.textWrap = "nowrap";
+      }
 
 
     </script>
