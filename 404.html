@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>model-viewer Renson</title>
+    <meta charset="utf-8">
+    <meta name="description" content="model-viewer Renson">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="browser_assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="browser_assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="browser_assets/favicon-16x16.png">
+    <link rel="manifest" href="browser_assets/site.webmanifest">
+    <link rel="mask-icon" href="browser_assets/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <style>  
+    
+        .grid-container-col 
+        {
+          display: grid;
+          gap: 50px;
+          grid-template-columns: 1fr 1fr;
+          background-color: white;
+          padding: 10px;
+          margin: 0 auto;
+          width: 80%;
+        }
+
+        .grid-container-row {
+          display: grid;
+          gap: 10px;
+          grid-template-rows: auto;      
+          background-color: white;
+          padding: 10px;
+        }
+
+        .grid-item 
+        {
+          background-color: white;  
+          padding: 0;
+          font-size: 30px;          
+          width: 100%;
+          box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
+          display: flex;
+          flex-direction: column;
+        }
+
+        .grid-item-noShadow 
+        {
+          background-color: white;  
+          padding: 0;
+          font-size: 30px;          
+          width: 100%;          
+        }
+
+        .grid-item img 
+        {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+        }
+
+        .grid-item-noShadow img
+        {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+        }
+
+        .grid-itemText
+        {
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-bottom: 10px;
+          margin: 0;
+        }
+
+        
+
+        .hNTGrid
+        {
+          font-size: 28px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          color: #002855;
+          font-weight: 600;
+        }
+
+        .pNTGrid
+        {
+          font-size: 15px;
+          margin-top: 5px;
+          color: #002855;
+        }
+
+        .check {
+            padding-left: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .check li 
+        {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: black;
+        }
+
+        .check li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 2px solid green;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .check li::after {
+
+          content: "";
+          position: absolute;
+          left: 1.5px; 
+          top: 2px;               
+          width: 15px;
+          height: 15px;
+          background-image: url('browser_assets/chechmark.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          z-index: 1;
+          /*https://angel-rs.github.io/css-color-filter-generator/*/                
+          filter: brightness(0) saturate(100%) invert(25%) sepia(32%) saturate(6973%) hue-rotate(96deg) brightness(93%) contrast(104%);
+        }
+
+        
+
+        .containerImageSlide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative; 
+          width: 100%;
+        }
+
+        .sliderImage-wrapper {
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .innerImage-wrapper {
+          width: 500%;
+          position: relative;
+          left: -100%;
+        }
+
+        .slideImage {
+          width: calc(100% / 5); 
+          float: left;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+        }
+
+        .slideImage img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+
+        .ImageSlidebutton {          
+          position: absolute;
+          cursor: pointer;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: transparent; 
+          color: #000e1d;
+          border: none;           
+          cursor: pointer; 
+          font-size: 30px;          
+          transition: background-color 0.3s, color 0.3s;
+          padding: 6px;          
+        }
+
+        .containerImageSlide:hover
+        {          
+          .ImageSlidebutton
+          {
+            background-color: #ffffffaa;
+            color: #000e1d;
+          };
+          .ImageSlidebutton:hover
+          {
+            background-color: #00135c;
+            color: white;
+          };
+        }
+
+        .prevImage {          
+          left: 0;
+          border-bottom-right-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+
+        .nextImage {          
+          right: 0;
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
+        }
+
+        .grid-item-button {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #00135c;
+          text-decoration: none;
+          color: white;
+          font-weight: bold; 
+          height: 30px;
+          font-weight: 600;
+        }
+
+        .grid-item-button:hover {
+          text-decoration: none;          
+          background-color: #0023ac;
+        }
+
+        .grid-item-button2 {
+          width: 100% -1px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: white;
+          text-decoration: none;
+          color: black;
+          font-weight: bold; 
+          height: 30px;
+          border: 1px solid #aaaaaa;
+          font-weight: 600;
+        }
+
+        .grid-item-button2:hover {
+          text-decoration: none;          
+          background-color: #aaaaaa;
+        }
+
+        .hWelcome
+        {
+          color:#6774A6;
+          font-size: 25px;
+        }
+
+        .hTitle
+        {
+          color:#002855;
+          font-size: 40px;
+          margin: 0;
+        }
+
+        .pTitleText
+        {
+          color:#002855;
+          font-size: 14px;          
+        }
+
+        .grid-itemTextnoShadow {
+          position: relative;
+          top: 30%;
+          transform: translateY(-50%);
+        }
+
+        .centerSeperator
+        {
+          text-align: center; 
+          margin: 20px;         
+        }
+
+        .hCenterSeperator
+        {
+          color:#002855;
+          font-size: 30px;
+          margin: 0;          
+        }
+
+        .pCenterSeperator
+        {
+          color: #6774A6;
+          font-size: 20px;
+          margin: 0;          
+        }
+
+        .bottom
+        {
+          margin-top: auto;
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-bottom: 10px;
+        }
+        
+        
+
+        .headerBSnavul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          gap: 20px;
+        }
+
+        .headerBSnavul li {
+          display: inline;
+        }
+
+        .headerBSnavul li a {
+          color: #00274E;
+          text-decoration: none;
+  
+        }
+
+        .sticky {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          padding-right: 100px;
+          z-index: 1000;
+          box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
+          .headerBSnavul {margin-right: 60px;};          
+        }
+
+        header {          
+          background-color: white;
+          color: #00274E;          
+        }
+
+        header .logo img {
+          filter: brightness(0) saturate(100%) invert(11%) sepia(56%) saturate(2766%) hue-rotate(191deg) brightness(99%) contrast(106%);
+          
+        }
+
+        @media all and (max-width: 479px) 
+        {
+          .grid-container-col {grid-template-columns: auto}
+          .grid-itemTextnoShadow {transform: translateY(-30%);}
+          .headerBSnavul{display: none;}
+        }
+
+    </style>
+  </head>
+
+  <body>
+
+    <header id="StickyHeader">
+      <div class="logo"><a href=""><img src="browser_assets/logo-renson-23.png"></a> </div>
+      <nav>
+        <ul class="headerBSnavul">
+          <!--<li><a href="AmaniAR.html">Amani</a></li>-->
+          <li><a href="https://renson.net/en-gb/dealers">Find a dealer</a></li>
+          <li><a href="https://renson.net/en-gb">Renson website</a></li>          
+          <!-- https://github.com/orgs/community/discussions/23746 -->
+        </ul>
+      </nav>
+    </header>
+    <div id="header-placeholder" style="height: 60px; display: none;"></div>
+
+    <h1>404 page not found </h1>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      window.onscroll = function() {StickyHeader()};
+
+      var header = document.getElementById("StickyHeader");
+      var sticky = header.offsetTop;
+      
+
+      function StickyHeader() {
+        
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+          document.getElementById("header-placeholder").style.display = "block";
+        } else {
+          header.classList.remove("sticky"); 
+          document.getElementById("header-placeholder").style.display = "none";         
+        }
+      }
+
+  </script>    
+
+  </body>
+</html>
