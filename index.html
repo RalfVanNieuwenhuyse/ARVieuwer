@@ -349,6 +349,21 @@
           
         }
 
+
+        .sidenav {
+            right: 0;
+            left: auto;
+        }
+        .sidenav-lines {
+          background-color: transparent; /* Transparent background */
+          color: #000e1d; /* Arrow color */
+          border: none; /* Border color */          
+          cursor: pointer; /* Pointer cursor on hover */
+          font-size: 40px; /* Adjust the size of the arrows */
+          font-family: "Font Awesome 6 Free";  
+          font-weight: 800;                  
+        }
+
         @media all and (max-width: 479px) 
         {
           .grid-container-col {grid-template-columns: auto}
@@ -371,8 +386,17 @@
           <!-- https://github.com/orgs/community/discussions/23746 -->
         </ul>
       </nav>
+      <button class="phoneContent sidenav-lines" onclick="openNav()">&#8801;</button>
     </header>
     <div id="header-placeholder" style="height: 60px; display: none;"></div>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div id="model-info" class="sidenav-Infobox">
+          <a href="https://renson.net/en-gb">Renson website</a>
+          <a href="https://renson.net/en-gb/dealers">Find a dealer</a>
+      </div>
+    </div>
 
     <div style="margin: 10px;"></div>
     
@@ -567,6 +591,7 @@
     
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
     <script>
       $(function(){
         // Select all containerImageSlide elements

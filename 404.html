@@ -265,7 +265,7 @@
         .hTitle
         {
           color:#002855;
-          font-size: 60px;
+          font-size: 65px;
           margin: 0;
         }
 
@@ -348,11 +348,26 @@
           filter: brightness(0) saturate(100%) invert(11%) sepia(56%) saturate(2766%) hue-rotate(191deg) brightness(99%) contrast(106%);
           
         }
+        
+        .sidenav {
+            right: 0;
+            left: auto;
+        }
+
+        .sidenav-lines {
+          background-color: transparent; /* Transparent background */
+          color: #000e1d; /* Arrow color */
+          border: none; /* Border color */          
+          cursor: pointer; /* Pointer cursor on hover */
+          font-size: 40px; /* Adjust the size of the arrows */
+          font-family: "Font Awesome 6 Free";  
+          font-weight: 800;                  
+        }
 
         @media all and (max-width: 479px) 
         {
           .grid-container-col {grid-template-columns: auto}
-          .grid-itemTextnoShadow {transform: translateY(-30%);}
+          .grid-itemTextnoShadow {transform: translateY(-50%);}
           .headerBSnavul{display: none;}
         }
 
@@ -371,10 +386,11 @@
           <!-- https://github.com/orgs/community/discussions/23746 -->
         </ul>
       </nav>
+      <button class="phoneContent sidenav-lines" onclick="openNav()">&#8801;</button>
     </header>
     <div id="header-placeholder" style="height: 60px; display: none;"></div>
 
-    <div style="margin: 60px;"></div>
+    <div class="deskContent" style="margin: 60px;"></div>
 
     <div class="grid-container-col">
         <div class="grid-item-noShadow">
@@ -391,11 +407,22 @@
         <div class="grid-item-noShadow">
           <img src="asset/Home/404.jpg">
         </div>       
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div id="model-info" class="sidenav-Infobox">
+            <a href="https://renson.net/en-gb">Renson website</a>
+            <a href="https://renson.net/en-gb/dealers">Find a dealer</a>
+        </div>
       </div>
+      <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
+      
 
     
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
     <script>
       window.onscroll = function() {StickyHeader()};
 
