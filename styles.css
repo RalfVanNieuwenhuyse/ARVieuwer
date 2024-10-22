@@ -109,50 +109,6 @@ model-viewer > #ar-prompt > img {
   animation: circle 4s linear infinite;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: #00274E;
-  color: white;
-  height: 5%;
-  z-index: 10;
-}
-
-header .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .logo img {
-  max-width: 100%; /* Ensures the logo does not exceed the header width */
-  height: auto; /* Maintains the aspect ratio */
-  max-height: 50px; /* Adjust this value based on your desired header height */
-  /*filter: invert(1);*/
-}
-
-header nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-}
-
-header nav ul li {
-  display: inline;
-}
-
-header nav ul li a {
-  color: white;
-  text-decoration: none;
-  
-}
 
 .sidenav {
   height: 100%;
@@ -441,13 +397,3 @@ header nav ul li a {
         display: none; /* Initially hidden */
       }
 
-.sidenav-lines {
-  background-color: transparent; /* Transparent background */
-  color: #000e1d; /* Arrow color */
-  border: none; /* Border color */          
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 40px; /* Adjust the size of the arrows */
-  font-family: "Font Awesome 6 Free";  
-  font-weight: 800;
-  user-select: none;
-}
