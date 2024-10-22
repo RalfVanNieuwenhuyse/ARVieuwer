@@ -206,6 +206,7 @@ header nav ul li a {
   position: absolute;
   top: 2%;
   left: 0;
+  user-select: none;
 }
 
 .sidenav-arrow:hover
@@ -292,6 +293,7 @@ header nav ul li a {
         transition: background-color 0.3s, color 0.3s; /* Transition effect for hover */
         /*height: 95px;
         width: 50px;*/
+        user-select: none;
       }
 
       .nav-arrow:hover
@@ -446,5 +448,6 @@ header nav ul li a {
   cursor: pointer; /* Pointer cursor on hover */
   font-size: 40px; /* Adjust the size of the arrows */
   font-family: "Font Awesome 6 Free";  
-  font-weight: 800;                  
+  font-weight: 800;
+  user-select: none;
 }
