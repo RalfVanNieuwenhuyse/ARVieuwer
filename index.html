@@ -78,8 +78,6 @@
           margin: 0;
         }
 
-        
-
         .hNTGrid
         {
           font-size: 28px;
@@ -108,7 +106,7 @@
             padding-left: 30px;
             margin-bottom: 10px;
             font-weight: 600;
-            color: black;
+            color: #002855;
         }
 
         .check li::before {
@@ -126,7 +124,6 @@
             justify-content: center;
         }
 
-
         .check li::after {
 
           content: "";
@@ -142,8 +139,6 @@
           /*https://angel-rs.github.io/css-color-filter-generator/*/                
           filter: brightness(0) saturate(100%) invert(25%) sepia(32%) saturate(6973%) hue-rotate(96deg) brightness(93%) contrast(104%);
         }
-
-        
 
         .containerImageSlide {
           display: flex;
@@ -259,7 +254,7 @@
         .hWelcome
         {
           color:#6774A6;
-          font-size: 25px;
+          font-size: 23px;
         }
 
         .hTitle
@@ -328,7 +323,8 @@
 
         header {          
           background-color: white;
-          color: #00274E;          
+          color: #00274E; 
+          transition: box-shadow 0.3s;         
         }
 
         header .logo img {
@@ -347,6 +343,18 @@
           font-size: 40px; /* Adjust the size of the arrows */
           font-family: "Font Awesome 6 Free";  
           font-weight: 800;                                  
+        }
+
+        .sticky {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          padding-right: 100px;
+          z-index: 1000;
+          box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
+          transition: box-shadow 0.3s;
+          .headerBSnavul {margin-right: 60px;};   
+          .sidenav-lines {margin-right: 60px;};       
         }
 
         @media all and (max-width: 479px) 
@@ -569,8 +577,6 @@
           <a class="grid-item-button2 pNTGrid" href="https://renson.net/en-us/products/pergolas/algarve">More information</a>
         </div>        
       </div>
-
-
     </div> <!--end grid-container-->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
