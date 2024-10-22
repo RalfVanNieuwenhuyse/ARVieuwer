@@ -6,7 +6,7 @@
   background-color: white;
   padding: 10px;
   margin: 0 auto;
-  width: 80%;
+  width: 75%;
 }
 
 .grid-container-row {
@@ -94,22 +94,23 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    border: 2px solid green;
+    /*border: 2px solid green;*/
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
 }
 
 .check li::after {
 
   content: "";
   position: absolute;
-  left: 1.5px; 
-  top: 2px;               
+  left: 2.5px; 
+  top: 2.5px;               
   width: 15px;
   height: 15px;
   background-image: url('browser_assets/chechmark.svg');
@@ -117,7 +118,7 @@
   background-repeat: no-repeat;
   z-index: 1;
   /*https://angel-rs.github.io/css-color-filter-generator/*/                
-  filter: brightness(0) saturate(100%) invert(25%) sepia(32%) saturate(6973%) hue-rotate(96deg) brightness(93%) contrast(104%);
+  filter:invert(100%);
 }
 
 .containerImageSlide {
@@ -206,11 +207,14 @@
   font-weight: bold; 
   height: 30px;
   font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .grid-item-button:hover {
   text-decoration: none;          
-  background-color: #0023ac;
+  background-color: #f0f3ff;
+  color: #00135c;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .grid-item-button2 {
@@ -223,13 +227,15 @@
   color: black;
   font-weight: bold; 
   height: 30px;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #e0e0e0;
   font-weight: 600;
+  transition: background-color 0.3s;
 }
 
 .grid-item-button2:hover {
   text-decoration: none;          
-  background-color: #aaaaaa;
+  background-color: #e0e0e0;
+  transition: background-color 0.3s;
 }
 
 .grid-itemTextnoShadow {
