@@ -82,4 +82,10 @@ header {
     .headerBSnavul {margin-right: 60px;};   
     .sidenav-lines {margin-right: 60px;};
   }
+
+@media all and (max-width: 479px) 
+{
+    .headerBSnavul{display: none;}
+    header nav ul {display: none;}
+}
   
