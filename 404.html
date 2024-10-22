@@ -78,8 +78,6 @@
           margin: 0;
         }
 
-        
-
         .hNTGrid
         {
           font-size: 28px;
@@ -126,7 +124,6 @@
             justify-content: center;
         }
 
-
         .check li::after {
 
           content: "";
@@ -141,82 +138,6 @@
           z-index: 1;
           /*https://angel-rs.github.io/css-color-filter-generator/*/                
           filter: brightness(0) saturate(100%) invert(25%) sepia(32%) saturate(6973%) hue-rotate(96deg) brightness(93%) contrast(104%);
-        }
-
-        
-
-        .containerImageSlide {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative; 
-          width: 100%;
-        }
-
-        .sliderImage-wrapper {
-          width: 100%;
-          overflow: hidden;
-        }
-
-        .innerImage-wrapper {
-          width: 500%;
-          position: relative;
-          left: -100%;
-        }
-
-        .slideImage {
-          width: calc(100% / 5); 
-          float: left;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          overflow: hidden;
-        }
-
-        .slideImage img {
-          width: 100%;
-          height: auto;
-          object-fit: cover;
-        }
-
-        .ImageSlidebutton {          
-          position: absolute;
-          cursor: pointer;
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: transparent; 
-          color: #000e1d;
-          border: none;           
-          cursor: pointer; 
-          font-size: 30px;          
-          transition: background-color 0.3s, color 0.3s;
-          padding: 6px;          
-        }
-
-        .containerImageSlide:hover
-        {          
-          .ImageSlidebutton
-          {
-            background-color: #ffffffaa;
-            color: #000e1d;
-          };
-          .ImageSlidebutton:hover
-          {
-            background-color: #00135c;
-            color: white;
-          };
-        }
-
-        .prevImage {          
-          left: 0;
-          border-bottom-right-radius: 5px;
-          border-top-right-radius: 5px;
-        }
-
-        .nextImage {          
-          right: 0;
-          border-bottom-left-radius: 5px;
-          border-top-left-radius: 5px;
         }
 
         .grid-item-button {
@@ -308,8 +229,6 @@
           padding-right: 10px;
           padding-bottom: 10px;
         }
-        
-        
 
         .headerBSnavul {
           list-style-type: none;
@@ -355,9 +274,7 @@
         .sidenav {
             right: 0;
             left: auto;
-        }
-
-        
+        }        
 
         @media all and (max-width: 479px) 
         {
@@ -412,7 +329,6 @@
             <a href="https://renson.net/en-gb/dealers">Find a dealer</a>
         </div>
       </div>
-      <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
       
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
