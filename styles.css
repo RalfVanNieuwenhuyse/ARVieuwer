@@ -364,14 +364,15 @@ model-viewer > #ar-prompt > img {
         left: 50%;
         transform: translateX(-50%);
         white-space: nowrap;
-        bottom: 16px;        
+        bottom: 16px;
+        transition: background-color 0.3s, color 0.3s;
       }
 
       .RensonButton:hover
       {
-        background-color: #0023ac;
-        border: none;
-        color: white;                
+        background-color: #f0f3ff;
+        color: #00135c;
+        transition: background-color 0.3s, color 0.3s;
       }
 
       .warningbox
