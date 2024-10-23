@@ -1,93 +1,117 @@
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #00274E;
-    color: white;
-    height: 5%;
-    z-index: 10;
-    padding-right: 25px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #00274E;
+  color: white;
+  height: 5%;
+  z-index: 10;
+  padding-right: 25px;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
   
-  header .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+header .logo img {
+  max-width: 100%; /* Ensures the logo does not exceed the header width */
+  height: auto; /* Maintains the aspect ratio */
+  max-height: 50px; /* Adjust this value based on your desired header height */
+  /*filter: invert(1);*/
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
   
-  header .logo img {
-    max-width: 100%; /* Ensures the logo does not exceed the header width */
-    height: auto; /* Maintains the aspect ratio */
-    max-height: 50px; /* Adjust this value based on your desired header height */
-    /*filter: invert(1);*/
-  }
+header nav ul li {
+  display: inline;
+}
   
-  header nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-  }
-  
-  header nav ul li {
-    display: inline;
-  }
-  
-  header nav ul li a {
-    color: white;
-    text-decoration: none;
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidenav-lines {
+  background-color: transparent; /* Transparent background */
+  color: #000e1d; /* Arrow color */
+  border: none; /* Border color */          
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 40px; /* Adjust the size of the arrows */
+  font-family: "Font Awesome 6 Free";  
+  font-weight: 800;
+  user-select: none;
+  padding-right: 0px;
+}
+
+.headerBSnavul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.headerBSnavul li {
+  display: inline;
+}
+
+.headerBSnavul li a {
+  color: #00274E;
+  text-decoration: none;  
+} 
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-right: 100px;
+  z-index: 1000;
+  box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
+  transition: box-shadow 1s;
+  .headerBSnavul {margin-right: 60px;};   
+  .sidenav-lines {margin-right: 55px;};
+}
+
+.subModleViewerHeader
+{
+  text-decoration: none;
+  display: flex;
+  height: 35px;
+  width: 100%;
+  align-items: center;
+  background-color: rgb(249,249,251);
+  padding-left: 30px;
+  color: #002855;
+  font-size: 14px; 
     
-  }
+}
 
-  .sidenav-lines {
-    background-color: transparent; /* Transparent background */
-    color: #000e1d; /* Arrow color */
-    border: none; /* Border color */          
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 40px; /* Adjust the size of the arrows */
-    font-family: "Font Awesome 6 Free";  
-    font-weight: 800;
-    user-select: none;
-    padding-right: 0px;
-  }
+.subModleViewerHeader a
+{
+  text-decoration: none;  
+  color: inherit;      
+}
 
-  .headerBSnavul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-  }
-
-  .headerBSnavul li {
-    display: inline;
-  }
-
-  .headerBSnavul li a {
-    color: #00274E;
-    text-decoration: none;  
-  } 
-
-  .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding-right: 100px;
-    z-index: 1000;
-    box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
-    transition: box-shadow 1s;
-    .headerBSnavul {margin-right: 60px;};   
-    .sidenav-lines {margin-right: 55px;};
-  }
+.subModleViewerHeaderText
+{
+  padding: 75px;      
+}
 
 @media all and (max-width: 479px) 
 {
     .headerBSnavul{display: none;}
     header nav ul {display: none;}
 }
-  
+
