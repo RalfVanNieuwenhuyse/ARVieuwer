@@ -292,6 +292,19 @@ model-viewer > #ar-prompt > img {
       {
         display: block;
         margin: 0 auto;
+        height: 30px;
+        width: 60px;
+        background-color: #002855;
+        border: none;
+        color: white;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .popup-content button:hover 
+      {
+        background-color: #f0f3ff;
+        color: #00135c;
+        transition: background-color 0.3s, color 0.3s;        
       }
 
       .popup-content img 
