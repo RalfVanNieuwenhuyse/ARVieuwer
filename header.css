@@ -89,7 +89,7 @@ header nav ul li a {
   text-decoration: none;
   display: flex;
   height: 35px;
-  width: 100%;
+  /*width: 100%;*/
   align-items: center;
   background-color: rgb(249,249,251);
   padding-left: 30px;
