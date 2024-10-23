@@ -132,7 +132,7 @@
           <h class="hTitle" style="font-weight: 300;">Start experiencing your new patio cover in</h>
           <h1 class="hTitle" style="font-weight: 600;">  Augmented Reality</h1>
           <p class="pTitleText">With the Renson Outdoor AR experience, you can visualise the patio cover of your dreams. When you are happy and ready to buy contact one of our dealers in your area.</p>
-          <a class="grid-item-button pNTGrid buttonWelkom" href="#Products">Select product</a>
+          <a class="grid-item-button pNTGrid buttonWelkom" onclick="ScrollTo('Products')">Select product</a>
         </div>
       </div>
       <div class="grid-item-noShadow">
@@ -143,18 +143,18 @@
     <div style="margin: 30px;"></div>
 
     <!--Product-->
-    <div class="centerSeperator">
+    <div class="centerSeperator" id="Products">
       <h1 class="hCenterSeperator" style="font-weight: 600;">Our Products</h1>
       <p class="pCenterSeperator"> Select one of the Renson patio covers to start experiencing.</p>
     </div>
 
-    <div style="margin: 20px;"></div>
+    <div style="margin: 20px;" ></div>
 
     <!--grid-container-->
     <div class="grid-container-col">
 
       <!--Amani-->
-      <div class="grid-item" id="Products">
+      <div class="grid-item" >
         <div class="containerImageSlide">
           <div class="sliderImage-wrapper">
             <div class="innerImage-wrapper">                
@@ -353,6 +353,11 @@
           document.getElementById("header-placeholder").style.display = "none";         
         }
       }
+
+    function ScrollTo(idToScroll) {
+      const element = document.getElementById(idToScroll);
+      element.scrollIntoView({ behavior: "smooth", top: 0 });
+    }
 
   </script>    
 
