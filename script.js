@@ -60,7 +60,10 @@ setTimeout(function()
 }, time);
 
 window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(function() 
-  {openNav();},0)
+  if (!window.matchMedia("(max-width: 480px)").matches) {
+    setTimeout(function() 
+    {openNav();},0)    
+  }
+  
   
 });
