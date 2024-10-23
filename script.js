@@ -21,10 +21,11 @@ document.querySelector('model-viewer').addEventListener('progress', onProgress);
 
 function openNav() {  
   if (window.matchMedia("(max-width: 480px)").matches) {
-    document.getElementById("mySidenav").style.width = "100%"; //phone
+    document.getElementById("mySidenav").style.width = "100%"; //phone    
     
   } else {
     document.getElementById("mySidenav").style.width = "30%"; //pc
+    document.getElementById("Sidepush").style.marginLeft = "30%";
   }
   //https://stackoverflow.com/questions/54044739/how-can-i-define-a-variable-depending-on-the-width-of-the-screen
   document.getElementById("mySidenav").style.textWrap = "wrap";
@@ -32,6 +33,7 @@ function openNav() {
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("Sidepush").style.marginLeft = "30%";
   document.getElementById("mySidenav").style.textWrap = "nowrap";
 }
 
@@ -56,3 +58,9 @@ setTimeout(function()
   }, 1000); // Time to match the fade-out duration
 
 }, time);
+
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(function() 
+  {openNav();},0)
+  
+});

@@ -20,6 +20,32 @@
     .sidenav-lines {
       color: white;
     }
+    .subModleViewerHeader
+    {
+      text-decoration: none;
+      display: flex;
+      height: 35px;
+      width: 100%;
+      align-items: center;
+      background-color: rgb(249,249,251);
+      padding-left: 30px;
+      color: #002855;
+      font-size: 14px; 
+      
+    }
+
+    .subModleViewerHeader a
+    {
+      text-decoration: none;  
+      color: inherit;      
+    }
+
+    .subModleViewerHeaderText
+    {
+      padding: 75px;      
+    }
+
+    
     
     </style>
   </head>
@@ -28,12 +54,9 @@
 
     <header>
       <div class="logo"><a href="index.html"><img src="browser_assets/logo-renson-23.png"></a> </div>
-      <div class="logo" style="padding: 20px;"><img src="asset/Amani/logo-amani-white.svg" style="height: 30px;"></div>
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
           <li><a href="https://renson.net/en-gb/dealers">Find a dealer</a></li>
-          <li><a href="https://renson.net/en-us/products/pergolas/amani">Amani</a></li>
         </ul>
       </nav>
       <button class="phoneContent sidenav-lines" onclick="openNav2()">&#8801;</button>
@@ -47,6 +70,12 @@
           <a href="https://renson.net/en-gb/dealers">Find a dealer</a>
           <a href="https://renson.net/en-us/products/pergolas/amani">Amani</a>
       </div>
+    </div>
+
+    <div class="subModleViewerHeader">
+      <a href="index.html">&#10094; Back to website</a>
+      <div class="subModleViewerHeaderText" style="font-weight: bold; font-size: 16px;">Amani</div>
+
     </div>
 
     <!-- <model-viewer> HTML element -->
