@@ -16,7 +16,11 @@ const onProgress = (event) => {
     }
   }
 };
-document.querySelector('model-viewer').addEventListener('progress', onProgress);
+
+if(document.querySelector('model-viewer'))
+{
+  document.querySelector('model-viewer').addEventListener('progress', onProgress);
+}
 //https://github.com/google/model-viewer/discussions/4142
 
 function openNav() {  
@@ -40,7 +44,8 @@ function closeNav() {
 //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav
 
 var elementTime = document.getElementById('myTimeOut');
-// Set the time in milliseconds for fade-out
+if(elementTime)
+{// Set the time in milliseconds for fade-out
 var time = 3000;
 // Show the element by setting opacity to 1 and display block
 elementTime.style.display = 'block';
@@ -66,4 +71,4 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   
   
-});
+});}
