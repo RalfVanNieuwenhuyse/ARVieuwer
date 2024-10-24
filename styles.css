@@ -379,7 +379,7 @@ model-viewer > #ar-prompt > img {
         background-color: #002855;
         border: none;
         color: white;
-        border-radius: 5px;
+        /*border-radius: 5px;*/
         height: 25px;
         cursor: pointer;
 

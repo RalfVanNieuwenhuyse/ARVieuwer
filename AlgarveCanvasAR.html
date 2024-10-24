@@ -144,7 +144,7 @@
     <script>
       // JavaScript to handle model changes from the slider
       const modelViewer = document.getElementById('model-viewer');
-      const sliderItems = document.querySelectorAll('.slider-item img');
+      const sliderItems = document.querySelectorAll('.slider-item');
     
       const loadModelInfo = (modelFile) => 
       {
@@ -194,7 +194,12 @@
         sliderItems.forEach(i => i.classList.remove('active'));
         item.classList.add('active');
 
-        const selectedModel = item.parentElement.getAttribute('data-model');
+        let selectedModel = item.getAttribute('data-model');
+        if(!selectedModel)
+        {
+          selectedModel = item.parentElement.getAttribute('data-model');
+          item.parentElement.classList.add('active');          
+        }
         modelViewer.src = selectedModel;
 
         // Determine the JSON file based on the selected model
