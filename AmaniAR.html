@@ -132,7 +132,7 @@
       <!--<div class="deskContent"><button id="prev" class="nav-arrow">&#10094;</button></div>-->
     <div class="slider-container">
       <div class="slider-item" data-model="asset/Amani/ZeroErrorsModel.gltf">
-        <img src="asset/Amani/ZeroErrorsModel.webp" alt="ZeroErrorsModel"></div>
+        <img src="asset/Amani/ZeroErrorsModel.webp" alt="ZeroErrorsModel">TEST</div>
 
       <div class="slider-item" data-model="asset/Amani/OpenBlackGlass.gltf">
         <img src="asset/Amani/OpenBlackGlass.webp" alt="OpenBlackGlass"></div> 
@@ -178,7 +178,7 @@
     <script>
       // JavaScript to handle model changes from the slider
       const modelViewer = document.getElementById('model-viewer');
-      const sliderItems = document.querySelectorAll('.slider-item img');
+      const sliderItems = document.querySelectorAll('.slider-item');
     
       const loadModelInfo = (modelFile) => 
       {
@@ -228,7 +228,15 @@
         sliderItems.forEach(i => i.classList.remove('active'));
         item.classList.add('active');
 
-        const selectedModel = item.parentElement.getAttribute('data-model');
+        let selectedModel = item.getAttribute('data-model');
+        if(!selectedModel)
+        {
+          selectedModel = item.parentElement.getAttribute('data-model');
+          item.parentElement.classList.add('active');
+          
+        }
+
+
         modelViewer.src = selectedModel;
 
         // Determine the JSON file based on the selected model
@@ -304,7 +312,7 @@
         const nextButton = document.getElementById('next');
         const sliderContainer = document.querySelector('.slider-container');
 
-        prevButton.addEventListener('click', () => {
+        /*prevButton.addEventListener('click', () => {
           // Scroll left by 200 pixels (you can adjust this value)
           sliderContainer.scrollBy({
           top: 0,
@@ -320,7 +328,7 @@
         left: 200,
         behavior: 'smooth'
         });
-        });
+        });*/
       
       const customDiv = document.querySelector('#custom-div');
       const checkARSupport = async () => {
