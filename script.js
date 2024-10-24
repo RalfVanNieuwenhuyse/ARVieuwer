@@ -25,7 +25,7 @@ function openNav() {
     
   } else {
     document.getElementById("mySidenav").style.width = "30%"; //pc
-    document.getElementById("Sidepush").style.marginLeft = "30%";
+    //document.getElementById("Sidepush").style.marginLeft = "30%";
   }
   //https://stackoverflow.com/questions/54044739/how-can-i-define-a-variable-depending-on-the-width-of-the-screen
   document.getElementById("mySidenav").style.textWrap = "wrap";

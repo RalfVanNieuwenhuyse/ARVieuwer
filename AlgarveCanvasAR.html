@@ -221,11 +221,25 @@
           featuresList.appendChild(defaultFeature);
         }
       };
+
+      function IsARPosible()
+      {        
+        let customDiv = document.querySelector('#custom-div');
+        const isARSupported = modelViewer.canActivateAR;
+        if (!isARSupported)
+        {
+          customDiv.style.display = 'block';
+        } 
+        else 
+        {
+          customDiv.style.display = 'none';
+        }
+      }
     
       // Set the first model as active when the page loads
       window.addEventListener('DOMContentLoaded', () => {
         setActiveModel(sliderItems[0]); // Set first slider item as active
-        setTimeout();
+        IsARPosible();
       });
     
       // Add click event to each slider item

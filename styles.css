@@ -21,7 +21,6 @@ model-viewer {
   background-color: #ffffff;
 }
 
-
 .progress-bar {
   display: block;
   width: 35%;
@@ -202,6 +201,7 @@ model-viewer > #ar-prompt > img {
   color: #002855;
   border-radius: 10px;
   text-align: center;
+  font-size: 12px;
 }
 
 .slider-item.active
@@ -382,6 +382,7 @@ img
   /*border-radius: 5px;*/
   height: 25px;
   cursor: pointer;
+  z-index: 3;
 
   position: absolute;
   left: 50%;
