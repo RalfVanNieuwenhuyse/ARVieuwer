@@ -53,7 +53,7 @@
 
     <!-- <model-viewer> HTML element -->
     <model-viewer id="model-viewer" src="asset/Amani/ZeroErrorsModel.gltf" ar ar-modes="webxr quick-look"
-                  camera-controls interaction-prompt="none" tone-mapping="neutral" 
+                  camera-controls interaction-prompt="auto" tone-mapping="neutral" 
                   shadow-intensity="2"
                   shadow-softness="1"
                   orientation="0 0 180deg" 
@@ -271,14 +271,14 @@
       window.addEventListener('progressComplete', (e) => {
         console.log(e.detail.message); // Log message: 'Progress is complete!'
         // Trigger IsARPosible when the event is received
-        console.log("hello");
-        IsARPosible();
+        //console.log("hello");
+        //IsARPosible();
       });
 
       function IsARPosible() {
         let customDiv = document.querySelector('#custom-div');
         const isARSupported = modelViewer.canActivateAR;
-        console.log("hello2");
+        //console.log("hello2");
 
         if (!isARSupported) {
           customDiv.style.display = 'block';
