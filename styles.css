@@ -287,7 +287,7 @@ model-viewer > #ar-prompt > img {
   background-color: white;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888888;
+  border: 5px solid #002855;
   width: 20%;
   font-weight: bolder;
   border-radius: 30px;
