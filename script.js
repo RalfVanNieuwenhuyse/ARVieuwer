@@ -8,6 +8,10 @@ const onProgress = (event) => {
     updatingBar.style.width = '0%';
   } else {
     updatingBar.style.width = `${event.detail.totalProgress * 100}%`; // Fixed template string
+    const progressCompleteEvent = new CustomEvent('progressComplete', {
+      detail: { message: 'Progress is complete!' }
+    });
+    event.target.dispatchEvent(progressCompleteEvent);
 
     if (event.detail.totalProgress === 1) {
       setTimeout(() => {
@@ -20,6 +24,7 @@ const onProgress = (event) => {
         event.target.dispatchEvent(progressCompleteEvent); // Dispatch the event
 
       }, 500);
+      
     }
   }
 };

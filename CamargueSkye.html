@@ -74,6 +74,10 @@
           <img src="ar_hand_prompt.png">
       </div>
 
+      <div class="deskContent" id="custom-div">
+        <button class="RensonButton" id="myButton">View in your space</button>        
+      </div>
+
       <div class="phoneContent">
         <div class="warningbox" id="myTimeOut">
           <div style="text-align:center">
@@ -238,14 +242,16 @@
       };
 
       window.addEventListener('progressComplete', (e) => {
-        console.log(e.detail.message); // Log message: 'Progress is complete!'
+        //console.log(e.detail.message); // Log message: 'Progress is complete!'
         // Trigger IsARPosible when the event is received
+        console.log("hello");
         IsARPosible();
       });
 
       function IsARPosible() {
         let customDiv = document.querySelector('#custom-div');
         const isARSupported = modelViewer.canActivateAR;
+        console.log("hello");
 
         if (!isARSupported) {
           customDiv.style.display = 'block';
@@ -293,7 +299,7 @@
             }
         );
 
-        const prevButton = document.getElementById('prev');
+        /*const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
         const sliderContainer = document.querySelector('.slider-container');
 
@@ -313,7 +319,7 @@
         left: 200,
         behavior: 'smooth'
         });
-        });
+        });*/
       
       const customDiv = document.querySelector('#custom-div');
       const checkARSupport = async () => {

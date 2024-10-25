@@ -241,12 +241,14 @@
       window.addEventListener('progressComplete', (e) => {
         console.log(e.detail.message); // Log message: 'Progress is complete!'
         // Trigger IsARPosible when the event is received
+        console.log("hello");
         IsARPosible();
       });
 
       function IsARPosible() {
         let customDiv = document.querySelector('#custom-div');
         const isARSupported = modelViewer.canActivateAR;
+        console.log("hello2");
 
         if (!isARSupported) {
           customDiv.style.display = 'block';
@@ -295,7 +297,7 @@
             }
         );
 
-        const prevButton = document.getElementById('prev');
+        /*const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
         const sliderContainer = document.querySelector('.slider-container');
 
@@ -315,7 +317,7 @@
         left: 200,
         behavior: 'smooth'
         });
-        });
+        });*/
       
       const customDiv = document.querySelector('#custom-div');
       const checkARSupport = async () => {

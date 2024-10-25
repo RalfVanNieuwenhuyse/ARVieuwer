@@ -221,7 +221,7 @@
       window.addEventListener('progressComplete', (e) => {
         console.log(e.detail.message); // Log message: 'Progress is complete!'
         // Trigger IsARPosible when the event is received
-        IsARPosible();
+        //IsARPosible();
       });
 
       function IsARPosible() {
@@ -239,7 +239,7 @@
       // Set the first model as active when the page loads
       window.addEventListener('DOMContentLoaded', () => {
         setActiveModel(sliderItems[0]); // Set first slider item as active
-        IsARPosible();
+        //IsARPosible();
       });
     
       // Add click event to each slider item
@@ -274,11 +274,11 @@
             }
         );
 
-        const prevButton = document.getElementById('prev');
+        /*const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
-        const sliderContainer = document.querySelector('.slider-container');
+        const sliderContainer = document.querySelector('.slider-container');*/
 
-        prevButton.addEventListener('click', () => {
+        /*prevButton.addEventListener('click', () => {
           // Scroll left by 200 pixels (you can adjust this value)
           sliderContainer.scrollBy({
           top: 0,
@@ -294,7 +294,7 @@
         left: 200,
         behavior: 'smooth'
         });
-        });
+        });*/
       
       const customDiv = document.querySelector('#custom-div');
       const checkARSupport = async () => {
