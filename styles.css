@@ -121,7 +121,7 @@ model-viewer > #ar-prompt > img {
   overflow-x: hidden;
   transition: 0.15s;
   padding-top: 30px;
-  z-index: 3;
+  z-index: 3;  
 }
 
 .sidenav .closebtn {
@@ -133,7 +133,7 @@ model-viewer > #ar-prompt > img {
   font-family: "Lato", sans-serif;
 }
 
-.sidenav a {
+.sidenavLink {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -142,7 +142,7 @@ model-viewer > #ar-prompt > img {
   transition: 0.3s;
 }
 
-.sidenav a:hover {
+.sidenavLink:hover {
   color: #0023ac;
 }
 

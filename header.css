@@ -106,7 +106,8 @@ header nav ul li a {
 
 .subModleViewerHeaderText
 {
-  padding: 75px;      
+  padding-left: 75px; 
+  padding-right: 75px;     
 }
 
 @media all and (max-width: 479px) 

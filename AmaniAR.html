@@ -17,10 +17,48 @@
     <meta name="theme-color" content="#ffffff">
 
     <style> 
+    .bottom
+    {
+      margin-top: auto;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      width: 90%;     
+      position: absolute;
+      bottom: 30px;
+    }
+
+    .pNTGrid
+    {
+      font-size: 15px;
+      margin-top: 5px;
+      color: white;
+    }
+
+    .SideNav-button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #00135c;
+      text-decoration: none;
+      color: white;
+      font-weight: bold; 
+      height: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .SideNav-button:hover {
+      text-decoration: none;          
+      background-color: #f0f3ff;
+      color: #00135c;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
     .sidenav-lines {
       color: white;
     }
-    
     </style>
   </head>
 
@@ -37,12 +75,12 @@
     </header>
 
     <div id="mySidenav2" class="sidenav" style="right: 0; left: auto;">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn sidenavLink" onclick="closeNav2()">&times;</a>
       <div id="model-info" class="sidenav-Infobox">
-          <a href="index.html">Home</a>
-          <a href="https://renson.net/en-gb">Renson website</a>
-          <a href="https://renson.net/en-gb/dealers">Find a dealer</a>
-          <a href="https://renson.net/en-us/products/pergolas/amani">Amani</a>
+          <a href="index.html" class="sidenavLink">Home</a>
+          <a href="https://renson.net/en-gb" class="sidenavLink">Renson website</a>
+          <a href="https://renson.net/en-gb/dealers" class="sidenavLink">Find a dealer</a>
+          <a href="https://renson.net/en-us/products/pergolas/amani" class="sidenavLink">Amani</a>
       </div>
     </div>
 
@@ -87,14 +125,20 @@
       </div>
 
       <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" class="closebtn sidenavLink" onclick="closeNav()">&times;</a>
         <div id="model-info" class="sidenav-Infobox">
           <h2 class="sidenavtext" id="model-title"></h2>
           <p style="margin-top: 2px;" id="model-description"></p>
           <p class="sidenavtext"><strong>Dimensions:</strong> <span id="model-dimensions"></span></p>
           <p class="sidenavtext"><strong>Features:</strong></p>
           <ul style="margin-top: 2px;" id="model-features"></ul>
+          
         </div>
+        <div class="bottom">
+          <a class="SideNav-button pNTGrid" id="PopupButton2">Visualise product in AR</a>
+          <a class="SideNav-button pNTGrid" href="https://renson.net/en-gb/dealers">Find a dealer</a>
+        </div>
+       
       </div>
       <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
       <button class="sidenav-arrow" onclick="openNav()">&#10095;</button>
@@ -300,6 +344,13 @@
           setActiveModel(event.target);
         });
       });
+      
+      PopupButton2.addEventListener(
+        "click",
+            function () {
+                myPopup.classList.add("show");
+            }
+      );
 
       myButton.addEventListener(
             "click",
