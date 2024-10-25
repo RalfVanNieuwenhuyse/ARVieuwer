@@ -219,16 +219,20 @@
         }
       };
 
-      function IsARPosible()
-      {        
+      window.addEventListener('progressComplete', (e) => {
+        console.log(e.detail.message); // Log message: 'Progress is complete!'
+        // Trigger IsARPosible when the event is received
+        IsARPosible();
+      });
+
+      function IsARPosible() {
         let customDiv = document.querySelector('#custom-div');
         const isARSupported = modelViewer.canActivateAR;
-        if (!isARSupported)
-        {
+
+        if (!isARSupported) {
           customDiv.style.display = 'block';
         } 
-        else 
-        {
+        else {
           customDiv.style.display = 'none';
         }
       }

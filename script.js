@@ -7,15 +7,23 @@ const onProgress = (event) => {
     progressBar.style.display = 'block';
     updatingBar.style.width = '0%';
   } else {
-    updatingBar.style.width = `${event.detail.totalProgress * 100}%`;
+    updatingBar.style.width = `${event.detail.totalProgress * 100}%`; // Fixed template string
 
     if (event.detail.totalProgress === 1) {
       setTimeout(() => {
         progressBar.style.display = 'none';
+
+        // Dispatch a custom event when the progress is complete
+        const progressCompleteEvent = new CustomEvent('progressComplete', {
+          detail: { message: 'Progress is complete!' }
+        });
+        event.target.dispatchEvent(progressCompleteEvent); // Dispatch the event
+
       }, 500);
     }
   }
 };
+
 
 if(document.querySelector('model-viewer'))
 {

@@ -238,16 +238,20 @@
         }
       };
 
-      function IsARPosible()
-      {        
+      window.addEventListener('progressComplete', (e) => {
+        console.log(e.detail.message); // Log message: 'Progress is complete!'
+        // Trigger IsARPosible when the event is received
+        IsARPosible();
+      });
+
+      function IsARPosible() {
         let customDiv = document.querySelector('#custom-div');
         const isARSupported = modelViewer.canActivateAR;
-        if (!isARSupported)
-        {
+
+        if (!isARSupported) {
           customDiv.style.display = 'block';
         } 
-        else 
-        {
+        else {
           customDiv.style.display = 'none';
         }
       }
@@ -255,7 +259,7 @@
       // Set the first model as active when the page loads
       window.addEventListener('DOMContentLoaded', () => {
         setActiveModel(sliderItems[0]); // Set first slider item as active
-        IsARPosible();        
+        //IsARPosible();        
         //setTimeout();        
       });
     
