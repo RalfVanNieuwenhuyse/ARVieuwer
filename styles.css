@@ -202,12 +202,15 @@ model-viewer > #ar-prompt > img {
   border-radius: 10px;
   text-align: center;
   font-size: 12px;
+  transition: background-color 0.5s, color 0.5s;
 }
 
 .slider-item.active
 {
   background-color: #00274E;
   color: white;
+  transition: background-color 0.5s, color 0.5s;
+  
 }
       
 .slider-item img
