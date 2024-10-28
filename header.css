@@ -114,5 +114,6 @@ header nav ul li a {
 {
     .headerBSnavul{display: none;}
     header nav ul {display: none;}
+    .subModleViewerHeaderText{padding-right: 60px;}
 }
 
