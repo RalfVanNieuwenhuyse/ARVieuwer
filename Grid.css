@@ -6,7 +6,7 @@
   background-color: white;
   padding: 10px;
   margin: 0 auto;
-  width: 75%;
+  width: 70%;
 }
 
 .grid-container-row {
@@ -242,4 +242,9 @@
     position: relative;
     top: 30%;
     transform: translateY(-30%);
+}
+
+@media all and (max-width: 479px) 
+{
+  .grid-container-col{width: 75%;}
 }
