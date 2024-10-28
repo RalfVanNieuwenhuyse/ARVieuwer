@@ -219,13 +219,13 @@ model-viewer > #ar-prompt > img {
   height: 70px;
   object-fit: cover;
   border-radius: 10px;
-  background-color: inherit; /* Default transparent background */
+  background-color: transparent; /* Default transparent background */
   padding: 5px; /* Add some padding to the images */
 }
 
 .slider-item img.active 
 {
-  background-color: inherit; /* Blue background for active image */
+  background-color: transparent; /* Blue background for active image */
   border-radius: 8px; /* Keep the rounded corners */
 }
 
