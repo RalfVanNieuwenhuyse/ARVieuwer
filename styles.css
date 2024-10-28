@@ -51,7 +51,7 @@ model-viewer {
 }
 
 #ar-button {
-  background-image: url(ar_icon_w.png);
+  background-image: url(ar_icon_R.png);
   background-repeat: no-repeat;
   background-size: 20px 20px;
   background-position: 12px 50%;
@@ -64,12 +64,12 @@ model-viewer {
   padding: 0px 16px 0px 40px;
   font-family: Roboto Regular, Helvetica Neue, sans-serif;
   font-size: 14px;
-  color:#4285f4;
+  color:#002855;
   height: 36px;
   line-height: 36px;
-  border-radius: 18px;
+  /*border-radius: 18px;*/
   border: 1px solid #DADCE0;
-  filter: brightness(0) saturate(100%) invert(11%) sepia(56%) saturate(2766%) hue-rotate(191deg) brightness(99%) contrast(106%);
+  /*filter: brightness(0) saturate(100%) invert(11%) sepia(56%) saturate(2766%) hue-rotate(191deg) brightness(99%) contrast(106%);*/
 }
 
 #ar-button:active {
