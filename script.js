@@ -50,7 +50,7 @@ function openNav() {
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("Sidepush").style.marginLeft = "30%";
+  /*document.getElementById("Sidepush").style.marginLeft = "30%";*/
   document.getElementById("mySidenav").style.textWrap = "nowrap";
 }
 
