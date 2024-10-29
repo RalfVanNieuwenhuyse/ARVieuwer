@@ -203,6 +203,7 @@ model-viewer > #ar-prompt > img {
   border-radius: 10px;
   text-align: center;
   font-size: 12px;
+  padding-bottom: 4px;
   transition: background-color 0.5s, color 0.5s;
 }
 
