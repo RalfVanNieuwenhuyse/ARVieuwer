@@ -4,9 +4,15 @@
   gap: 50px;
   grid-template-columns: 1fr 1fr;
   background-color: white;
-  padding: 10px;
+  /*padding: 10px;*/
   margin: 0 auto;
-  width: 70%;
+  /*width: 70%;*/
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto; 
+
 }
 
 .grid-container-row {
