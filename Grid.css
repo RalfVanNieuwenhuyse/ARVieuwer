@@ -254,6 +254,11 @@
   .grid-container-col{width: 75%;}
 }
 
+@media all and (max-width: 1400px) 
+{
+  .grid-container-col{max-width: 1320px;}
+}
+
 @media all and (max-width: 1200px) 
 {
   .grid-container-col{max-width: 1140px;}
