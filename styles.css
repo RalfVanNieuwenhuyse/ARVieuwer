@@ -175,7 +175,7 @@ model-viewer > #ar-prompt > img {
 .sidenav-Infobox
 {
   padding: 10px;
-  padding-left: 15px;
+  padding-left: 25px;
 }
 
 .sidenavtext
@@ -203,7 +203,9 @@ model-viewer > #ar-prompt > img {
   border-radius: 10px;
   text-align: center;
   font-size: 12px;
-  padding-bottom: 4px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
   transition: background-color 0.5s, color 0.5s;
 }
 
@@ -222,7 +224,7 @@ model-viewer > #ar-prompt > img {
   object-fit: cover;
   border-radius: 10px;
   background-color: transparent; /* Default transparent background */
-  padding: 5px; /* Add some padding to the images */
+  /*padding: 5px; /* Add some padding to the images */
 }
 
 .slider-item img.active 
