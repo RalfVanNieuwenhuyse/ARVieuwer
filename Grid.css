@@ -4,14 +4,9 @@
   gap: 50px;
   grid-template-columns: 1fr 1fr;
   background-color: white;
-  /*padding: 10px;*/
+  padding: 10px;
   margin: 0 auto;
-  /*width: 70%;*/
-  padding-right: 3rem !important;
-  padding-left: 3rem !important;  
-  margin-right: auto;
-  margin-left: auto; 
-  /*max-width: 960px;*/
+  width: 70%;
 }
 
 .grid-container-row {
@@ -252,29 +247,4 @@
 @media all and (max-width: 479px) 
 {
   .grid-container-col{width: 75%;}
-}
-
-@media all and (max-width: 1400px) 
-{
-  .grid-container-col{max-width: 1320px;}
-}
-
-@media all and (max-width: 1200px) 
-{
-  .grid-container-col{max-width: 1140px;}
-}
-
-@media all and (max-width: 992px) 
-{
-  .grid-container-col{max-width: 960px;}
-}
-
-@media all and (max-width: 768px) 
-{
-  .grid-container-col{max-width: 720px;}
-}
-
-@media all and (max-width: 576px) 
-{
-  .grid-container-col{max-width: 540px;}
 }
