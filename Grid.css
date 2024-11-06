@@ -1,12 +1,18 @@
 .grid-container-col 
 {
   display: grid;
-  gap: 50px;
+  row-gap: 50px;
+  column-gap: 5%;
   grid-template-columns: 1fr 1fr;
   background-color: white;
   padding: 10px;
   margin: 0 auto;
-  width: 70%;
+  /*width: 70%;*/
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;  
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 70%;
 }
 
 .grid-container-row {
@@ -258,4 +264,29 @@
 @media all and (max-width: 479px) 
 {
   .grid-container-col{width: 75%;}
+}
+
+@media all and (max-width: 576px) and (min-width: 480px)
+{
+  .grid-container-col{max-width: 540px;}
+}
+
+@media all and (max-width: 768px) and (min-width: 577px)
+{
+  .grid-container-col{max-width: 720px;}
+}
+
+@media all and (max-width: 992px) and (min-width: 769px)
+{
+  .grid-container-col{max-width: 960px;}
+}
+
+@media all and (max-width: 1200px) and (min-width: 993px)
+{
+  .grid-container-col{max-width: 1140px;}
+}
+
+@media all and (max-width: 1400px) and (min-width: 1201px)
+{
+  .grid-container-col{max-width: 1320px;}
 }
