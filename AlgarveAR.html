@@ -17,6 +17,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <style> 
+    @import url("variables.css");
     .bottom
     {
       margin-top: auto;
@@ -33,7 +34,7 @@
     {
       font-size: 15px;
       margin-top: 5px;
-      color: white;
+      color: var(--Text-white);
     }
 
     .SideNav-button {
@@ -41,9 +42,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #00135c;
+      background-color: var(--Button-blue-color);
       text-decoration: none;
-      color: white;
+      color: var(--Text-white);
       font-weight: bold; 
       height: 30px;
       font-weight: 600;
@@ -53,13 +54,13 @@
 
     .SideNav-button:hover {
       text-decoration: none;          
-      background-color: #f0f3ff;
+      background-color: var(--Light-blue-bg-color);
       color: #00135c;
       transition: background-color 0.3s, color 0.3s;
     }
 
     .sidenav-lines {
-      color: white;
+      color: var(--Text-white);
     }
     .relativeposdiv
     {

@@ -1,10 +1,12 @@
+@import url("variables.css");
+
 .grid-container-col 
 {
   display: grid;
   row-gap: 50px;
   column-gap: 5%;
   grid-template-columns: 1fr 1fr;
-  background-color: white;
+  background-color: var(--Default-bg-color);
   padding: 10px;
   margin: 0 auto;
   /*width: 70%;*/
@@ -19,13 +21,13 @@
   display: grid;
   gap: 10px;
   grid-template-rows: auto;      
-  background-color: white;
+  background-color: var(--Default-bg-color);
   padding: 10px;
 }
 
 .grid-item 
 {
-  background-color: white;  
+  background-color: var(--Default-bg-color);  
   padding: 0;
   font-size: 30px;          
   width: 100%;
@@ -36,7 +38,7 @@
 
 .grid-item-noShadow 
 {
-  background-color: white;  
+  background-color: var(--Default-bg-color);  
   padding: 0;
   font-size: 30px;          
   width: 100%;          
@@ -69,7 +71,7 @@
   font-size: 24px;
   margin-top: 16px;
   margin-bottom: 19px;
-  color: #002855;
+  color: var(--Renson-blue-color);
   font-weight: 600;
 }
 
@@ -77,7 +79,7 @@
 {
   font-size: 14px;
   margin-top: 5px;
-  color: #002855;
+  color: var(--Renson-blue-color);
 }
 
 .pBloderInf
@@ -98,7 +100,7 @@
     padding-left: 38px;
     margin-bottom: 12px;
     /*font-weight: 600;*/
-    color: #002855;
+    color: var(--Renson-blue-color);
 }
 
 .check li::before {
@@ -176,7 +178,7 @@
   top: 50%;
   transform: translateY(-50%);
   background-color: transparent; 
-  color: #000e1d;
+  color: var(--Arrow-color);
   border: none;           
   cursor: pointer; 
   font-size: 30px;          
@@ -190,12 +192,12 @@
   .ImageSlidebutton
   {
     background-color: #ffffffaa;
-    color: #000e1d;
+    color: var(--Arrow-color);
   };
   .ImageSlidebutton:hover
   {
-    background-color: #00135c;
-    color: white;
+    background-color: var(--Button-blue-color);
+    color: var(--Text-white);
   };
 }
 
@@ -216,9 +218,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #00135c;
+  background-color: var(--Button-blue-color);
   text-decoration: none;
-  color: white;
+  color: var(--Text-white);
   font-weight: bold; 
   height: 30px;
   font-weight: 600;
@@ -228,8 +230,8 @@
 
 .grid-item-button:hover {
   text-decoration: none;          
-  background-color: #f0f3ff;
-  color: #00135c;
+  background-color: var(--Light-blue-bg-color);
+  color: var(--Button-blue-color);
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -238,7 +240,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: var(--Default-bg-color);
   text-decoration: none;
   color: black;
   font-weight: bold; 

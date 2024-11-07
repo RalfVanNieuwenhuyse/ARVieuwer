@@ -19,6 +19,8 @@
 
     
     <style> 
+        @import url("variables.css");
+
         .hWelcome
         {
           color:#6774A6;
@@ -27,14 +29,14 @@
 
         .hTitle
         {
-          color:#002855;
+          color: var(--Renson-blue-color);
           font-size: 40px;
           margin: 0;
         }
 
         .pTitleText
         {
-          color:#002855;
+          color: var(--Renson-blue-color);
           font-size: 14px;          
         }
 
@@ -46,7 +48,7 @@
 
         .hCenterSeperator
         {
-          color:#002855;
+          color: var(--Renson-blue-color);
           font-size: 30px;
           margin: 0;          
         }
@@ -67,13 +69,13 @@
         }
 
         header {          
-          background-color: white;
-          color: #00274E; 
+          background-color: var(--Default-bg-color);
+          color: var(--Renson-blue-color); 
           transition: box-shadow 0.5s;         
         }
 
         header .logo img {
-          filter: brightness(0) saturate(100%) invert(11%) sepia(56%) saturate(2766%) hue-rotate(191deg) brightness(99%) contrast(106%);
+          filter: var(--Renson-blue-filter);
         }
 
         .sidenav {

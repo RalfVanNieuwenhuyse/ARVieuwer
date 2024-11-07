@@ -1,3 +1,5 @@
+@import url("variables.css");
+
 :not(:defined) > * {
   display: none;
 }
@@ -8,6 +10,7 @@ html {
 }
 
 body {
+  background-color: var(--Default-bg-color);
     margin: 0;
     padding: 0;
     width: 100%;
@@ -18,7 +21,7 @@ body {
 model-viewer {
   width: 100%;
   height: 70%;
-  background-color: #ffffff;
+  background-color: var(--Default-bg-color);
 }
 
 .progress-bar {
@@ -42,7 +45,7 @@ model-viewer {
 }
 
 .update-bar {
-  background-color: #00274e;
+  background-color: var(--Renson-blue-color);
   width: 0%;
   height: 100%;
   border-radius: 25px;
@@ -55,7 +58,7 @@ model-viewer {
   background-repeat: no-repeat;
   background-size: 20px 20px;
   background-position: 12px 50%;
-  background-color: #fff;
+  background-color: var(--Default-bg-color);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -64,7 +67,7 @@ model-viewer {
   padding: 0px 16px 0px 40px;
   font-family: Roboto Regular, Helvetica Neue, sans-serif;
   font-size: 14px;
-  color:#002855;
+  color:var(--Renson-blue-color);
   height: 36px;
   line-height: 36px;
   /*border-radius: 18px;*/
@@ -118,7 +121,7 @@ model-viewer > #ar-prompt > img {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #f0f3ff;
+  background-color: var(--Light-blue-bg-color);
   overflow-x: hidden;
   transition: 0.15s;
   padding-top: 30px;
@@ -138,7 +141,7 @@ model-viewer > #ar-prompt > img {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #002855;
+  color: var(--Renson-blue-color);
   display: block;
   transition: 0.3s;
 }
@@ -149,7 +152,7 @@ model-viewer > #ar-prompt > img {
 
 .sidenav-arrow {
   background-color: transparent; /* Transparent background */
-  color: #000e1d; /* Arrow color */
+  color: var(--Arrow-color); /* Arrow color */
   border: none; /* Border color */
   /*border-radius: 5px; /* Slightly rounded corners */
   border-top-right-radius: 5px;
@@ -168,8 +171,8 @@ model-viewer > #ar-prompt > img {
 
 .sidenav-arrow:hover
 {
-  background-color: #00135c; /* Change background on hover */
-  color: white; /* Change arrow color on hover */
+  background-color: var(--Button-blue-color); /* Change background on hover */
+  color: var(--Text-white); /* Change arrow color on hover */
 }
 
 .sidenav-Infobox
@@ -198,8 +201,8 @@ model-viewer > #ar-prompt > img {
   display: inline-block; /* Make each item inline to stay in a single row */
   margin: 0 10px;
   cursor: pointer;
-  background-color: white;
-  color: #002855;
+  background-color: var(--Default-bg-color);
+  color: var(--Renson-blue-color);
   border-radius: 10px;
   text-align: center;
   font-size: 12px;
@@ -211,8 +214,8 @@ model-viewer > #ar-prompt > img {
 
 .slider-item.active
 {
-  background-color: #00274E;
-  color: white;
+  background-color: var(--Renson-blue-color);
+  color: var(--Text-white);
   transition: background-color 0.5s, color 0.5s;
   
 }
@@ -251,14 +254,14 @@ model-viewer > #ar-prompt > img {
   display: flex;
   align-items: center; /* Center the arrows vertically */
   justify-content: center; /* Center the whole container */
-  background-color: #f0f3ff; /* Match the background of the slider container */
+  background-color: var(--Light-blue-bg-color); /* Match the background of the slider container */
   padding: 10px; /* Add padding for better spacing */
   /*border-top: 10px solid #002855; /* Top border to match the slider */
 }
 
 .nav-arrow {
   background-color: transparent; /* Transparent background */
-  color: #000e1d; /* Arrow color */
+  color: var(--Arrow-color); /* Arrow color */
   border: none; /* Border color */
   border-radius: 5px; /* Slightly rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
@@ -272,8 +275,8 @@ model-viewer > #ar-prompt > img {
 
 .nav-arrow:hover
 {
-  background-color: #00135c; /* Change background on hover */
-  color: white; /* Change arrow color on hover */
+  background-color: var(--Button-blue-color); /* Change background on hover */
+  color: var(--Text-white); /* Change arrow color on hover */
 }
 
 .popup 
@@ -295,10 +298,10 @@ model-viewer > #ar-prompt > img {
 
 .popup-content 
 {
-  background-color: white;
+  background-color: var(--Default-bg-color);
   margin: auto;
   padding: 20px;
-  border: 3px solid #002855;
+  border: 3px solid var(--Renson-blue-color);
   width: 20%;
   font-weight: bolder;
   border-radius: 30px;
@@ -316,17 +319,17 @@ model-viewer > #ar-prompt > img {
   margin: 0 auto;
   height: 30px;
   width: 75%;
-  background-color: #002855;
+  background-color: var(--Renson-blue-color);
   border: none;
-  color: white;
+  color: var(--Text-white);
   transition: background-color 0.3s, color 0.3s;
   margin-top: 10px;
 }
 
 .popup-content button:hover 
 {
-  background-color: #f0f3ff;
-  color: #00135c;
+  background-color: var(--Light-blue-bg-color);
+  color: var(--Button-blue-color);
   transition: background-color 0.3s, color 0.3s;        
 }
 
@@ -378,22 +381,22 @@ img
 
 .hRT 
 { 
-  color: #00274E;        
+  color: var(--Renson-blue-color);        
 }
 
 .BackgroundGrey
 {
-  border-top: 5px solid #002855;
-  background-color: #f0f3ff;
+  border-top: 5px solid var(--Renson-blue-color);
+  background-color: var(--Light-blue-bg-color);
   height: 20%;
 }
 
 .RensonButton
 {
   font-size: 14px;
-  background-color: #002855;
+  background-color: var(--Renson-blue-color);
   border: none;
-  color: white;
+  color: var(--Text-white);
   /*border-radius: 5px;*/
   height: 25px;
   cursor: pointer;
@@ -412,8 +415,8 @@ img
 
 .RensonButton:hover
 {
-  background-color: #f0f3ff;
-  color: #00135c;
+  background-color: var(--Light-blue-bg-color);
+  color: var(--Button-blue-color);
   transition: background-color 0.3s, color 0.3s;
 }
 
