@@ -324,6 +324,7 @@ model-viewer > #ar-prompt > img {
   color: var(--Text-white);
   transition: background-color 0.3s, color 0.3s;
   margin-top: 10px;
+  font-weight: 600;
 }
 
 .popup-content button:hover 
