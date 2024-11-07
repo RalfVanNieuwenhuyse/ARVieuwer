@@ -270,25 +270,25 @@
 
 @media all and (min-width: 576px)
 {
-  .grid-container-col{max-width: 540px;}
+  .grid-container-col{max-width: 540px; width:442px;}
 }
 
 @media all and (min-width: 768px)
 {
-  .grid-container-col{max-width: 720px;}
+  .grid-container-col{max-width: 720px; width:608px;}
 }
 
 @media all and (min-width: 992px)
 {
-  .grid-container-col{max-width: 960px;}
+  .grid-container-col{max-width: 960px; width:840px;}
 }
 
 @media all and (min-width: 1200px)
 {
-  .grid-container-col{max-width: 1140px;}
+  .grid-container-col{max-width: 1140px; width:1028px;}
 }
 
 @media all and (min-width: 1400px)
 {
-  .grid-container-col{max-width: 1320px;}
+  .grid-container-col{max-width: 1320px; width:1208px;}
 }
