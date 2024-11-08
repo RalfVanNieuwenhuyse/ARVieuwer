@@ -334,7 +334,7 @@
           container.find('.nextImage').on('click', function(){
             inWrap.animate({left:'-200%'},ANiTime,function(){
               inWrap.css('left','-100%');
-              inWrap.find('.slideImage').last().before(inWrap.find('.slideImage').first());
+              inWrap.find('.slideImage').last().after(inWrap.find('.slideImage').first());
             });
           });
         });
