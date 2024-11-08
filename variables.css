@@ -2,7 +2,7 @@
 {
     --Renson-blue-color: #002855;
     --Light-blue-bg-color: #f0f3ff;
-    --Button-blue-color: #00135c;
+    --Button-blue-color: /*#00135c*/ var(--Renson-blue-color);
     --Text-white: white;
     --Arrow-color: #000e1d;
     --Default-bg-color: white;

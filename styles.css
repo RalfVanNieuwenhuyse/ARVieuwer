@@ -23,6 +23,7 @@ model-viewer {
   width: 100%;
   height: 70%;
   background-color: var(--Default-bg-color);
+  /*background: url(https://thegrasspeople.com/media/wysiwyg/Statement_slider_after_1.webp);*/
 }
 
 .progress-bar {
