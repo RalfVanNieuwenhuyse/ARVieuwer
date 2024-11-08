@@ -11,6 +11,7 @@ html {
 
 body {
   background-color: var(--Default-bg-color);
+  overflow: overlay;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -445,3 +446,29 @@ img
   display: none; /* Initially hidden */
 }
 
+::-webkit-scrollbar 
+{
+  width: 8px !important;
+}
+
+::-webkit-scrollbar-track 
+{
+  width: 6px !important;
+  height: 6px !important;
+  /*background-color: #00000000 !important;*/
+  /*overflow: overlay;*/
+  background: none;
+}
+
+::-webkit-scrollbar-thumb 
+{
+  border-radius: 3px !important;
+  background-color: #d8e2ef !important;
+}
+
+@-moz-document url-prefix() {
+  *{
+    scrollbar-color: #d8e2ef #00000000 !important;
+    scrollbar-width: thin !important;
+  }
+}

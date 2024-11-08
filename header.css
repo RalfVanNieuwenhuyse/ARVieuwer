@@ -82,7 +82,7 @@ header nav ul li a {
   z-index: 5;
   box-shadow: 0px 3px 10px 3px rgba(62, 62, 62, 0.1), 0px 0px 5px 1px rgba(62, 62, 62, 0.2);
   transition: box-shadow 1s;
-  .headerBSnavul {margin-right: 60px;};   
+  .headerBSnavul {margin-right: 55px;};   
   .sidenav-lines {margin-right: 55px;};
 }
 
