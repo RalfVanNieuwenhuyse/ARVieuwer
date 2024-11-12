@@ -169,7 +169,7 @@ model-viewer > #ar-prompt > img {
   cursor: pointer; /* Pointer cursor on hover */
   font-size: 24px; /* Adjust the size of the arrows */
   /*margin: 0 5px; /* Space between the arrows and the slider */
-  transition: background-color 0.3s, color 0.3s; /* Transition effect for hover */
+  transition: var(--Default-transition); /* Transition effect for hover */
   height: 80px;
   width: 40px;
   position: absolute;
@@ -276,7 +276,7 @@ model-viewer > #ar-prompt > img {
   cursor: pointer; /* Pointer cursor on hover */
   font-size: 24px; /* Adjust the size of the arrows */
   margin: 0 5px; /* Space between the arrows and the slider */
-  transition: background-color 0.3s, color 0.3s; /* Transition effect for hover */
+  transition: var(--Default-transition); /* Transition effect for hover */
   /*height: 95px;
   width: 50px;*/
   user-select: none;
@@ -331,7 +331,7 @@ model-viewer > #ar-prompt > img {
   background-color: var(--Renson-blue-color);
   border: none;
   color: var(--Text-white);
-  transition: background-color 0.3s, color 0.3s;
+  transition: var(--Default-transition);
   margin-top: 10px;
   font-weight: 600;
 }
@@ -340,7 +340,7 @@ model-viewer > #ar-prompt > img {
 {
   background-color: var(--Light-blue-bg-color);
   color: var(--Button-blue-color);
-  transition: background-color 0.3s, color 0.3s;        
+  transition: var(--Default-transition);        
 }
 
 .popup-content img 
@@ -420,14 +420,14 @@ img
   transform: translateX(-50%);
   white-space: nowrap;
   bottom: 16px;
-  transition: background-color 0.3s, color 0.3s;
+  transition: var(--Default-transition);
 }
 
 .RensonButton:hover
 {
   background-color: var(--Light-blue-bg-color);
   color: var(--Button-blue-color);
-  transition: background-color 0.3s, color 0.3s;
+  transition: var(--Default-transition);
 }
 
 .warningbox
@@ -480,3 +480,54 @@ img
     scrollbar-width: thin !important;
   }
 }
+
+.RensonButtonInput
+    {
+      font-size: 14px;
+      background-color: var(--Renson-blue-color);
+      border: none;
+      color: var(--Text-white);
+      /*border-radius: 5px;*/
+      height: 25px;
+      cursor: pointer;
+      z-index: 3;
+      padding: 4px 25px;
+      font-weight: 550;
+      align-content: center;
+
+      position: absolute;
+      right: 10px;
+      white-space: nowrap;
+      top: 5px;
+      transition: var(--Default-transition);
+      display: flex;
+      padding-top: 6px;
+      
+    }
+
+    .RensonButtonInput:hover
+    {
+      background-color: var(--Light-blue-bg-color);
+      color: var(--Button-blue-color);
+      transition: var(--Default-transition)
+    }
+
+    .uploadTest
+    {
+      background-image: url('browser_assets/upload-solid.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      /*padding-top: 10px;*/
+      margin-top: 3px;
+      padding-right: 10px;
+      width: 14px;
+      height: 14px;
+      filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(165deg) brightness(100%) contrast(100%);
+      transition: filter 0.3s;
+    }
+
+    .RensonButtonInput:hover .uploadTest
+    {
+      filter: var(--Renson-blue-filter);
+      transition: filter 0.3s;
+    }

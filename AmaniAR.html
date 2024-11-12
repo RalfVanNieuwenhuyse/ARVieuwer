@@ -70,6 +70,7 @@
       width: 100%;
       height: 100%;
     }
+    
     </style>
   </head>
 
@@ -156,6 +157,13 @@
       <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
       <button class="sidenav-arrow" onclick="openNav()">&#10095;</button>
 
+      <label for="filetag" class="RensonButtonInput pNTGrid">
+        <div class="uploadTest"></div>
+        Upload background image
+        
+      </label>
+      <input type="file" id="filetag" accept="image/*" style="display: none;">
+
     </model-viewer>
 
     <div id="myPopup" class="popup">
@@ -227,7 +235,7 @@
       </div>    
     </div>
 
-    <input type="file" id="filetag" accept="image/*">
+    
     <!--<img src="" id="preview">-->
 
     <!--<button onclick="testing()">test</button>-->

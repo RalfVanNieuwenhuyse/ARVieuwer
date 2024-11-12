@@ -6,5 +6,6 @@
     --Text-white: white;
     --Arrow-color: #000e1d;
     --Default-bg-color: white;
-    --Renson-blue-filter: brightness(0) saturate(100%) invert(11%) sepia(56%) saturate(2766%) hue-rotate(191deg) brightness(99%) contrast(106%);
+    --Renson-blue-filter: brightness(0) saturate(100%) invert(11%) sepia(56%) saturate(100%) hue-rotate(191deg) brightness(99%) contrast(100%);
+    --Default-transition: background-color 0.3s, color 0.3s;
 }
