@@ -227,10 +227,24 @@
       </div>    
     </div>
 
+    <input type="file" id="filetag" accept="image/*">
+    <!--<img src="" id="preview">-->
+
+    <!--<button onclick="testing()">test</button>-->
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script>
+      
       // JavaScript to handle model changes from the slider
       const modelViewer = document.getElementById('model-viewer');
       const sliderItems = document.querySelectorAll('.slider-item');
+      
+      /*const testing = () =>
+      {
+        modelViewer.orientation = `${90}deg ${90}deg ${90}deg`;
+        modelViewer.updateFraming();
+      }*/
+
     
       const loadModelInfo = (modelFile) => 
       {
@@ -441,12 +455,11 @@
         document.getElementById("mySidenav2").style.width = "0";
         document.getElementById("mySidenav2").style.textWrap = "nowrap";
       }
-
-
+      
     </script>
     
     <!-- Loads <model-viewer> for browsers: -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    
     <script src="script.js"></script>
   </body>
 </html>
