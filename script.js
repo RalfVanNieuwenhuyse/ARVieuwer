@@ -86,8 +86,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
 });}
 
-var fileTag = document.getElementById("filetag"),
-preview = document.getElementById("preview");
+var fileTag = document.getElementById("filetag");
     
 fileTag.addEventListener("change", function() {
   changeImage(this);
@@ -105,4 +104,9 @@ function changeImage(input)
     }
     reader.readAsDataURL(input.files[0]);
   }
+}
+
+function clearImage()
+{
+  document.getElementById("model-viewer").style.backgroundImage = `url()`;
 }

@@ -482,52 +482,52 @@ img
 }
 
 .RensonButtonInput
-    {
-      font-size: 14px;
-      background-color: var(--Renson-blue-color);
-      border: none;
-      color: var(--Text-white);
-      /*border-radius: 5px;*/
-      height: 25px;
-      cursor: pointer;
-      z-index: 3;
-      padding: 4px 25px;
-      font-weight: 550;
-      align-content: center;
+{
+  font-size: 14px;
+  background-color: var(--Renson-blue-color);
+  border: none;
+  color: var(--Text-white);
+  /*border-radius: 5px;*/
+  height: 25px;
+  cursor: pointer;
+  z-index: 3;
+  padding: 4px 25px;
+  font-weight: 550;
+  align-content: center;
+  position: absolute;
+  right: 15px;
+  white-space: nowrap;
+  top: 10px;
+  transition: background-color 0.2s, color 0s;
+  display: flex;
+  padding-top: 6px;
+}
 
-      position: absolute;
-      right: 10px;
-      white-space: nowrap;
-      top: 5px;
-      transition: var(--Default-transition);
-      display: flex;
-      padding-top: 6px;
-      
-    }
+.RensonButtonInput:hover
+{
+  background-color: var(--Light-blue-bg-color);
+  color: var(--Button-blue-color);
+  transition: background-color 0.2s, color 0.0s;
+}
 
-    .RensonButtonInput:hover
-    {
-      background-color: var(--Light-blue-bg-color);
-      color: var(--Button-blue-color);
-      transition: var(--Default-transition)
-    }
+.uploadTest
+{
+  background-image: url('browser_assets/upload-solid.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*padding-top: 10px;*/
+  margin-top: 3px;
+  padding-right: 10px;
+  width: 14px;
+  height: 14px;
+  color: var(--Text-white);
+  filter: brightness(100%) saturate(0%) invert(0%) sepia(0%) saturate(100%) hue-rotate(120deg) brightness(100%) contrast(100%);
+  /*transition: filter 0.3s;*/
+}
 
-    .uploadTest
-    {
-      background-image: url('browser_assets/upload-solid.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      /*padding-top: 10px;*/
-      margin-top: 3px;
-      padding-right: 10px;
-      width: 14px;
-      height: 14px;
-      filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(165deg) brightness(100%) contrast(100%);
-      transition: filter 0.3s;
-    }
-
-    .RensonButtonInput:hover .uploadTest
-    {
-      filter: var(--Renson-blue-filter);
-      transition: filter 0.3s;
-    }
+.RensonButtonInput:hover .uploadTest
+{
+  filter: var(--Renson-blue-filter);
+  /*color: var(--Button-blue-color);*/
+  /*transition: filter 0.3s;*/
+}
