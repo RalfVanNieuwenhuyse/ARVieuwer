@@ -103,10 +103,24 @@ function changeImage(input)
       document.getElementById("model-viewer").style.backgroundImage = `url(${e.target.result})`;
     }
     reader.readAsDataURL(input.files[0]);
+
+    let displayitems = document.querySelectorAll(".DispplayOnlyOnImageBackground");
+    displayitems.forEach(element => {
+    element.style.display = "block";    
+  });
   }
 }
 
 function clearImage()
 {
   document.getElementById("model-viewer").style.backgroundImage = `url()`;
+}
+
+//const modelViewer = document.getElementById('model-viewer');
+var scaleSlider = document.getElementById("scaleSlider");
+scaleSlider.oninput = function() 
+{        
+  modelViewer.scale = `${this.value} ${this.value} ${this.value}`;
+  let Scalevalue = (this.value-this.min)/(this.max-this.min)*100
+  this.style.background = 'linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ' + Scalevalue + '%, rgb(211, 211, 211) ' + Scalevalue + '%, rgb(211, 211, 211) 100%)';
 }
