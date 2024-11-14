@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
     <link type="text/css" href="./header.css" rel="stylesheet"/>
+    <link type="text/css" href="Plugins/ellipticalsliders/src/elliptical_sliders.css" rel="stylesheet"/>
+    <script src="Plugins/ellipticalsliders/src/elliptical_sliders.js"></script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="browser_assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="browser_assets/favicon-32x32.png">
@@ -111,6 +113,20 @@
       height: 5px;
     }
 
+    .testSlider2
+    {
+      top: -220px;
+      right: -100px;
+      /*width: 200px;*/
+    }
+
+    .testSlider3
+    {
+      top: -520px;
+      right: -25px;
+      /*width: 200px;*/
+    }
+
     </style>
   </head>
 
@@ -143,7 +159,7 @@
 
     <!-- <model-viewer> HTML element -->
     <model-viewer id="model-viewer" src="asset/Amani/ZeroErrorsModel.gltf" ar ar-modes="webxr quick-look"
-                  camera-controls interaction-prompt="auto" tone-mapping="neutral" 
+                  camera-controls interaction-prompt="none" tone-mapping="neutral" 
                   shadow-intensity="2"
                   shadow-softness="1"
                   orientation="0 0 180deg" 
@@ -203,13 +219,16 @@
       </label>
       <input type="file" id="filetag" accept="image/*" style="display: none;">
 
-      <div class="DispplayOnlyOnImageBackground">
+      <div class="DispplayOnlyOnImageBackground2">
         <input class="sliderScale" id="scaleSlider" type="range" min="0.25" max="2" value="1" step="0.001">
 
-        <div style="position: absolute; right: -230px; top: 50%;">
-          <input class="rollSlider" id="yaw" type="range" min="0" max="360" value="180" step="1">
+        <div style="position: absolute; right: 20px; top: 40%; scale:1">
+          <div id="slider1-container" class="ellipse-slider-wrapper"></div>
+          <div id="slider2-container" class="ellipse-slider-wrapper testSlider2"></div>
+          <div id="slider3-container" class="ellipse-slider-wrapper testSlider3"></div>
+          <!--<input class="rollSlider" id="yaw" type="range" min="0" max="360" value="180" step="1">
           <input class="pitchSlider" id="pitch" type="range" min="-180" max="180" value="0" step="1">
-          <input class="yawSlider" id="roll" type="range" min="-180" max="180" value="0" step="1">
+          <input class="yawSlider" id="roll" type="range" min="-180" max="180" value="0" step="1">-->
         </div>
       </div>
 
@@ -282,6 +301,7 @@
 
           <div class="slider-item" data-model="asset/Amani/AmaniModel5.glb">
             <img src="asset/Amani/AmaniModel5.webp" alt="Window I think not">model5</div>
+            
         </div>
         <!--<div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>-->
       </div>    
@@ -304,15 +324,12 @@
       const modelViewer = document.getElementById('model-viewer');
       const sliderItems = document.querySelectorAll('.slider-item');
 
-      
-
       /*const testing = () =>
       {
         modelViewer.orientation = `${90}deg ${90}deg ${90}deg`;
         modelViewer.updateFraming();
-      }*/
-
-    
+      }*/    
+     
       const loadModelInfo = (modelFile) => 
       {
         fetch(`asset/Amani/${modelFile}`)
@@ -525,7 +542,60 @@
       
     </script>
     
-    <!-- Loads <model-viewer> for browsers: -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Create multiple sliders in different divs
+        const slider1 = new EllipticalSlider('slider1-container', 'slider1', {
+            radiusX: 150,
+            radiusY: 40,
+            color: 'blue',
+            handleColor: 'var(--Button-blue-color)',
+            initialValue: 180,
+            min: 360,
+            max: 0,
+            showValue: false,
+            borderThickness: 5,           
+            onChange: function(value) 
+            {
+              SetYawValue(value);
+            }
+        });
+
+        SetYawValue(180);
+
+        const slider2 = new EllipticalSlider('slider2-container', 'slider2', {
+            radiusX: 50,
+            radiusY: 150,
+            color: 'green',
+            handleColor: 'var(--Button-blue-color)',
+            initialValue: 0,
+            min: -180,
+            max: 180,
+            showValue: false,
+            borderThickness: 5,
+            onChange: function(value) 
+            {
+              SetPitchValue(value); // Callback when value changes
+            }
+          });
+
+          const slider3 = new EllipticalSlider('slider3-container', 'slider3', {
+            radiusX: 125,
+            radiusY: 125,
+            color: 'red',
+            handleColor: 'var(--Button-blue-color)',
+            initialValue: 0,
+            min: -180,
+            max: 180,
+            showValue: false,
+            borderThickness: 5,
+            onChange: function(value) 
+            {
+              SetRollValue(value); // Callback when value changes
+            }
+          });
+        });
+    </script>
     
     <script src="script.js"></script>
     <script src="rotations.js"></script>
