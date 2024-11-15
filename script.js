@@ -104,16 +104,24 @@ function changeImage(input)
     }
     reader.readAsDataURL(input.files[0]);
 
-    let displayitems = document.querySelectorAll(".DispplayOnlyOnImageBackground");
-    displayitems.forEach(element => {
-    element.style.display = "block";    
-  });
+    if (!window.matchMedia("(max-width: 480px)").matches) 
+    {
+      let displayitems = document.querySelectorAll(".DispplayOnlyOnImageBackground");
+      displayitems.forEach(element => {
+      element.style.display = "block";    
+      });
+    }
   }
 }
 
 function clearImage()
 {
   document.getElementById("model-viewer").style.backgroundImage = `url()`;
+  let displayitems = document.querySelectorAll(".DispplayOnlyOnImageBackground");
+    displayitems.forEach(element => {
+    element.style.display = "none";    
+  });
+  
 }
 
 //const modelViewer = document.getElementById('model-viewer');
