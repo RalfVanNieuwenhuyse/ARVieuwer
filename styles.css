@@ -527,7 +527,7 @@ img
   position: absolute;
   transform: rotate(-90deg); 
   transform-origin: 50% 50%;
-  top: 60%;
+  top: 52%;
   background: linear-gradient(to right, var(--Renson-blue-color) 0%, var(--Renson-blue-color) 42.85%, rgb(211, 211, 211) 42.85%, rgb(211, 211, 211) 100%);
   border-radius: 10px;      
 }
