@@ -620,6 +620,9 @@
             onChange: function(value) 
             {
               SetPitchValue(value); // Callback when value changes
+              let normalSlider = document.getElementById('pitchSlider');
+              normalSlider.value = value;
+              updateTray(normalSlider);
             }
           });
 
@@ -636,6 +639,9 @@
             onChange: function(value) 
             {
               SetRollValue(value); // Callback when value changes
+              let normalSlider = document.getElementById('rollSlider');
+              normalSlider.value = value;
+              updateTray(normalSlider);
             }
           });
 
@@ -655,10 +661,12 @@
               else if (this.id === "pitchSlider") 
               {
                 SetPitchValue(this.value);
+                slider2.setHandlePosition(this.value);
               }
               else if (this.id === "rollSlider") 
               {
                 SetRollValue(this.value);
+                slider3.setHandlePosition(this.value);
               }
               
               let Scalevalue = (this.value - this.min) / (this.max - this.min) * 100;
