@@ -130,13 +130,14 @@
     .Rensonslider
     {
       appearance: none;
-      width: 200px;
+      width: 100%;
       height: 5px;
       transform: rotate(0deg);
       bottom: 75px;
       background: linear-gradient(to right, var(--Renson-blue-color) 0%, var(--Renson-blue-color) 50%, rgb(211, 211, 211) 50%, rgb(211, 211, 211) 100%);
       border-radius: 10px;  
       pointer-events: all; 
+      margin-right: 5px;
     }
     
     .Rensonslider::-webkit-slider-thumb
@@ -160,6 +161,56 @@
       background: var(--Renson-blue-color);
       cursor: pointer;
       /*border: 1px solid white;*/
+    }
+
+    .sliderLabelText
+    {
+      padding: 2px;
+      color: var(--Renson-blue-color);
+    }
+
+    .customCheckbox {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none; 
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid #ccc;
+      background-color: white;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+      border-radius: 3px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .customCheckbox:checked {
+      background-color: transparent;
+      border-color: var(--Renson-blue-color);
+      transition: all 0.3s ease;
+    }
+
+    .customCheckbox::after {
+      --spacing-checkboxcenter: 10px;  
+      content: '';
+      position: absolute;
+      top: var(--spacing-checkboxcenter); 
+      left: var(--spacing-checkboxcenter); 
+      right: var(--spacing-checkboxcenter); 
+      bottom: var(--spacing-checkboxcenter);
+      background-color: var(--Renson-blue-color);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .customCheckbox:checked::after {
+      --spacing-checkboxcenter: 1.94px;
+      top: var(--spacing-checkboxcenter); 
+      left: var(--spacing-checkboxcenter); 
+      right: var(--spacing-checkboxcenter); 
+      bottom: var(--spacing-checkboxcenter);  
+      transition: all 0.3s ease;
     }
 
     </style>
@@ -266,34 +317,20 @@
           <div id="slider3-container" class="PositioningSlider ellipse-slider-wrapper"></div>
 
         <div class="SliderSelector">
-          <p class="pNT" style="margin-top: 0px; font-weight: 500;">Select the rotation <br> you want to edit:</p>
-          <form id="rotationSelector" style="pointer-events: all;">
-            <input type="radio" id="AllRotationSelector" name="rotation" value="All" checked>
-            <label class="cursorpointer" for="AllRotationSelector">All</label><br>
-      
-            <input type="radio" id="RollRotationSelector" name="rotation" value="Roll">
-            <label class="cursorpointer" for="RollRotationSelector">Roll</label><br>
-            
-            <input type="radio" id="PitchRotationSelector" name="rotation" value="Pitch">
-            <label class="cursorpointer" for="PitchRotationSelector">Pitch</label><br>
-            
-            <input type="radio" id="YawRotationSelector" name="rotation" value="Yaw">
-            <label class="cursorpointer" for="YawRotationSelector">Yaw</label><br>
-
-            <input type="radio" id="ScaleSelector" name="rotation" value="Scale">
-            <label class="cursorpointer" for="ScaleSelector">Scale</label><br>
-            
-            <input type="radio" id="NoneRotationSelector" name="rotation" value="None">
-            <label class="cursorpointer" for="NoneRotationSelector">None</label><br>
-          </form>
-
-          <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+          <div style="display: flex; flex-direction: column;">
+            <label for="scaleSlider2" class="sliderLabelText">Scale</label>
             <input class="Rensonslider" id="scaleSlider2" type="range" min="0.25" max="2" value="1" step="0.001">
+            <label for="scaleSlider2" class="sliderLabelText">Rotate y</label>
             <input class="Rensonslider" id="yawSlider" type="range" min="0" max="360" value="180" step="1">
+            <label for="scaleSlider2" class="sliderLabelText">Rotate x</label>
             <input class="Rensonslider" id="pitchSlider" type="range" min="-180" max="180" value="0" step="1">
+            <label for="scaleSlider2" class="sliderLabelText">Rotate z</label>
             <input class="Rensonslider" id="rollSlider" type="range" min="-180" max="180" value="0" step="1">
+            <label class="sliderLabelText">
+              <input class="customCheckbox" type="checkbox" id="gizmoCheckbox" checked>
+              Advanced rotation gizmo
+            </label>
           </div>
-
         </div>
       </div>
 

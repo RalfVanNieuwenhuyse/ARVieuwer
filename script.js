@@ -212,7 +212,10 @@ function selectSlider()
   }
 };
 
-rotationSelector.oninput = selectSlider;
-window.addEventListener('DOMContentLoaded', () => {
-  selectSlider();
-});
+if(rotationSelector != null)
+{
+  rotationSelector.oninput = selectSlider;
+  window.addEventListener('DOMContentLoaded', () => {
+    selectSlider();
+  });
+}
