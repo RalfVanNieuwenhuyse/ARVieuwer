@@ -73,48 +73,6 @@
       height: 100%;
     }
 
-    /*.rollSlider
-    {
-      appearance: none;
-      position: relative;
-      transform: rotate(-90deg); 
-      transform-origin: 50% 50%;
-      width: 150px;
-      background: blue;
-      border-radius: 10px;
-      height: 5px;
-    }
-
-    .pitchSlider
-    {
-      appearance: none;
-      position: relative;
-      transform: rotate(25deg);
-      transform-origin: 50% 50%;
-      width: 150px;
-      left: -93px;
-      top: 107px;   
-      background-color: red;
-      border-radius: 10px;
-      height: 5px;
-    }
-
-    .yawSlider
-    {
-      appearance: none;
-      position: relative;
-      transform: rotate(155deg);
-      transform-origin: 50% 50%;      
-      width: 150px;
-      left: -383px;
-      top: 107px;
-      background:green;
-      border-radius: 10px;
-      height: 5px;
-    }*/
-
-    
-
     .cursorpointer
     {
       cursor: pointer;
@@ -131,7 +89,7 @@
     {
       appearance: none;
       width: 100%;
-      height: 5px;
+      height: 3px;
       transform: rotate(0deg);
       bottom: 75px;
       background: linear-gradient(to right, var(--Renson-blue-color) 0%, var(--Renson-blue-color) 50%, rgb(211, 211, 211) 50%, rgb(211, 211, 211) 100%);
@@ -144,8 +102,8 @@
     {
       -webkit-appearance: none;
       appearance: none;
-      width: 15px;
-      height: 15px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background: var(--Renson-blue-color);
       cursor: pointer;
@@ -176,13 +134,17 @@
       width: 16px;
       height: 16px;
       border: 1.5px solid #ccc;
-      background-color: white;
+      background-color: transparent;
       display: inline-block;
       vertical-align: middle;
       cursor: pointer;
       border-radius: 3px;
       position: relative;
       transition: all 0.3s ease;
+    }
+
+    .customCheckbox:hover {
+      border-color: #9e9e9e;
     }
 
     .customCheckbox:checked {
@@ -212,6 +174,17 @@
       bottom: var(--spacing-checkboxcenter);  
       transition: all 0.3s ease;
     }
+
+    #AdvancedRotationSettings {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    #AdvancedRotationSettings.expanded {
+      max-height: 200px; /* Adjust to fit your content */
+      transition: max-height 0.3s ease;
+    }
+
 
     </style>
   </head>
@@ -309,12 +282,14 @@
         <div style="font-size: 18px; padding-bottom: 3px; padding-right: 8px;">&#9114;</div> Clear background image
       </button>
 
-      <div class="DispplayOnlyOnImageBackground2">
-        <input class="sliderScale" id="scaleSlider" type="range" min="0.25" max="2" value="1" step="0.001">
+      <div class="DispplayOnlyOnImageBackground">
 
+        <div id="AdvancedRotationSliders" style="display: none;">
+          <input class="sliderScale" id="scaleSlider" type="range" min="0.25" max="2" value="1" step="0.001">
           <div id="slider1-container" class="PositioningSlider ellipse-slider-wrapper"></div>
           <div id="slider2-container" class="PositioningSlider ellipse-slider-wrapper"></div>
           <div id="slider3-container" class="PositioningSlider ellipse-slider-wrapper"></div>
+        </div>
 
         <div class="SliderSelector">
           <div style="display: flex; flex-direction: column;">
@@ -327,13 +302,33 @@
             <label for="scaleSlider2" class="sliderLabelText">Rotate z</label>
             <input class="Rensonslider" id="rollSlider" type="range" min="-180" max="180" value="0" step="1">
             <label class="sliderLabelText">
-              <input class="customCheckbox" type="checkbox" id="gizmoCheckbox" checked>
+              <input class="customCheckbox" type="checkbox" id="gizmoCheckbox">
               Advanced rotation gizmo
             </label>
           </div>
+          <div id="AdvancedRotationSettings" style="padding-top: 5px;">         
+            <form id="rotationSelector" style="pointer-events: all;">
+              <input type="radio" id="AllRotationSelector" name="rotation" value="All" checked>
+              <label class="cursorpointer radiolabel" for="AllRotationSelector">All</label><br>
+        
+              <input type="radio" id="RollRotationSelector" name="rotation" value="Roll">
+              <label class="cursorpointer radiolabel" for="RollRotationSelector">Roll</label><br>
+              
+              <input type="radio" id="PitchRotationSelector" name="rotation" value="Pitch">
+              <label class="cursorpointer radiolabel" for="PitchRotationSelector">Pitch</label><br>
+              
+              <input type="radio" id="YawRotationSelector" name="rotation" value="Yaw">
+              <label class="cursorpointer radiolabel" for="YawRotationSelector">Yaw</label><br>
+
+              <input type="radio" id="ScaleSelector" name="rotation" value="Scale">
+              <label class="cursorpointer radiolabel" for="ScaleSelector">Scale</label><br>
+              
+              <input type="radio" id="NoneRotationSelector" name="rotation" value="None">
+              <label class="cursorpointer radiolabel" for="NoneRotationSelector">None</label><br>
+            </form>
+          </div> 
         </div>
       </div>
-
     </model-viewer>
 
     <div id="myPopup" class="popup">
@@ -387,6 +382,22 @@
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script>
+
+      const GizmoCheckbox = document.getElementById('gizmoCheckbox');
+      GizmoCheckbox.onchange = function(){
+        if(GizmoCheckbox.checked)
+        {
+          //document.getElementById('AdvancedRotationSettings').style.display = "block";
+          document.getElementById('AdvancedRotationSettings').classList.add("expanded");
+          document.getElementById('AdvancedRotationSliders').style.display = "block";
+        }
+        else
+        {
+          //document.getElementById('AdvancedRotationSettings').style.display = "none";
+          document.getElementById('AdvancedRotationSettings').classList.remove("expanded");
+          document.getElementById('AdvancedRotationSliders').style.display = "none";
+        }
+      };
 
       // JavaScript to handle model changes from the slider
       const modelViewer = document.getElementById('model-viewer');
@@ -682,6 +693,8 @@
             }
           });
 
+          var scaleSlider = document.getElementById("scaleSlider");
+
           const sliders = document.querySelectorAll('.Rensonslider');
           sliders.forEach(slider => {
             slider.oninput = function() 
@@ -689,6 +702,8 @@
               if (this.id === "scaleSlider2") 
               {
                   modelViewer.scale = `${this.value} ${this.value} ${this.value}`;
+                  scaleSlider.value = this.value;
+                  updateTray(scaleSlider);
               }
               else if (this.id === "yawSlider") 
               {            
@@ -718,6 +733,15 @@
             slider.style.background = `linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ${scaleValue}%, rgb(211, 211, 211) ${scaleValue}%, rgb(211, 211, 211) 100%)`;
           });
 
+          
+          scaleSlider.oninput = function() 
+          {        
+            modelViewer.scale = `${this.value} ${this.value} ${this.value}`;
+            updateTray(this);
+            let extraslider = document.getElementById("scaleSlider2");
+            extraslider.value = this.value;
+            updateTray(extraslider);
+          }
         });
 
                

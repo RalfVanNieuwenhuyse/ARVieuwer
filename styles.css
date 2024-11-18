@@ -539,7 +539,7 @@ img
   background-color:var(--Light-blue-bg-color); 
   border-radius: 10px; 
   padding: 10px; 
-  pointer-events: all;
+  pointer-events: all;  
 }
 
 .PositioningSlider
@@ -552,8 +552,58 @@ img
 }
 
 input[type="radio"] {
-  accent-color: var(--Button-blue-color);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; 
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #ccc;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
   cursor: pointer;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+  margin-top: -1px;
+  background-color: transparent;
+}
+
+input[type="radio"]:hover {
+  border-color: #9e9e9e;
+}
+
+input[type="radio"]:checked {
+  background-color: transparent;
+  border-color: var(--Renson-blue-color);
+  transition: all 0.3s ease;
+}
+
+input[type="radio"]::after {
+  --spacing-checkboxcenter: 10px;  
+  content: '';
+  position: absolute;
+  top: var(--spacing-checkboxcenter); 
+  left: var(--spacing-checkboxcenter); 
+  right: var(--spacing-checkboxcenter); 
+  bottom: var(--spacing-checkboxcenter);
+  background-color: var(--Renson-blue-color);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked::after {
+  --spacing-checkboxcenter: 2.3px;
+  top: var(--spacing-checkboxcenter); 
+  left: var(--spacing-checkboxcenter); 
+  right: var(--spacing-checkboxcenter); 
+  bottom: var(--spacing-checkboxcenter);  
+  transition: all 0.3s ease;
+}
+
+.radiolabel
+{
+  padding-top: 10px;
 }
 
 .uploadTest
