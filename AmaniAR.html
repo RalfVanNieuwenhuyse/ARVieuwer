@@ -275,7 +275,10 @@
             <label class="cursorpointer" for="PitchRotationSelector">Pitch</label><br>
             
             <input type="radio" id="YawRotationSelector" name="rotation" value="Yaw">
-            <label class="cursorpointer" for="YawRotationSelector">Yaw</label><br>     
+            <label class="cursorpointer" for="YawRotationSelector">Yaw</label><br>
+
+            <input type="radio" id="ScaleSelector" name="rotation" value="Scale">
+            <label class="cursorpointer" for="ScaleSelector">Scale</label><br>
             
             <input type="radio" id="NoneRotationSelector" name="rotation" value="None">
             <label class="cursorpointer" for="NoneRotationSelector">None</label><br>
@@ -381,6 +384,8 @@
             PitchSlider1.style.display = "none";
             let YawSlider1 = document.getElementById("slider3-container");
             YawSlider1.style.display = "block";
+            let ScaleSlider1 = document.getElementById("scaleSlider");
+            ScaleSlider1.style.display = "none";
         }
         else if (selected.value == "Pitch") 
         {
@@ -390,6 +395,8 @@
             PitchSlider1.style.display = "block";
             let YawSlider1 = document.getElementById("slider3-container");
             YawSlider1.style.display = "none";
+            let ScaleSlider1 = document.getElementById("scaleSlider");
+            ScaleSlider1.style.display = "none";
         }
         else if (selected.value == "Yaw") 
         {
@@ -399,6 +406,8 @@
             PitchSlider1.style.display = "none";
             let YawSlider1 = document.getElementById("slider3-container");
             YawSlider1.style.display = "none";
+            let ScaleSlider1 = document.getElementById("scaleSlider");
+            ScaleSlider1.style.display = "none";
         }
         else if (selected.value == "All") 
         {
@@ -408,6 +417,8 @@
             PitchSlider1.style.display = "block";
             let YawSlider1 = document.getElementById("slider3-container");
             YawSlider1.style.display = "block";
+            let ScaleSlider1 = document.getElementById("scaleSlider");
+            ScaleSlider1.style.display = "block";
         }
         else if (selected.value == "None") 
         {
@@ -417,6 +428,19 @@
             PitchSlider1.style.display = "none";
             let YawSlider1 = document.getElementById("slider3-container");
             YawSlider1.style.display = "none";
+            let ScaleSlider1 = document.getElementById("scaleSlider");
+            ScaleSlider1.style.display = "none";
+        }
+        else if (selected.value == "Scale") 
+        {
+            let RollSlider1 = document.getElementById("slider1-container");
+            RollSlider1.style.display = "none";
+            let PitchSlider1 = document.getElementById("slider2-container");
+            PitchSlider1.style.display = "none";
+            let YawSlider1 = document.getElementById("slider3-container");
+            YawSlider1.style.display = "none";
+            let ScaleSlider1 = document.getElementById("scaleSlider");
+            ScaleSlider1.style.display = "block";
         }
       };
 
