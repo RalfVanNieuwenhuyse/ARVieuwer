@@ -86,7 +86,8 @@ class EllipticalSlider {
         // If the slider displays the value, update the display
         if (this.options.showValue) {
             this.sliderValueDisplay.textContent = `Value: ${value}`;
-        }    
+        }
+        this.currentValue = value;
     }
     
 

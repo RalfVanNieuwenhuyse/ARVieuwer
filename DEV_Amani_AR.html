@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>model-viewer Camargue</title>
+    <title>model-viewer DEV Amani</title>
     <meta charset="utf-8">
-    <meta name="description" content="model-viewer Camargue">
+    <meta name="description" content="model-viewer DEV Amani">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
     <link type="text/css" href="./header.css" rel="stylesheet"/>
+    <link type="text/css" href="Plugins/ellipticalsliders/src/elliptical_sliders.css" rel="stylesheet"/>
+    <script src="Plugins/ellipticalsliders/src/elliptical_sliders.js"></script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="browser_assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="browser_assets/favicon-32x32.png">
@@ -18,6 +20,7 @@
 
     <style> 
     @import url("variables.css");
+
     .bottom
     {
       margin-top: auto;
@@ -69,6 +72,96 @@
       width: 100%;
       height: 100%;
     }
+
+    /*.rollSlider
+    {
+      appearance: none;
+      position: relative;
+      transform: rotate(-90deg); 
+      transform-origin: 50% 50%;
+      width: 150px;
+      background: blue;
+      border-radius: 10px;
+      height: 5px;
+    }
+
+    .pitchSlider
+    {
+      appearance: none;
+      position: relative;
+      transform: rotate(25deg);
+      transform-origin: 50% 50%;
+      width: 150px;
+      left: -93px;
+      top: 107px;   
+      background-color: red;
+      border-radius: 10px;
+      height: 5px;
+    }
+
+    .yawSlider
+    {
+      appearance: none;
+      position: relative;
+      transform: rotate(155deg);
+      transform-origin: 50% 50%;      
+      width: 150px;
+      left: -383px;
+      top: 107px;
+      background:green;
+      border-radius: 10px;
+      height: 5px;
+    }*/
+
+    
+
+    .cursorpointer
+    {
+      cursor: pointer;
+    }
+
+    header 
+    {          
+      background-color: #e1b217;
+      color: var(--Renson-blue-color); 
+      transition: box-shadow 0.5s;         
+    }
+
+    .Rensonslider
+    {
+      appearance: none;
+      width: 200px;
+      height: 5px;
+      transform: rotate(0deg);
+      bottom: 75px;
+      background: linear-gradient(to right, var(--Renson-blue-color) 0%, var(--Renson-blue-color) 50%, rgb(211, 211, 211) 50%, rgb(211, 211, 211) 100%);
+      border-radius: 10px;  
+      pointer-events: all; 
+    }
+    
+    .Rensonslider::-webkit-slider-thumb
+    {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--Renson-blue-color);
+      cursor: pointer;
+      border: 1px solid white;
+    }
+    
+    .Rensonslider::-moz-range-thumb
+    {
+      appearance: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--Renson-blue-color);
+      cursor: pointer;
+      /*border: 1px solid white;*/
+    }
+
     </style>
   </head>
 
@@ -84,26 +177,27 @@
       <!--<button class="phoneContent sidenav-lines" onclick="openNav2()">&#8801;</button>-->
     </header>
 
-    <div class="subModleViewerHeader">
-      <a href="index.html">&#10094; Back to website</a>
-      <div class="subModleViewerHeaderText" style="font-weight: bold; font-size: 16px;">Camargue</div>
-    </div>
-
     <div id="mySidenav2" class="sidenav" style="right: 0; left: auto;">
       <a href="javascript:void(0)" class="closebtn sidenavLink" onclick="closeNav2()">&times;</a>
       <div id="model-info" class="sidenav-Infobox">
           <a href="index.html" class="sidenavLink">Home</a>
           <a href="https://renson.net/en-gb" class="sidenavLink">Renson website</a>
           <a href="https://renson.net/en-gb/dealers" class="sidenavLink">Find a dealer</a>
-          <a href="https://renson.net/en-us/products/pergolas/camargue" class="sidenavLink">Camargue</a>
+          <a href="https://renson.net/en-us/products/pergolas/amani" class="sidenavLink">Amani</a>
       </div>
     </div>
 
+    <div class="subModleViewerHeader">
+      <a href="index.html">&#10094; Back to website</a>
+      <div class="subModleViewerHeaderText" style="font-weight: bold; font-size: 16px;">DEV Amani</div>
+    </div>
+
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="model-viewer" src="asset/Camargue/Camargue_CL.glb" ar ar-modes="webxr quick-look"
+    <model-viewer id="model-viewer" src="asset/Amani/ZeroErrorsModel.gltf" ar ar-modes="webxr quick-look"
                   camera-controls interaction-prompt="none" tone-mapping="neutral" 
                   shadow-intensity="2"
-                  shadow-softness="1"                  
+                  shadow-softness="1"
+                  orientation="0 0 180deg" 
                   min-camera-orbit="auto 0deg auto" 
                   max-camera-orbit="auto 95deg auto"
                   exposure="3"                  
@@ -141,9 +235,8 @@
           <p id="model-description"></p>
           <p class="sidenavtext"><strong>Dimensions:</strong> <span id="model-dimensions"></span></p>
           <p class="sidenavtext"><strong>Features:</strong></p>
-          <ul style="margin-top: 2px;" id="model-features"></ul>
+          <ul style="margin-top: 2px;" id="model-features"></ul>         
         </div>
-
         <div class="bottom">
           <div class="deskContent">
             <a class="SideNav-button pNTGrid" id="PopupButton2">View in AR</a>
@@ -165,14 +258,14 @@
         <div style="font-size: 18px; padding-bottom: 3px; padding-right: 8px;">&#9114;</div> Clear background image
       </button>
 
-      <div class="DispplayOnlyOnImageBackground">
+      <div class="DispplayOnlyOnImageBackground2">
         <input class="sliderScale" id="scaleSlider" type="range" min="0.25" max="2" value="1" step="0.001">
 
           <div id="slider1-container" class="PositioningSlider ellipse-slider-wrapper"></div>
           <div id="slider2-container" class="PositioningSlider ellipse-slider-wrapper"></div>
           <div id="slider3-container" class="PositioningSlider ellipse-slider-wrapper"></div>
 
-        <div class="SliderSelector">          
+        <div class="SliderSelector">
           <p class="pNT" style="margin-top: 0px; font-weight: 500;">Select the rotation <br> you want to edit:</p>
           <form id="rotationSelector" style="pointer-events: all;">
             <input type="radio" id="AllRotationSelector" name="rotation" value="All" checked>
@@ -193,6 +286,14 @@
             <input type="radio" id="NoneRotationSelector" name="rotation" value="None">
             <label class="cursorpointer" for="NoneRotationSelector">None</label><br>
           </form>
+
+          <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+            <input class="Rensonslider" id="scaleSlider2" type="range" min="0.25" max="2" value="1" step="0.001">
+            <input class="Rensonslider" id="yawSlider" type="range" min="0" max="360" value="180" step="1">
+            <input class="Rensonslider" id="pitchSlider" type="range" min="-180" max="180" value="0" step="1">
+            <input class="Rensonslider" id="rollSlider" type="range" min="-180" max="180" value="0" step="1">
+          </div>
+
         </div>
       </div>
 
@@ -215,40 +316,54 @@
     </div>
 
     <div class="BackgroundGrey">
-    <!-- Slider for selecting models -->
-    <div class="slider-navigation">
-      <!--<div class="deskContent"><button id="prev" class="nav-arrow">&#10094;</button></div>-->
-    <div class="slider-container">
-        <div class="slider-item" data-model="asset/Camargue/CamargueCL.glb">
-        <img src="asset/Camargue/CamargueCL.webp" alt="ZeroErrorsModel">Crystal<br/>Lounge</div>
+      <!-- Slider for selecting models -->
+      <div class="slider-navigation">
+        <!--<div class="deskContent"><button id="prev" class="nav-arrow">&#10094;</button></div>-->
+        <div class="slider-container">
+          <div class="slider-item" data-model="asset/Amani/AmaniModel6.glb">
+            <img src="asset/Amani/AmaniModel6.webp" alt="Window I think not">Outside Dinner</div>
+  
+          <div class="slider-item" data-model="asset/Amani/AmaniModel7.glb">
+            <img src="asset/Amani/AmaniModel7.webp" alt="Window I think not">The Lounge</div>
+      
+          <div class="slider-item" data-model="asset/Amani/AmaniModel1.glb">
+            <img src="asset/Amani/AmaniModel1.webp" alt="Window I think not">Amani</div>
 
-        <div class="slider-item" data-model="asset/Camargue/camargueeo.glb">
-            <img src="asset/Camargue/camargueeo.webp" alt="ZeroErrorsModel">Earth<br/>Oasis</div>
+          <div class="slider-item" data-model="asset/Amani/AmaniModel2.glb">
+            <img src="asset/Amani/AmaniModel2.webp" alt="Window I think not">Amani</div>
 
-        <div class="slider-item" data-model="asset/Camargue/camargueig.glb">
-            <img src="asset/Camargue/camargueig.webp" alt="ZeroErrorsModel">Idyllic<br/>Garden</div>
+          <div class="slider-item" data-model="asset/Amani/AmaniModel3.glb">
+            <img src="asset/Amani/AmaniModel3.webp" alt="Window I think not">Amani</div>
 
-        <div class="slider-item" data-model="asset/Camargue/camarguepe.glb">
-            <img src="asset/Camargue/camarguepe.webp" alt="ZeroErrorsModel">Pure<br/>Essence</div>
+          <div class="slider-item" data-model="asset/Amani/AmaniModel4.glb">
+            <img src="asset/Amani/AmaniModel4.webp" alt="Window I think not">Amani</div>
 
-        <div class="slider-item" data-model="asset/Camargue/camarguesh.glb">
-            <img src="asset/Camargue/camarguesh.webp" alt="ZeroErrorsModel">Spiritual<br/>Harmony</div>
-        
-        <div class="slider-item" data-model="asset/Camargue/camarguetc.glb">
-            <img src="asset/Camargue/camarguetc.webp" alt="ZeroErrorsModel">Tech<br/>Cocoon</div>
+          <div class="slider-item" data-model="asset/Amani/AmaniModel5.glb">
+            <img src="asset/Amani/AmaniModel5.webp" alt="Window I think not">model5</div>
+            
+        </div>
+        <!--<div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>-->
+      </div>    
     </div>
-    <!--<div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>-->
-    </div>
-  </div>
+    <!--<button onclick="testing()">test</button>-->
+    
 
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script>
+
       // JavaScript to handle model changes from the slider
       const modelViewer = document.getElementById('model-viewer');
       const sliderItems = document.querySelectorAll('.slider-item');
-    
+
+      /*const testing = () =>
+      {
+        modelViewer.orientation = `${90}deg ${90}deg ${90}deg`;
+        modelViewer.updateFraming();
+      }*/    
+     
       const loadModelInfo = (modelFile) => 
       {
-        fetch(`asset/Camargue/${modelFile}`)
+        fetch(`asset/Amani/${modelFile}`)
         .then(response => 
         {
           if (!response.ok) {
@@ -301,15 +416,24 @@
           item.parentElement.classList.add('active');
           
         }
+
+
         modelViewer.src = selectedModel;
 
         // Determine the JSON file based on the selected model
-        const modelFile = selectedModel.includes('CamargueCL') ? 'CamargueCL.json' :
-                          selectedModel.includes('camargueeo') ? 'Camargueeo.json' :
-                          selectedModel.includes('camargueig') ? 'Camargueig.json' :
-                          selectedModel.includes('camarguepe') ? 'Camarguepe.json' :
-                          selectedModel.includes('camarguesh') ? 'Camarguesh.json' :
-                          selectedModel.includes('camarguetc') ? 'Camarguetc.json' :
+        const modelFile = selectedModel.includes('ZeroErrorsModel') ? 'ZeroErrorsModel.json' :
+                          selectedModel.includes('OpenBlackGlass') ? 'OpenBlackGlass.json' :
+                          selectedModel.includes('WallInfillsOpened') ? 'WallInfillsOpened.json':
+                          selectedModel.includes('WallNoInfill') ? 'WallNoInfill.json':
+                          selectedModel.includes('MaxSize') ? 'MaxSize.json':                          
+                          selectedModel.includes('TheNotSoBigBigOne2') ? 'TheNotSoBigBigOne2.json':
+                          selectedModel.includes('TransparentMatHighOptimise') ? 'TransparentMatHighOptimise.json' :
+                          selectedModel.includes('AmaniModel1') ? 'AmaniModel1.json' :
+                          selectedModel.includes('AmaniModel2') ? 'AmaniModel2.json' :
+                          selectedModel.includes('AmaniModel3') ? 'AmaniModel3.json' :
+                          selectedModel.includes('AmaniModel4') ? 'AmaniModel4.json' :
+                          selectedModel.includes('AmaniModel6') ? 'AmaniModel6.json' :
+                          selectedModel.includes('AmaniModel7') ? 'AmaniModel7.json' :
                           null; // Add more conditions as needed
 
         if (modelFile) {
@@ -328,17 +452,19 @@
         }
       };
 
+      //const yourElement = document.querySelector('#your-element');
+
       window.addEventListener('progressComplete', (e) => {
         console.log(e.detail.message); // Log message: 'Progress is complete!'
         // Trigger IsARPosible when the event is received
-        console.log("hello");
-        IsARPosible();
+        //console.log("hello");
+        //IsARPosible();
       });
 
       function IsARPosible() {
         let customDiv = document.querySelector('#custom-div');
         const isARSupported = modelViewer.canActivateAR;
-        console.log("hello2");
+        //console.log("hello2");
 
         if (!isARSupported) {
           customDiv.style.display = 'block';
@@ -351,8 +477,7 @@
       // Set the first model as active when the page loads
       window.addEventListener('DOMContentLoaded', () => {
         setActiveModel(sliderItems[0]); // Set first slider item as active
-        //IsARPosible();        
-        //setTimeout();        
+        //IsARPosible();
       });
     
       // Add click event to each slider item
@@ -361,15 +486,16 @@
           setActiveModel(event.target);
         });
       });
-
-      myButton.addEventListener(
-            "click",
+      
+      PopupButton2.addEventListener(
+        "click",
             function () {
                 myPopup.classList.add("show");
             }
-        );
-        PopupButton2.addEventListener(
-        "click",
+      );
+
+      myButton.addEventListener(
+            "click",
             function () {
                 myPopup.classList.add("show");
             }
@@ -393,11 +519,11 @@
             }
         );
 
-        /*const prevButton = document.getElementById('prev');
+        const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
         const sliderContainer = document.querySelector('.slider-container');
 
-        prevButton.addEventListener('click', () => {
+        /*prevButton.addEventListener('click', () => {
           // Scroll left by 200 pixels (you can adjust this value)
           sliderContainer.scrollBy({
           top: 0,
@@ -426,8 +552,7 @@
         {
           customDiv.style.display = 'none';
         }
-      }; 
-
+      };      
       modelViewer.addEventListener('load', checkARSupport);
 
       function openNav2() {  
@@ -446,10 +571,114 @@
         document.getElementById("mySidenav2").style.textWrap = "nowrap";
       }
 
+      function updateTray(sliderElement) 
+      {
+        const min = parseFloat(sliderElement.min);
+        const max = parseFloat(sliderElement.max);
+        const currentValue = parseFloat(sliderElement.value);
+        const percentage = ((currentValue - min) / (max - min)) * 100;
+
+        sliderElement.style.background = `linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ${percentage}%, rgb(211, 211, 211) ${percentage}%, rgb(211, 211, 211) 100%)`;
+      }
+
+
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        
+        // Create multiple sliders in different divs
+        const slider1 = new EllipticalSlider('slider1-container', 'slider1', {
+            radiusX: 150,
+            radiusY: 40,
+            color: 'blue',
+            handleColor: 'var(--Button-blue-color)',
+            initialValue: 180,
+            min: 360,
+            max: 0,
+            showValue: false,
+            borderThickness: 5,           
+            onChange: function(value) 
+            {
+              SetYawValue(value);
+              let normalSlider = document.getElementById('yawSlider');
+              normalSlider.value = value;
+              updateTray(normalSlider);
+            }
+        });
+
+        SetYawValue(180);
+
+        const slider2 = new EllipticalSlider('slider2-container', 'slider2', {
+            radiusX: 50,
+            radiusY: 150,
+            color: 'green',
+            handleColor: 'var(--Button-blue-color)',
+            initialValue: 0,
+            min: -180,
+            max: 180,
+            showValue: false,
+            borderThickness: 5,
+            onChange: function(value) 
+            {
+              SetPitchValue(value); // Callback when value changes
+            }
+          });
+
+          const slider3 = new EllipticalSlider('slider3-container', 'slider3', {
+            radiusX: 125,
+            radiusY: 125,
+            color: 'red',
+            handleColor: 'var(--Button-blue-color)',
+            initialValue: 0,
+            min: -180,
+            max: 180,
+            showValue: false,
+            borderThickness: 5,
+            onChange: function(value) 
+            {
+              SetRollValue(value); // Callback when value changes
+            }
+          });
+
+          const sliders = document.querySelectorAll('.Rensonslider');
+          sliders.forEach(slider => {
+            slider.oninput = function() 
+            {
+              if (this.id === "scaleSlider2") 
+              {
+                  modelViewer.scale = `${this.value} ${this.value} ${this.value}`;
+              }
+              else if (this.id === "yawSlider") 
+              {            
+                SetYawValue(this.value);
+                slider1.setHandlePosition(360-this.value);
+              }
+              else if (this.id === "pitchSlider") 
+              {
+                SetPitchValue(this.value);
+              }
+              else if (this.id === "rollSlider") 
+              {
+                SetRollValue(this.value);
+              }
+              
+              let Scalevalue = (this.value - this.min) / (this.max - this.min) * 100;
+              this.style.background = 
+              `linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ${Scalevalue}%, rgb(211, 211, 211) ${Scalevalue}%, rgb(211, 211, 211) 100%)`;
+            };
+          });
+
+          sliders.forEach(slider => 
+          {
+            let scaleValue = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+            slider.style.background = `linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ${scaleValue}%, rgb(211, 211, 211) ${scaleValue}%, rgb(211, 211, 211) 100%)`;
+          });
+
+        });
+
+               
     </script>
     
-    <!-- Loads <model-viewer> for browsers: -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script src="script.js"></script>
+    <script src="rotations.js"></script>
   </body>
 </html>
