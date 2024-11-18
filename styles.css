@@ -474,19 +474,22 @@ img
   border: none;
   color: var(--Text-white);
   /*border-radius: 5px;*/
-  height: 25px;
+  height: 35px;
   cursor: pointer;
   z-index: 3;
-  padding: 4px 25px;
+  /*padding: 4px 4px;*/
   font-weight: 550;
-  align-content: center;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   right: 15px;
   white-space: nowrap;
   top: 10px;
   transition: background-color 0.2s, color 0s;
   display: flex;
-  padding-top: 6px;
+  /*padding-top: 6px;*/
+  display: flex;
+  width: 250px;
 }
 
 .RensonButtonInput:hover
@@ -494,6 +497,63 @@ img
   background-color: var(--Light-blue-bg-color);
   color: var(--Button-blue-color);
   transition: background-color 0.2s, color 0.0s;
+}
+
+.RensonButtonClear
+{
+  font-size: 14px;
+  background-color: var(--Renson-blue-color);
+  border: none;
+  color: var(--Text-white);
+  /*border-radius: 5px;*/
+  height: 35px;
+  cursor: pointer;
+  z-index: 3;  
+  font-weight: 550;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 15px;
+  white-space: nowrap;
+  top: 60px;
+  transition: background-color 0.2s, color 0s;
+  display: none; 
+  width: 250px;
+  font-family: var(--Default-font-family);
+  padding-bottom: 2px;
+}
+
+.RensonButtonClear:hover
+{
+  background-color: var(--Light-blue-bg-color);
+  color: var(--Button-blue-color);
+  transition: background-color 0.2s, color 0.0s;
+}
+
+.SliderSelector
+{
+  position: absolute; 
+  right: 15px; 
+  top: 120px; 
+  scale:1; 
+  background-color:var(--Light-blue-bg-color); 
+  border-radius: 10px; 
+  padding: 10px; 
+  pointer-events: all;
+}
+
+.PositioningSlider
+{
+  position: absolute !important; 
+  left: 50%; 
+  top: 40%; 
+  scale:1; 
+  transform: translateX(-50%) translateY(-50%);
+}
+
+input[type="radio"] {
+  accent-color: var(--Button-blue-color);
+  cursor: pointer;
 }
 
 .uploadTest

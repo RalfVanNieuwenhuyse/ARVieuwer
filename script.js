@@ -111,17 +111,22 @@ function changeImage(input)
       element.style.display = "block";    
       });
     }
+    document.getElementById("clearImageButton").style.display = "flex";
   }
 }
 
-function clearImage()
-{
-  document.getElementById("model-viewer").style.backgroundImage = `url()`;
+function clearImage() {
+  document.getElementById("model-viewer").style.backgroundImage = `url("#")`;
+  document.getElementById("clearImageButton").style.display = "none";
+  
+  // Reset the file input
+  const fileInput = document.getElementById("filetag");
+  fileInput.value = ""; // Clear the input value
+  
   let displayitems = document.querySelectorAll(".DispplayOnlyOnImageBackground");
-    displayitems.forEach(element => {
+  displayitems.forEach(element => {
     element.style.display = "none";    
   });
-  
 }
 
 //const modelViewer = document.getElementById('model-viewer');
@@ -132,3 +137,82 @@ scaleSlider.oninput = function()
   let Scalevalue = (this.value-this.min)/(this.max-this.min)*100
   this.style.background = 'linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ' + Scalevalue + '%, rgb(211, 211, 211) ' + Scalevalue + '%, rgb(211, 211, 211) 100%)';
 }
+
+var rotationSelector = document.getElementById("rotationSelector");
+
+function selectSlider() 
+{
+  var selected = rotationSelector.querySelector('input[name="rotation"]:checked');
+  /*console.log(selected.value);*/
+  if (selected.value == "Roll") 
+  {
+      var RollSlider1 = document.getElementById("slider1-container");
+      RollSlider1.style.display = "none";
+      var PitchSlider1 = document.getElementById("slider2-container");
+      PitchSlider1.style.display = "none";
+      var YawSlider1 = document.getElementById("slider3-container");
+      YawSlider1.style.display = "block";
+      var ScaleSlider1 = document.getElementById("scaleSlider");
+      ScaleSlider1.style.display = "none";
+  }
+  else if (selected.value == "Pitch") 
+  {
+      let RollSlider1 = document.getElementById("slider1-container");
+      RollSlider1.style.display = "none";
+      let PitchSlider1 = document.getElementById("slider2-container");
+      PitchSlider1.style.display = "block";
+      let YawSlider1 = document.getElementById("slider3-container");
+      YawSlider1.style.display = "none";
+      let ScaleSlider1 = document.getElementById("scaleSlider");
+      ScaleSlider1.style.display = "none";
+  }
+  else if (selected.value == "Yaw") 
+  {
+      let RollSlider1 = document.getElementById("slider1-container");
+      RollSlider1.style.display = "block";
+      let PitchSlider1 = document.getElementById("slider2-container");
+      PitchSlider1.style.display = "none";
+      let YawSlider1 = document.getElementById("slider3-container");
+      YawSlider1.style.display = "none";
+      let ScaleSlider1 = document.getElementById("scaleSlider");
+      ScaleSlider1.style.display = "none";
+  }
+  else if (selected.value == "All") 
+  {
+      let RollSlider1 = document.getElementById("slider1-container");
+      RollSlider1.style.display = "block";
+      let PitchSlider1 = document.getElementById("slider2-container");
+      PitchSlider1.style.display = "block";
+      let YawSlider1 = document.getElementById("slider3-container");
+      YawSlider1.style.display = "block";
+      let ScaleSlider1 = document.getElementById("scaleSlider");
+      ScaleSlider1.style.display = "block";
+  }
+  else if (selected.value == "None") 
+  {
+      let RollSlider1 = document.getElementById("slider1-container");
+      RollSlider1.style.display = "none";
+      let PitchSlider1 = document.getElementById("slider2-container");
+      PitchSlider1.style.display = "none";
+      let YawSlider1 = document.getElementById("slider3-container");
+      YawSlider1.style.display = "none";
+      let ScaleSlider1 = document.getElementById("scaleSlider");
+      ScaleSlider1.style.display = "none";
+  }
+  else if (selected.value == "Scale") 
+  {
+      let RollSlider1 = document.getElementById("slider1-container");
+      RollSlider1.style.display = "none";
+      let PitchSlider1 = document.getElementById("slider2-container");
+      PitchSlider1.style.display = "none";
+      let YawSlider1 = document.getElementById("slider3-container");
+      YawSlider1.style.display = "none";
+      let ScaleSlider1 = document.getElementById("scaleSlider");
+      ScaleSlider1.style.display = "block";
+  }
+};
+
+rotationSelector.oninput = selectSlider;
+window.addEventListener('DOMContentLoaded', () => {
+  selectSlider();
+});
