@@ -552,21 +552,18 @@ img
 }
 
 input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none; 
+  all: unset;
+  display: inline-block;
   width: 16px;
   height: 16px;
-  border: 1.5px solid #ccc;
-  background-color: transparent;
-  display: inline-block;
-  vertical-align: middle;
   cursor: pointer;
+  border: 1.5px solid #ccc;
   border-radius: 50%;
   position: relative;
   transition: all 0.3s ease;
-  margin-top: -1px;
-  background-color: transparent;
+  margin-left: 5px;
+  vertical-align: -3.5px;
+  margin-right: 3px;
 }
 
 input[type="radio"]:hover {
@@ -574,43 +571,33 @@ input[type="radio"]:hover {
 }
 
 input[type="radio"]:checked {
-  background-color: transparent;
   border-color: var(--Renson-blue-color);
   transition: all 0.3s ease;
 }
 
 input[type="radio"]::after {
-  --spacing-checkboxcenter: 101%;  
   content: '';
   position: absolute;
-  top: var(--spacing-checkboxcenter); 
-  left: var(--spacing-checkboxcenter); 
-  right: var(--spacing-checkboxcenter); 
-  bottom: var(--spacing-checkboxcenter);
-  background-color: var(--Renson-blue-color);
-  /*left: 50%;
+  width: 0;
+  height: 0;
   top: 50%;
-  transform: translateX(-50%) translateY(-50%);*/
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--Renson-blue-color);
   border-radius: 50%;
   transition: all 0.3s ease;
-  /*width: 0;
-  height: 0;*/
 }
 
 input[type="radio"]:checked::after {
-  --spacing-checkboxcenter: 16%;
-  top: var(--spacing-checkboxcenter); 
-  left: var(--spacing-checkboxcenter); 
-  right: var(--spacing-checkboxcenter); 
-  bottom: var(--spacing-checkboxcenter);
-  transition: all 0.3s ease;
-  /*width: 80%;
-  height: 80%;*/
+  width: 12px;
+  height: 12px;
 }
+
 
 .radiolabel
 {
   padding-top: 10px;
+  color: var(--Renson-blue-color);
 }
 
 .uploadTest
