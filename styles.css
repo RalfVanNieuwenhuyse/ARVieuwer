@@ -580,7 +580,7 @@ input[type="radio"]:checked {
 }
 
 input[type="radio"]::after {
-  --spacing-checkboxcenter: 10px;  
+  --spacing-checkboxcenter: 101%;  
   content: '';
   position: absolute;
   top: var(--spacing-checkboxcenter); 
@@ -588,17 +588,24 @@ input[type="radio"]::after {
   right: var(--spacing-checkboxcenter); 
   bottom: var(--spacing-checkboxcenter);
   background-color: var(--Renson-blue-color);
+  /*left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);*/
   border-radius: 50%;
   transition: all 0.3s ease;
+  /*width: 0;
+  height: 0;*/
 }
 
 input[type="radio"]:checked::after {
-  --spacing-checkboxcenter: 2.3px;
+  --spacing-checkboxcenter: 16%;
   top: var(--spacing-checkboxcenter); 
   left: var(--spacing-checkboxcenter); 
   right: var(--spacing-checkboxcenter); 
-  bottom: var(--spacing-checkboxcenter);  
+  bottom: var(--spacing-checkboxcenter);
   transition: all 0.3s ease;
+  /*width: 80%;
+  height: 80%;*/
 }
 
 .radiolabel
