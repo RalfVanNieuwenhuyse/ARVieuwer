@@ -96,6 +96,7 @@
       border-radius: 10px;  
       pointer-events: all; 
       margin-right: 5px;
+      margin-bottom: 10px;
     }
     
     .Rensonslider::-webkit-slider-thumb
@@ -183,6 +184,39 @@
     #AdvancedRotationSettings.expanded {
       max-height: 200px; /* Adjust to fit your content */
       transition: max-height 0.3s ease;
+    }
+
+    .sliderContainer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+
+    /*.sliderLabelText {
+      width: 80px; 
+    }*/
+
+    .Rensonslider {
+      flex-grow: 1;
+    }
+
+    .sliderValue {
+      width: 50px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: center;
+      color: var(--Renson-blue-color);
+    }
+
+    .sliderValue:focus
+    {
+      outline-color: var(--Renson-blue-color);
+    }
+
+    .test3 .spacer {
+      flex-grow: 1;
     }
 
 
@@ -282,7 +316,7 @@
         <div style="font-size: 18px; padding-bottom: 3px; padding-right: 8px;">&#9114;</div> Clear background image
       </button>
 
-      <div class="DispplayOnlyOnImageBackground">
+      <div class="DispplayOnlyOnImageBackground2">
 
         <div id="AdvancedRotationSliders" style="display: none;">
           <input class="sliderScale" id="scaleSlider" type="range" min="0.25" max="2" value="1" step="0.001">
@@ -293,14 +327,43 @@
 
         <div class="SliderSelector">
           <div style="display: flex; flex-direction: column;">
-            <label for="scaleSlider2" class="sliderLabelText">Scale</label>
+            <!-- <label for="scaleSlider2" class="sliderLabelText">Scale</label>
             <input class="Rensonslider" id="scaleSlider2" type="range" min="0.25" max="2" value="1" step="0.001">
             <label for="scaleSlider2" class="sliderLabelText">Rotate y</label>
             <input class="Rensonslider" id="yawSlider" type="range" min="0" max="360" value="180" step="1">
             <label for="scaleSlider2" class="sliderLabelText">Rotate x</label>
             <input class="Rensonslider" id="pitchSlider" type="range" min="-180" max="180" value="0" step="1">
             <label for="scaleSlider2" class="sliderLabelText">Rotate z</label>
+            <input class="Rensonslider" id="rollSlider" type="range" min="-180" max="180" value="0" step="1"> -->
+            
+            <div class="sliderContainer test3">
+              <label for="scaleSlider2" class="sliderLabelText">Scale</label>
+              <div class="spacer"></div>
+              <input type="number" class="sliderValue" id="sliderValue3" value="1" min="0.25" max="2">
+            </div>
+            <input class="Rensonslider" id="scaleSlider2" type="range" min="0.25" max="2" value="1" step="0.001">
+
+            <div class="sliderContainer test3">
+              <label for="scaleSlider2" class="sliderLabelText">Rotate x</label>
+              <div class="spacer"></div>
+              <input type="number" class="sliderValue" id="sliderValue3" value="0" min="-180" max="180">
+            </div>
+            <input class="Rensonslider" id="pitchSlider" type="range" min="-180" max="180" value="0" step="1">
+
+            <div class="sliderContainer test3">
+              <label for="scaleSlider2" class="sliderLabelText">Rotate y</label>
+              <div class="spacer"></div>
+              <input type="number" class="sliderValue" id="sliderValue3" value="0" min="-180" max="180">
+            </div>
+            <input class="Rensonslider" id="yawSlider" type="range" min="0" max="360" value="180" step="1">
+
+            <div class="sliderContainer test3">
+              <label for="scaleSlider2" class="sliderLabelText">Rotate z</label>
+              <div class="spacer"></div>
+              <input type="number" class="sliderValue" id="sliderValue3" value="0" min="-180" max="180">
+            </div>
             <input class="Rensonslider" id="rollSlider" type="range" min="-180" max="180" value="0" step="1">
+
             <label class="sliderLabelText">
               <input class="customCheckbox" type="checkbox" id="gizmoCheckbox">
               Advanced rotation gizmo
