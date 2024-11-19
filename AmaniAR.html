@@ -558,16 +558,16 @@
     </script>
     
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+      /*document.addEventListener("DOMContentLoaded", function () {
         // Create multiple sliders in different divs
         const slider1 = new EllipticalSlider('slider1-container', 'slider1', {
             radiusX: 150,
             radiusY: 40,
             color: 'blue',
             handleColor: 'var(--Button-blue-color)',
-            initialValue: 180,
-            min: 360,
-            max: 0,
+            initialValue: 0,
+            min: -180,
+            max: 180,
             showValue: false,
             borderThickness: 5,           
             onChange: function(value) 
@@ -576,7 +576,7 @@
             }
         });
 
-        SetYawValue(180);
+        
 
         const slider2 = new EllipticalSlider('slider2-container', 'slider2', {
             radiusX: 50,
@@ -609,10 +609,11 @@
               SetRollValue(value); // Callback when value changes
             }
           });
-        });
+        });*/
     </script>
     
     <script src="script.js"></script>
     <script src="rotations.js"></script>
+    <script src="BackgroundPhotoScript.js"></script>
   </body>
 </html>
