@@ -462,16 +462,10 @@
         }
       };
 
-      // JavaScript to handle model changes from the slider
+      
       const modelViewer = document.getElementById('model-viewer');
       const sliderItems = document.querySelectorAll('.slider-item');
-
-      /*const testing = () =>
-      {
-        modelViewer.orientation = `${90}deg ${90}deg ${90}deg`;
-        modelViewer.updateFraming();
-      }*/    
-     
+      
       const loadModelInfo = (modelFile) => 
       {
         fetch(`asset/Amani/${modelFile}`)
