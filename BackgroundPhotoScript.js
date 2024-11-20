@@ -166,6 +166,24 @@ document.addEventListener("DOMContentLoaded", function () {
       updateTray(extraslider);
     }
 
+    ScaleSliderValue.onblur = function()
+    {
+      let scaleValue = parseFloat(this.value);
+      
+      if (isNaN(scaleValue))
+      {
+        scaleValue = 1;
+        modelViewer.scale = `${scaleValue} ${scaleValue} ${scaleValue}`;      
+        scaleSlider.value = scaleValue;
+        updateTray(scaleSlider);
+        let extraslider = document.getElementById("scaleSlider2");
+        extraslider.value = scaleValue;
+        updateTray(extraslider);
+        ScaleSliderValue.value = scaleValue;
+      }
+    }
+    
+
     PitchSliderValue.oninput = function() 
     {
       var minPitch = parseFloat(this.min) || -180;
@@ -195,6 +213,23 @@ document.addEventListener("DOMContentLoaded", function () {
       updateTray(normalSlider);           
     }
 
+    PitchSliderValue.onblur = function()
+    {
+      let PitchValue = parseFloat(this.value);
+      
+      if (isNaN(PitchValue))
+      {
+        PitchValue = 0;
+             
+        SetPitchValue(PitchValue);
+        slider2.setHandlePosition(PitchValue); 
+        let normalSlider = document.getElementById('pitchSlider');            
+        normalSlider.value = PitchValue;
+        updateTray(normalSlider);
+        this.value = PitchValue;
+      }
+    }
+
     RollSliderValue.oninput = function() 
     {
       var minRoll = parseFloat(this.min) || -180;
@@ -222,6 +257,23 @@ document.addEventListener("DOMContentLoaded", function () {
       let normalSlider = document.getElementById('rollSlider');            
       normalSlider.value = RollValue;
       updateTray(normalSlider);           
+    }
+
+    RollSliderValue.onblur = function()
+    {
+      let RollValue = parseFloat(this.value);
+      
+      if (isNaN(RollValue))
+      {
+        RollValue = 0;
+             
+        SetRollValue(RollValue);
+        slider3.setHandlePosition(RollValue); 
+        let normalSlider = document.getElementById('rollSlider');            
+        normalSlider.value = RollValue;
+        updateTray(normalSlider);
+        this.value = RollValue;      
+      }
     }
 
     YawSliderValue.oninput = function() 
@@ -254,6 +306,23 @@ document.addEventListener("DOMContentLoaded", function () {
       normalSlider.value = YawValue;
       updateTray(normalSlider);           
     }
+
+    YawSliderValue.onblur = function()
+    {
+      let YawValue = parseFloat(this.value);
+      
+      if (isNaN(YawValue))
+      {
+        YawValue = 0;
+        this.value = YawValue;
+        SetYawValue(YawValue);
+        slider1.setHandlePosition(-YawValue); 
+        let normalSlider = document.getElementById('yawSlider');            
+        normalSlider.value = YawValue;
+        updateTray(normalSlider);      
+      }
+    }
+
   });
 
 var rotationSelector = document.getElementById("rotationSelector");
