@@ -9,6 +9,8 @@ function updateTray(sliderElement)
   sliderElement.style.background = `linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ${percentage}%, rgb(211, 211, 211) ${percentage}%, rgb(211, 211, 211) 100%)`;
 }
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
   var ScaleSliderValue = document.getElementById("ScaleSliderValue2");
@@ -65,8 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
       color: 'red',
       handleColor: 'var(--Button-blue-color)',
       initialValue: 0,
-      min: -180,
-      max: 180,
+      min: 180,
+      max: -180,
       showValue: false,
       borderThickness: 5,
       onChange: function(value) 
@@ -103,13 +105,13 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           SetPitchValue(this.value);
           PitchSliderValue.value = this.value;
-          slider2.setHandlePosition(this.value);
+          slider2.setHandlePosition(-this.value);
         }
         else if (this.id === "rollSlider") 
         {
           SetRollValue(this.value);
           RollSliderValue.value = this.value;
-          slider3.setHandlePosition(this.value);
+          slider3.setHandlePosition(-this.value);
         }
         
         let Scalevalue = (this.value - this.min) / (this.max - this.min) * 100;
@@ -205,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
         this.value = maxPitch;
       }
       SetPitchValue(PitchValue);
-      slider2.setHandlePosition(PitchValue); 
+      slider2.setHandlePosition(-PitchValue); 
       let normalSlider = document.getElementById('pitchSlider');            
       normalSlider.value = PitchValue;
       updateTray(normalSlider);           
@@ -251,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
         this.value = maxRoll;
       }
       SetRollValue(RollValue);
-      slider3.setHandlePosition(RollValue); 
+      slider3.setHandlePosition(-RollValue); 
       let normalSlider = document.getElementById('rollSlider');            
       normalSlider.value = RollValue;
       updateTray(normalSlider);           
