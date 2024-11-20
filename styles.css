@@ -131,9 +131,10 @@ model-viewer > #ar-prompt > img {
   top: 0;
   left: 0;
   background-color: var(--Light-blue-bg-color);
+  color: var(--Renson-blue-color);
   overflow-x: hidden;
   transition: 0.15s;
-  padding-top: 30px;
+  padding-top: 15px;
   z-index: 7;  
 }
 
@@ -449,7 +450,7 @@ img
 {
   width: 6px !important;
   height: 6px !important;
-  /*background-color: #00000000 !important;*/
+  background-color: #00000000 !important;
   /*overflow: overlay;*/
   background: none;
 }
