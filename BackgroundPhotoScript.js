@@ -9,8 +9,6 @@ function updateTray(sliderElement)
   sliderElement.style.background = `linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ${percentage}%, rgb(211, 211, 211) ${percentage}%, rgb(211, 211, 211) 100%)`;
 }
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
   var ScaleSliderValue = document.getElementById("ScaleSliderValue2");
@@ -449,3 +447,19 @@ function clearImage() {
     element.style.display = "none";    
   });
 }
+
+const GizmoCheckbox = document.getElementById('gizmoCheckbox');
+GizmoCheckbox.onchange = function(){
+  if(GizmoCheckbox.checked)
+  {
+    //document.getElementById('AdvancedRotationSettings').style.display = "block";
+    document.getElementById('AdvancedRotationSettings').classList.add("expanded");
+    document.getElementById('AdvancedRotationSliders').style.display = "block";
+  }
+  else
+  {
+    //document.getElementById('AdvancedRotationSettings').style.display = "none";
+    document.getElementById('AdvancedRotationSettings').classList.remove("expanded");
+    document.getElementById('AdvancedRotationSliders').style.display = "none";
+  }
+};

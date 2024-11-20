@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>model-viewer Amani background image</title>
+    <title>model-viewer Camargue background image</title>
     <meta charset="utf-8">
-    <meta name="description" content="model-viewer DEV Amani background image">
+    <meta name="description" content="model-viewer Camargue background image">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
     <link type="text/css" href="./header.css" rel="stylesheet"/>
@@ -20,7 +20,6 @@
 
     <style> 
     @import url("variables.css");
-
     .bottom
     {
       margin-top: auto;
@@ -72,7 +71,6 @@
       width: 100%;
       height: 100%;
     }
-
     </style>
   </head>
 
@@ -88,36 +86,36 @@
       <!--<button class="phoneContent sidenav-lines" onclick="openNav2()">&#8801;</button>-->
     </header>
 
+    <div class="subModleViewerHeader">
+      <a href="index.html">&#10094; Back to website</a>
+      <div class="subModleViewerHeaderText" style="font-weight: bold; font-size: 16px;">Camargue background image</div>
+    </div>
+
     <div id="mySidenav2" class="sidenav" style="right: 0; left: auto;">
       <a href="javascript:void(0)" class="closebtn sidenavLink" onclick="closeNav2()">&times;</a>
       <div id="model-info" class="sidenav-Infobox">
           <a href="index.html" class="sidenavLink">Home</a>
           <a href="https://renson.net/en-gb" class="sidenavLink">Renson website</a>
           <a href="https://renson.net/en-gb/dealers" class="sidenavLink">Find a dealer</a>
-          <a href="https://renson.net/en-us/products/pergolas/amani" class="sidenavLink">Amani</a>
+          <a href="https://renson.net/en-us/products/pergolas/camargue" class="sidenavLink">Camargue</a>
       </div>
     </div>
 
-    <div class="subModleViewerHeader">
-      <a href="index.html">&#10094; Back to website</a>
-      <div class="subModleViewerHeaderText" style="font-weight: bold; font-size: 16px;">Amani background image</div>
-    </div>
-
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="model-viewer" src="asset/Amani/ZeroErrorsModel.gltf"
+    <model-viewer id="model-viewer" src="asset/Camargue/Camargue_CL.glb"
                   camera-controls interaction-prompt="none" tone-mapping="neutral" 
                   shadow-intensity="2"
-                  shadow-softness="1"
-                   
+                  shadow-softness="1"                  
                   min-camera-orbit="auto 0deg auto" 
                   max-camera-orbit="auto 95deg auto"
                   exposure="3"                  
                   >
+      <!-- ios-src="asset/Dev/newTransparentMat.usdz" the transparancy works if made in blender one -->
 
       <div class="progress-bar" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
-
+      
       <div id="mySidenav" class="sidenav">
         <div class="relativeposdiv" >
         <a href="javascript:void(0)" class="closebtn sidenavLink" onclick="closeNav()">&times;</a>
@@ -126,13 +124,16 @@
           <p id="model-description"></p>
           <p class="sidenavtext"><strong>Dimensions:</strong> <span id="model-dimensions"></span></p>
           <p class="sidenavtext"><strong>Features:</strong></p>
-          <ul style="margin-top: 2px;" id="model-features"></ul>         
+          <ul style="margin-top: 2px;" id="model-features"></ul>
         </div>
-        <div class="bottom">          
+
+        <div class="bottom">
+          
           <a class="SideNav-button pNTGrid" href="https://renson.net/en-gb/dealers">Find a dealer</a>
         </div>        
         </div>
       </div>
+      <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
       <button class="sidenav-arrow" onclick="openNav()">&#10095;</button>
 
       <label for="filetag" class="RensonButtonInput pNTGrid">
@@ -213,49 +214,44 @@
           </div> 
         </div>
       </div>
+
     </model-viewer>
 
     <div class="BackgroundGrey">
-      <!-- Slider for selecting models -->
-      <div class="slider-navigation">
-        <!--<div class="deskContent"><button id="prev" class="nav-arrow">&#10094;</button></div>-->
-        <div class="slider-container">
-          <div class="slider-item" data-model="asset/Amani/AmaniModel6.glb">
-            <img src="asset/Amani/AmaniModel6.webp" alt="Window I think not">Outside Dinner</div>
-  
-          <div class="slider-item" data-model="asset/Amani/AmaniModel7.glb">
-            <img src="asset/Amani/AmaniModel7.webp" alt="Window I think not">The Lounge</div>
-      
-          <div class="slider-item" data-model="asset/Amani/AmaniModel1.glb">
-            <img src="asset/Amani/AmaniModel1.webp" alt="Window I think not">Amani</div>
+    <!-- Slider for selecting models -->
+    <div class="slider-navigation">
+      <!--<div class="deskContent"><button id="prev" class="nav-arrow">&#10094;</button></div>-->
+    <div class="slider-container">
+        <div class="slider-item" data-model="asset/Camargue/CamargueCL.glb">
+        <img src="asset/Camargue/CamargueCL.webp" alt="ZeroErrorsModel">Crystal<br/>Lounge</div>
 
-          <div class="slider-item" data-model="asset/Amani/AmaniModel2.glb">
-            <img src="asset/Amani/AmaniModel2.webp" alt="Window I think not">Amani</div>
+        <div class="slider-item" data-model="asset/Camargue/camargueeo.glb">
+            <img src="asset/Camargue/camargueeo.webp" alt="ZeroErrorsModel">Earth<br/>Oasis</div>
 
-          <div class="slider-item" data-model="asset/Amani/AmaniModel3.glb">
-            <img src="asset/Amani/AmaniModel3.webp" alt="Window I think not">Amani</div>
+        <div class="slider-item" data-model="asset/Camargue/camargueig.glb">
+            <img src="asset/Camargue/camargueig.webp" alt="ZeroErrorsModel">Idyllic<br/>Garden</div>
 
-          <div class="slider-item" data-model="asset/Amani/AmaniModel4.glb">
-            <img src="asset/Amani/AmaniModel4.webp" alt="Window I think not">Amani</div>
+        <div class="slider-item" data-model="asset/Camargue/camarguepe.glb">
+            <img src="asset/Camargue/camarguepe.webp" alt="ZeroErrorsModel">Pure<br/>Essence</div>
 
-          <div class="slider-item" data-model="asset/Amani/AmaniModel5.glb">
-            <img src="asset/Amani/AmaniModel5.webp" alt="Window I think not">model5</div>
-            
-        </div>
-        <!--<div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>-->
-      </div>    
+        <div class="slider-item" data-model="asset/Camargue/camarguesh.glb">
+            <img src="asset/Camargue/camarguesh.webp" alt="ZeroErrorsModel">Spiritual<br/>Harmony</div>
+        
+        <div class="slider-item" data-model="asset/Camargue/camarguetc.glb">
+            <img src="asset/Camargue/camarguetc.webp" alt="ZeroErrorsModel">Tech<br/>Cocoon</div>
     </div>
-    <!--<button onclick="testing()">test</button>-->
-    
+    <!--<div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>-->
+    </div>
+  </div>
 
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script>
+      // JavaScript to handle model changes from the slider
       const modelViewer = document.getElementById('model-viewer');
       const sliderItems = document.querySelectorAll('.slider-item');
-      
+    
       const loadModelInfo = (modelFile) => 
       {
-        fetch(`asset/Amani/${modelFile}`)
+        fetch(`asset/Camargue/${modelFile}`)
         .then(response => 
         {
           if (!response.ok) {
@@ -308,24 +304,15 @@
           item.parentElement.classList.add('active');
           
         }
-
-
         modelViewer.src = selectedModel;
 
         // Determine the JSON file based on the selected model
-        const modelFile = selectedModel.includes('ZeroErrorsModel') ? 'ZeroErrorsModel.json' :
-                          selectedModel.includes('OpenBlackGlass') ? 'OpenBlackGlass.json' :
-                          selectedModel.includes('WallInfillsOpened') ? 'WallInfillsOpened.json':
-                          selectedModel.includes('WallNoInfill') ? 'WallNoInfill.json':
-                          selectedModel.includes('MaxSize') ? 'MaxSize.json':                          
-                          selectedModel.includes('TheNotSoBigBigOne2') ? 'TheNotSoBigBigOne2.json':
-                          selectedModel.includes('TransparentMatHighOptimise') ? 'TransparentMatHighOptimise.json' :
-                          selectedModel.includes('AmaniModel1') ? 'AmaniModel1.json' :
-                          selectedModel.includes('AmaniModel2') ? 'AmaniModel2.json' :
-                          selectedModel.includes('AmaniModel3') ? 'AmaniModel3.json' :
-                          selectedModel.includes('AmaniModel4') ? 'AmaniModel4.json' :
-                          selectedModel.includes('AmaniModel6') ? 'AmaniModel6.json' :
-                          selectedModel.includes('AmaniModel7') ? 'AmaniModel7.json' :
+        const modelFile = selectedModel.includes('CamargueCL') ? 'CamargueCL.json' :
+                          selectedModel.includes('camargueeo') ? 'Camargueeo.json' :
+                          selectedModel.includes('camargueig') ? 'Camargueig.json' :
+                          selectedModel.includes('camarguepe') ? 'Camarguepe.json' :
+                          selectedModel.includes('camarguesh') ? 'Camarguesh.json' :
+                          selectedModel.includes('camarguetc') ? 'Camarguetc.json' :
                           null; // Add more conditions as needed
 
         if (modelFile) {
@@ -344,19 +331,17 @@
         }
       };
 
-      //const yourElement = document.querySelector('#your-element');
-
       window.addEventListener('progressComplete', (e) => {
         console.log(e.detail.message); // Log message: 'Progress is complete!'
         // Trigger IsARPosible when the event is received
-        //console.log("hello");
-        //IsARPosible();
+        console.log("hello");
+        IsARPosible();
       });
 
       function IsARPosible() {
         let customDiv = document.querySelector('#custom-div');
         const isARSupported = modelViewer.canActivateAR;
-        //console.log("hello2");
+        console.log("hello2");
 
         if (!isARSupported) {
           customDiv.style.display = 'block';
@@ -369,7 +354,8 @@
       // Set the first model as active when the page loads
       window.addEventListener('DOMContentLoaded', () => {
         setActiveModel(sliderItems[0]); // Set first slider item as active
-        //IsARPosible();
+        //IsARPosible();        
+        //setTimeout();        
       });
     
       // Add click event to each slider item
@@ -379,12 +365,42 @@
         });
       });
 
+      /*myButton.addEventListener(
+            "click",
+            function () {
+                myPopup.classList.add("show");
+            }
+        );
+        PopupButton2.addEventListener(
+        "click",
+            function () {
+                myPopup.classList.add("show");
+            }
+        );
+        closePopup.addEventListener(
+            "click",
+            function () {
+                myPopup.classList.remove(
+                    "show"
+                );
+            }
+        );
+        window.addEventListener(
+            "click",
+            function (event) {
+                if (event.target == myPopup) {
+                    myPopup.classList.remove(
+                        "show"
+                    );
+                }
+            }
+        );*/
 
-        const prevButton = document.getElementById('prev');
+        /*const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
         const sliderContainer = document.querySelector('.slider-container');
 
-        /*prevButton.addEventListener('click', () => {
+        prevButton.addEventListener('click', () => {
           // Scroll left by 200 pixels (you can adjust this value)
           sliderContainer.scrollBy({
           top: 0,
@@ -413,8 +429,9 @@
         {
           customDiv.style.display = 'none';
         }
-      };      
-      modelViewer.addEventListener('load', checkARSupport);*/
+      }; */
+
+      /*modelViewer.addEventListener('load', checkARSupport);*/
 
       function openNav2() {  
         if (window.matchMedia("(max-width: 480px)").matches) {
@@ -430,9 +447,12 @@
       function closeNav2() {
         document.getElementById("mySidenav2").style.width = "0";
         document.getElementById("mySidenav2").style.textWrap = "nowrap";
-      }     
+      }
+
     </script>
     
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script src="script.js"></script>
     <script src="rotations.js"></script>
     <script src="BackgroundPhotoScript.js"></script>

@@ -86,7 +86,7 @@
 
     <div class="subModleViewerHeader">
       <a href="index.html">&#10094; Back to website</a>
-      <div class="subModleViewerHeaderText" style="font-weight: bold; font-size: 16px;">Camargue</div>
+      <div class="subModleViewerHeaderText" style="font-weight: bold; font-size: 16px;">Camargue AR</div>
     </div>
 
     <div id="mySidenav2" class="sidenav" style="right: 0; left: auto;">
@@ -154,48 +154,6 @@
       </div>
       <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
       <button class="sidenav-arrow" onclick="openNav()">&#10095;</button>
-
-      <label for="filetag" class="RensonButtonInput pNTGrid">
-        <div class="uploadTest"></div>
-        Upload background image        
-      </label>
-      <input type="file" id="filetag" accept="image/*" style="display: none;">
-
-      <button class="RensonButtonClear pNTGrid" onclick="clearImage()" id="clearImageButton"> 
-        <div style="font-size: 18px; padding-bottom: 3px; padding-right: 8px;">&#9114;</div> Clear background image
-      </button>
-
-      <div class="DispplayOnlyOnImageBackground">
-        <input class="sliderScale" id="scaleSlider" type="range" min="0.25" max="2" value="1" step="0.001">
-
-          <div id="slider1-container" class="PositioningSlider ellipse-slider-wrapper"></div>
-          <div id="slider2-container" class="PositioningSlider ellipse-slider-wrapper"></div>
-          <div id="slider3-container" class="PositioningSlider ellipse-slider-wrapper"></div>
-
-        <div class="SliderSelector">          
-          <p class="pNT" style="margin-top: 0px; font-weight: 500;">Select the rotation <br> you want to edit:</p>
-          <form id="rotationSelector" style="pointer-events: all;">
-            <input type="radio" id="AllRotationSelector" name="rotation" value="All" checked>
-            <label class="cursorpointer" for="AllRotationSelector">All</label><br>
-      
-            <input type="radio" id="RollRotationSelector" name="rotation" value="Roll">
-            <label class="cursorpointer" for="RollRotationSelector">Roll</label><br>
-            
-            <input type="radio" id="PitchRotationSelector" name="rotation" value="Pitch">
-            <label class="cursorpointer" for="PitchRotationSelector">Pitch</label><br>
-            
-            <input type="radio" id="YawRotationSelector" name="rotation" value="Yaw">
-            <label class="cursorpointer" for="YawRotationSelector">Yaw</label><br>
-
-            <input type="radio" id="ScaleSelector" name="rotation" value="Scale">
-            <label class="cursorpointer" for="ScaleSelector">Scale</label><br>
-            
-            <input type="radio" id="NoneRotationSelector" name="rotation" value="None">
-            <label class="cursorpointer" for="NoneRotationSelector">None</label><br>
-          </form>
-        </div>
-      </div>
-
     </model-viewer>
 
     <div id="myPopup" class="popup">
