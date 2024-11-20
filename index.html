@@ -183,6 +183,7 @@
         </div>
         <div class="bottom">
           <a class="grid-item-button pNTGrid" href="AmaniAR.html">Visualise product in AR</a>
+          <a class="grid-item-button pNTGrid" href="AmaniBGI.html">Visualise product on image</a>
           <a class="grid-item-button2 pNTGrid" href="https://renson.net/en-us/products/pergolas/amani" target="_blank">More information</a>
         </div>        
       </div>
@@ -313,8 +314,7 @@
       </div>
     </div> <!--end grid-container-->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
     <script>
       $(function(){
         // Select all containerImageSlide elements
@@ -359,6 +359,25 @@
     function ScrollTo(idToScroll) {
       const element = document.getElementById(idToScroll);
       element.scrollIntoView({ behavior: "smooth", top: 0 });
+    }
+
+    function openNav() 
+    {  
+      if (window.matchMedia("(max-width: 480px)").matches) {
+        document.getElementById("mySidenav").style.width = "100%"; //phone    
+        
+      } else {
+        document.getElementById("mySidenav").style.width = "30%"; //pc
+        //document.getElementById("Sidepush").style.marginLeft = "30%";
+      }
+      //https://stackoverflow.com/questions/54044739/how-can-i-define-a-variable-depending-on-the-width-of-the-screen
+      document.getElementById("mySidenav").style.textWrap = "wrap";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      /*document.getElementById("Sidepush").style.marginLeft = "30%";*/
+      document.getElementById("mySidenav").style.textWrap = "nowrap";
     }
 
   </script>    

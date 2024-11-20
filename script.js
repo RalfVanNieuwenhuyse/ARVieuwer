@@ -75,14 +75,11 @@ setTimeout(function()
     elementTime.style.display = 'none';
   }, 1000); // Time to match the fade-out duration
 
-}, time);
+}, time);}
 
 window.addEventListener('DOMContentLoaded', () => {
   if (!window.matchMedia("(max-width: 480px)").matches) {
-    setTimeout(function() 
-    {openNav();},0)    
+    openNav();  
   }
-  
-  
-});}
+});
 //const modelViewer = document.getElementById('model-viewer');
