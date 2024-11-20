@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>model-viewer Camargue Skye AR</title>
+    <title>model-viewer Camargue Skye background image</title>
     <meta charset="utf-8">
-    <meta name="description" content="model-viewer Camargue Skye AR">
+    <meta name="description" content="model-viewer Camargue Skye background image">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
     <link type="text/css" href="./header.css" rel="stylesheet"/>
+    <link type="text/css" href="Plugins/ellipticalsliders/src/elliptical_sliders.css" rel="stylesheet"/>
+    <script src="Plugins/ellipticalsliders/src/elliptical_sliders.js"></script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="browser_assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="browser_assets/favicon-32x32.png">
@@ -86,7 +88,7 @@
 
     <div class="subModleViewerHeader">
       <a href="index.html">&#10094; Back to website</a>
-      <div class="subModleViewerHeaderText" style="font-weight: bold; font-size: 16px;">Camargue Skye AR</div>
+      <div class="subModleViewerHeaderText" style="font-weight: bold; font-size: 16px;">Camargue Skye background image</div>
     </div>
 
     <div id="mySidenav2" class="sidenav" style="right: 0; left: auto;">
@@ -100,7 +102,7 @@
     </div>
 
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="model-viewer" src="asset/CamargueSkye/CamargueSkyeCL.glb" ar ar-modes="webxr quick-look"
+    <model-viewer id="model-viewer" src="asset/CamargueSkye/CamargueSkyeCL.glb"
                   camera-controls interaction-prompt="none" tone-mapping="neutral" 
                   shadow-intensity="2"
                   shadow-softness="1"                  
@@ -113,26 +115,7 @@
       <div class="progress-bar" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
-      <button slot="ar-button" id="ar-button">
-          View in your space
-      </button>
-
-      <div id="ar-prompt">
-          <img src="ar_hand_prompt.png">
-      </div>
-
-      <div class="deskContent" id="custom-div">
-        <button class="RensonButton" id="myButton">View in AR</button>        
-      </div>
-
-      <div class="phoneContent">
-        <div class="warningbox" id="myTimeOut">
-          <div style="text-align:center">
-            <p class="pWT"> scan far enough with enough space or model will be to small</p>
-            </div>
-        </div>      
-      </div>
-
+      
       <div id="mySidenav" class="sidenav">
         <div class="relativeposdiv" >
         <a href="javascript:void(0)" class="closebtn sidenavLink" onclick="closeNav()">&times;</a>
@@ -145,9 +128,6 @@
         </div>
         
         <div class="bottom">
-          <div class="deskContent">
-            <a class="SideNav-button pNTGrid" id="PopupButton2">View in AR</a>
-          </div>
           <a class="SideNav-button pNTGrid" href="https://renson.net/en-gb/dealers">Find a dealer</a>
         </div>        
         </div>
@@ -155,24 +135,17 @@
       <!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>-->
       <button class="sidenav-arrow" onclick="openNav()">&#10095;</button>
 
+      <label for="filetag" class="RensonButtonInput pNTGrid">
+        <div class="uploadTest"></div>
+        Upload background image        
+      </label>
+      <input type="file" id="filetag" accept="image/*" style="display: none;">
+
+      <div class="DispplayOnlyOnImageBackground">
+        <input class="sliderScale" id="scaleSlider" type="range" min="0.25" max="2" value="1" step="0.001">
+      </div>
 
     </model-viewer>
-
-    <div id="myPopup" class="popup">
-      <div class="popup-content">
-          <div style="text-align:center">
-            <h1 class="hRT">Scan me!</h1>
-          </div>
-          <img src="asset/QRCode.png" alt="QRCode" width="256" height="256" class="center">
-          <div style="text-align:center" class="">
-            <p class="pNT" style="font-weight: normal; padding: 3px; margin-bottom: 0; text-align: justify;"> Make sure you have enough room to scan the space in which your patio will be placed. When standing to close, the model will not be visualised in true size.</p>
-            <p class="pNT" style="font-weight: normal; padding: 3px; margin-top: 0; padding-top: 5px; text-align: justify;">If this happens, please close the AR application and try again by scanning the room from a greater distance. </p>
-          </div>          
-          <button id="closePopup">
-              Close
-          </button>
-      </div>
-    </div>
 
     <div class="BackgroundGrey">
     <!-- Slider for selecting models -->
@@ -289,7 +262,7 @@
         }
       };
 
-      window.addEventListener('progressComplete', (e) => {
+      /*window.addEventListener('progressComplete', (e) => {
         //console.log(e.detail.message); // Log message: 'Progress is complete!'
         // Trigger IsARPosible when the event is received
         console.log("hello");
@@ -307,7 +280,7 @@
         else {
           customDiv.style.display = 'none';
         }
-      }
+      }*/
     
       // Set the first model as active when the page loads
       window.addEventListener('DOMContentLoaded', () => {
@@ -322,7 +295,7 @@
         });
       });
 
-      PopupButton2.addEventListener(
+      /*PopupButton2.addEventListener(
         "click",
             function () {
                 myPopup.classList.add("show");
@@ -352,7 +325,7 @@
                     );
                 }
             }
-        );
+        );*/
 
         /*const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
@@ -376,7 +349,7 @@
         });
         });*/
       
-      const customDiv = document.querySelector('#custom-div');
+      /*const customDiv = document.querySelector('#custom-div');
       const checkARSupport = async () => {
         const isARSupported = await modelViewer.canActivateAR;
         if (!isARSupported)
@@ -388,7 +361,7 @@
           customDiv.style.display = 'none';
         }
       };      
-      modelViewer.addEventListener('load', checkARSupport);
+      modelViewer.addEventListener('load', checkARSupport);*/
 
       function openNav2() {  
         if (window.matchMedia("(max-width: 480px)").matches) {
@@ -412,5 +385,7 @@
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script src="script.js"></script>
+    <script src="rotations.js"></script>
+    <script src="BackgroundPhotoScript.js"></script>
   </body>
 </html>
