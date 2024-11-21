@@ -417,6 +417,85 @@
       </div>
     </div>
 
+    <div class="phoneContent">
+      <div class="DispplayOnlyOnImageBackground2">
+
+        <div id="AdvancedRotationSliders" style="display: none;">
+          <input class="sliderScale" id="scaleSlider" type="range" min="0.25" max="2" value="1" step="0.001">
+          <div id="slider1-container" class="PositioningSlider ellipse-slider-wrapper"></div>
+          <div id="slider2-container" class="PositioningSlider ellipse-slider-wrapper"></div>
+          <div id="slider3-container" class="PositioningSlider ellipse-slider-wrapper"></div>
+        </div>
+
+        <div class="SliderSelector2">
+          <div style="display: flex; flex-direction: column;">
+            <!-- <label for="scaleSlider2" class="sliderLabelText">Scale</label>
+            <input class="Rensonslider" id="scaleSlider2" type="range" min="0.25" max="2" value="1" step="0.001">
+            <label for="scaleSlider2" class="sliderLabelText">Rotate y</label>
+            <input class="Rensonslider" id="yawSlider" type="range" min="0" max="360" value="180" step="1">
+            <label for="scaleSlider2" class="sliderLabelText">Rotate x</label>
+            <input class="Rensonslider" id="pitchSlider" type="range" min="-180" max="180" value="0" step="1">
+            <label for="scaleSlider2" class="sliderLabelText">Rotate z</label>
+            <input class="Rensonslider" id="rollSlider" type="range" min="-180" max="180" value="0" step="1"> -->
+            
+            <div class="sliderContainer test3">
+              <label for="scaleSlider2" class="sliderLabelText">Scale</label>
+              <div class="spacer"></div>
+              <input type="number" class="sliderValue" id="ScaleSliderValue2" value="1" min="0.25" max="2" step="0.01">
+            </div>
+            <input class="Rensonslider" id="scaleSlider2" type="range" min="0.25" max="2" value="1" step="0.001">
+
+            <div class="sliderContainer test3">
+              <label for="scaleSlider2" class="sliderLabelText">Rotate x</label>
+              <div class="spacer"></div>
+              <input type="number" class="sliderValue" id="pitchSliderValue" value="0" min="-180" max="180">
+            </div>
+            <input class="Rensonslider" id="pitchSlider" type="range" min="-180" max="180" value="0" step="1">
+
+            <div class="sliderContainer test3">
+              <label for="scaleSlider2" class="sliderLabelText">Rotate y</label>
+              <div class="spacer"></div>
+              <input type="number" class="sliderValue" id="yawSliderValue" value="0" min="-180" max="180">
+            </div>
+            <input class="Rensonslider" id="yawSlider" type="range" min="-180" max="180" value="0" step="1">
+
+            <div class="sliderContainer test3">
+              <label for="scaleSlider2" class="sliderLabelText">Rotate z</label>
+              <div class="spacer"></div>
+              <input type="number" class="sliderValue" id="rollSliderValue" value="0" min="-180" max="180">
+            </div>
+            <input class="Rensonslider" id="rollSlider" type="range" min="-180" max="180" value="0" step="1">
+
+            <label class="sliderLabelText">
+              <input class="customCheckbox" type="checkbox" id="gizmoCheckbox">
+              Advanced rotation gizmo
+            </label>
+          </div>
+          <div id="AdvancedRotationSettings" style="padding-top: 5px;">         
+            <form id="rotationSelector" style="pointer-events: all;">
+              <input type="radio" id="AllRotationSelector" name="rotation" value="All" checked>
+              <label class="cursorpointer radiolabel" for="AllRotationSelector">All</label><br>
+        
+              <input type="radio" id="RollRotationSelector" name="rotation" value="Roll">
+              <label class="cursorpointer radiolabel" for="RollRotationSelector">Roll</label><br>
+              
+              <input type="radio" id="PitchRotationSelector" name="rotation" value="Pitch">
+              <label class="cursorpointer radiolabel" for="PitchRotationSelector">Pitch</label><br>
+              
+              <input type="radio" id="YawRotationSelector" name="rotation" value="Yaw">
+              <label class="cursorpointer radiolabel" for="YawRotationSelector">Yaw</label><br>
+
+              <input type="radio" id="ScaleSelector" name="rotation" value="Scale">
+              <label class="cursorpointer radiolabel" for="ScaleSelector">Scale</label><br>
+              
+              <input type="radio" id="NoneRotationSelector" name="rotation" value="None">
+              <label class="cursorpointer radiolabel" for="NoneRotationSelector">None</label><br>
+            </form>
+          </div> 
+        </div>
+      </div>
+    </div>
+
     <div class="BackgroundGrey">
       <!-- Slider for selecting models -->
       <div class="slider-navigation">
@@ -453,7 +532,7 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script>
 
-      const GizmoCheckbox = document.getElementById('gizmoCheckbox');
+      /*const GizmoCheckbox = document.getElementById('gizmoCheckbox');
       GizmoCheckbox.onchange = function(){
         if(GizmoCheckbox.checked)
         {
@@ -467,7 +546,7 @@
           document.getElementById('AdvancedRotationSettings').classList.remove("expanded");
           document.getElementById('AdvancedRotationSliders').style.display = "none";
         }
-      };
+      };*/
 
       
       const modelViewer = document.getElementById('model-viewer');
