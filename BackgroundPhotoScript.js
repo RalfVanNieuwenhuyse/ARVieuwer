@@ -9,6 +9,18 @@ function updateTray(sliderElement)
   sliderElement.style.background = `linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ${percentage}%, rgb(211, 211, 211) ${percentage}%, rgb(211, 211, 211) 100%)`;
 }
 
+function syncValues(query, value) 
+{
+  let elements = document.querySelectorAll(query);  
+  elements.forEach(element => 
+  {    
+    element.value = value;
+    if (element.tagName === 'INPUT' && element.type === 'range') 
+    {
+      updateTray(element);
+    }    
+  });
+}
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -32,10 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
       onChange: function(value) 
       {
         SetYawValue(value);
-        let normalSlider = document.getElementById('yawSlider');
-        normalSlider.value = value;
-        updateTray(normalSlider);                
-        YawSliderValue.value = value;
+        syncValues("#yawSlider",this.value);
+        syncValues("#YawSliderValue",this.value);
       }
   });
 
@@ -54,10 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
       onChange: function(value) 
       {
         SetPitchValue(value); // Callback when value changes
-        let normalSlider = document.getElementById('pitchSlider');
-        normalSlider.value = value;
-        updateTray(normalSlider);
-        PitchSliderValue.value = value;
+        syncValues("#pitchSlider",this.value);
+        syncValues("#PitchSliderValue",this.value);
       }
     });
 
@@ -74,10 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
       onChange: function(value) 
       {
         SetRollValue(value); // Callback when value changes
-        let normalSlider = document.getElementById('rollSlider');
-        normalSlider.value = value;
-        updateTray(normalSlider);
-        RollSliderValue.value = value;
+        syncValues("#rollSlider",this.value);
+        syncValues("#RollSliderValue",this.value);
       }
     });
 
@@ -93,31 +99,36 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             modelViewer.scale = `${this.value} ${this.value} ${this.value}`;
             scaleSlider.value = this.value;
-            ScaleSliderValue.value = this.value;
+            syncValues("#ScaleSliderValue2",this.value)
             updateTray(scaleSlider);
+            syncValues("#scaleSlider2",this.value);            
         }
         else if (this.id === "yawSlider") 
         {            
           SetYawValue(this.value);
-          YawSliderValue.value = (this.value);
           slider1.setHandlePosition(-this.value);
+          syncValues("#yawSlider",this.value);
+          syncValues("#YawSliderValue",this.value);
         }
         else if (this.id === "pitchSlider") 
         {
           SetPitchValue(this.value);
-          PitchSliderValue.value = this.value;
           slider2.setHandlePosition(-this.value);
+          syncValues("#pitchSlider",this.value);
+          syncValues("#PitchSliderValue",this.value);
         }
         else if (this.id === "rollSlider") 
         {
           SetRollValue(this.value);
-          RollSliderValue.value = this.value;
           slider3.setHandlePosition(-this.value);
+          syncValues("#rollSlider",this.value);
+          syncValues("#RollSliderValue",this.value);
         }
         
         let Scalevalue = (this.value - this.min) / (this.max - this.min) * 100;
         this.style.background = 
         `linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ${Scalevalue}%, rgb(211, 211, 211) ${Scalevalue}%, rgb(211, 211, 211) 100%)`;
+        
       };
     });
 
@@ -132,11 +143,24 @@ document.addEventListener("DOMContentLoaded", function () {
     {        
       modelViewer.scale = `${this.value} ${this.value} ${this.value}`;
       updateTray(this);
-      ScaleSliderValue.value = this.value;
-      let extraslider = document.getElementById("scaleSlider2");
-      extraslider.value = this.value;
-      updateTray(extraslider);
+      syncValues("#ScaleSliderValue2",this.value)
+      syncValues("#scaleSlider2",this.value);
+      //let extraslider = document.getElementById("scaleSlider2");
+      //extraslider.value = this.value;
+      //updateTray(extraslider);
     }
+      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+      //TODO
+      //you see what you did above with the sliders now do it for the number fields works better looks better and less misery 
+
+      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
     ScaleSliderValue.oninput = function() {
       // Define minimum and maximum values
@@ -160,11 +184,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       modelViewer.scale = `${scaleValue} ${scaleValue} ${scaleValue}`;
 
+      syncValues("#scaleSlider2",scaleValue);
+      //syncValues("#ScaleSliderValue2",scaleValue)
       scaleSlider.value = scaleValue;
       updateTray(scaleSlider);
-      let extraslider = document.getElementById("scaleSlider2");
-      extraslider.value = scaleValue;
-      updateTray(extraslider);
+      //let extraslider = document.getElementById("scaleSlider2");
+      //extraslider.value = scaleValue;
+      //updateTray(extraslider);
     }
 
     ScaleSliderValue.onblur = function()
@@ -177,11 +203,11 @@ document.addEventListener("DOMContentLoaded", function () {
         modelViewer.scale = `${scaleValue} ${scaleValue} ${scaleValue}`;      
         scaleSlider.value = scaleValue;
         updateTray(scaleSlider);
-        let extraslider = document.getElementById("scaleSlider2");
-        extraslider.value = scaleValue;
-        updateTray(extraslider);
-        ScaleSliderValue.value = scaleValue;
+        syncValues("#scaleSlider2",scaleValue);
+        syncValues("#ScaleSliderValue2",scaleValue)
+        //this.value = scaleValue;
       }
+      syncValues("#ScaleSliderValue2",scaleValue)
     }
     PitchSliderValue.oninput = function() 
     {
