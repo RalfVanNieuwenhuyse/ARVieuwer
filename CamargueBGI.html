@@ -146,17 +146,24 @@
         <div style="font-size: 18px; padding-bottom: 3px; padding-right: 8px;">&#9114;</div> Clear background image
       </button>
 
+      <div id="AdvancedRotationSliders" style="display: none;">
+        <input class="sliderScale" id="scaleSlider" type="range" min="0.25" max="2" value="1" step="0.001">
+        <div id="slider1-container" class="PositioningSlider ellipse-slider-wrapper"></div>
+        <div id="slider2-container" class="PositioningSlider ellipse-slider-wrapper"></div>
+        <div id="slider3-container" class="PositioningSlider ellipse-slider-wrapper"></div>
+      </div>
+
       <div class="DispplayOnlyOnImageBackground">
-
-        <div id="AdvancedRotationSliders" style="display: none;">
-          <input class="sliderScale" id="scaleSlider" type="range" min="0.25" max="2" value="1" step="0.001">
-          <div id="slider1-container" class="PositioningSlider ellipse-slider-wrapper"></div>
-          <div id="slider2-container" class="PositioningSlider ellipse-slider-wrapper"></div>
-          <div id="slider3-container" class="PositioningSlider ellipse-slider-wrapper"></div>
-        </div>
-
         <div class="SliderSelector">
           <div style="display: flex; flex-direction: column;">
+            <!-- <label for="scaleSlider2" class="sliderLabelText">Scale</label>
+            <input class="Rensonslider" id="scaleSlider2" type="range" min="0.25" max="2" value="1" step="0.001">
+            <label for="scaleSlider2" class="sliderLabelText">Rotate y</label>
+            <input class="Rensonslider" id="yawSlider" type="range" min="0" max="360" value="180" step="1">
+            <label for="scaleSlider2" class="sliderLabelText">Rotate x</label>
+            <input class="Rensonslider" id="pitchSlider" type="range" min="-180" max="180" value="0" step="1">
+            <label for="scaleSlider2" class="sliderLabelText">Rotate z</label>
+            <input class="Rensonslider" id="rollSlider" type="range" min="-180" max="180" value="0" step="1"> -->
             
             <div class="sliderContainer test3">
               <label for="scaleSlider2" class="sliderLabelText">Scale</label>
@@ -187,12 +194,12 @@
             <input class="Rensonslider" id="rollSlider" type="range" min="-180" max="180" value="0" step="1">
 
             <label class="sliderLabelText">
-              <input class="customCheckbox" type="checkbox" id="gizmoCheckbox">
+              <input class="customCheckbox" type="checkbox" id="gizmoCheckbox" onchange="displayAdvancedSliders(this)">
               Advanced rotation gizmo
             </label>
           </div>
-          <div id="AdvancedRotationSettings" style="padding-top: 5px;">         
-            <form id="rotationSelector" style="pointer-events: all;">
+          <div id="AdvancedRotationSettings" class="AdvancedRotationSettings" style="padding-top: 5px;">         
+            <form id="rotationSelector" style="pointer-events: all;" oninput="selectSlider(this)">
               <input type="radio" id="AllRotationSelector" name="rotation" value="All" checked>
               <label class="cursorpointer radiolabel" for="AllRotationSelector">All</label><br>
         

@@ -780,12 +780,22 @@ input[type="radio"]:checked::after {
   transition: all 0.3s ease;
 }
 
-#AdvancedRotationSettings {
+/*#AdvancedRotationSettings {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
 #AdvancedRotationSettings.expanded {
+  max-height: 200px;
+  transition: max-height 0.3s ease;
+}*/
+
+.AdvancedRotationSettings {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.AdvancedRotationSettings.expanded {
   max-height: 200px; /* Adjust to fit your content */
   transition: max-height 0.3s ease;
 }

@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     var scaleSlider = document.getElementById("scaleSlider");
+    updateTray(scaleSlider);
     
 
     const sliders = document.querySelectorAll('.Rensonslider');
@@ -182,8 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ScaleSliderValue.value = scaleValue;
       }
     }
-    
-
     PitchSliderValue.oninput = function() 
     {
       var minPitch = parseFloat(this.min) || -180;
@@ -323,13 +322,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-  });
+});//end document.addEventListener("DOMContentLoaded", function ())
 
 var rotationSelector = document.getElementById("rotationSelector");
 
-function selectSlider() 
+function selectSlider(selector) 
 {
-  var selected = rotationSelector.querySelector('input[name="rotation"]:checked');
+  var selected = selector.querySelector('input[name="rotation"]:checked');
   /*console.log(selected.value);*/
   if (selected.value == "Roll") 
   {
@@ -397,13 +396,37 @@ function selectSlider()
       let ScaleSlider1 = document.getElementById("scaleSlider");
       ScaleSlider1.style.display = "block";
   }
+
+  synchronizeSelections(selected.value);
+
 };
+
+
+function synchronizeSelections(value) {
+  // Select all forms within the AdvancedRotationSettings container
+  let forms = document.querySelectorAll('.AdvancedRotationSettings form');
+  if (!forms.length) {
+      console.warn("No forms found in .AdvancedRotationSettings.");
+      return;
+  }
+
+  // Iterate through forms and update the radio buttons
+  forms.forEach(form => {
+      let radio = form.querySelector(`input[name="rotation"][value="${value}"]`);
+      if (radio) {
+          radio.checked = true;
+      } else {
+          console.warn(`No radio button with value="${value}" found in form.`);
+      }
+  });
+}
+
 
 if(rotationSelector != null)
 {
-  rotationSelector.oninput = selectSlider;
+  /*rotationSelector.oninput = selectSlider;*/
   window.addEventListener('DOMContentLoaded', () => {
-    selectSlider();
+    selectSlider(rotationSelector);
   });
 }
 
@@ -425,13 +448,17 @@ function changeImage(input)
     }
     reader.readAsDataURL(input.files[0]);
 
-    if (!window.matchMedia("(max-width: 480px)").matches) 
-    {
+    
       let displayitems = document.querySelectorAll(".DispplayOnlyOnImageBackground");
       displayitems.forEach(element => {
       element.style.display = "block";    
       });
-    }
+        
+      let displayitems2 = document.querySelectorAll(".DispplayOnlyOnImageBackground2");
+      displayitems2.forEach(element => {
+      element.style.display = "block";    
+      });
+    
     document.getElementById("clearImageButton").style.display = "flex";
   }
 }
@@ -448,20 +475,46 @@ function clearImage() {
   displayitems.forEach(element => {
     element.style.display = "none";    
   });
+
+  let displayitems2 = document.querySelectorAll(".DispplayOnlyOnImageBackground2");
+  displayitems2.forEach(element => {
+    element.style.display = "none";    
+  });
+  
+  let checkboxs = document.querySelectorAll(".customCheckbox");
+  checkboxs.forEach(element => {
+    element.checked=false;
+    displayAdvancedSliders(element);
+  });
 }
 
-const GizmoCheckbox = document.getElementById('gizmoCheckbox');
-GizmoCheckbox.onchange = function(){
-  if(GizmoCheckbox.checked)
+function displayAdvancedSliders(checkbox) 
+{
+  const settings = document.querySelectorAll(".AdvancedRotationSettings");
+  if (checkbox.checked) 
   {
-    //document.getElementById('AdvancedRotationSettings').style.display = "block";
-    document.getElementById('AdvancedRotationSettings').classList.add("expanded");
-    document.getElementById('AdvancedRotationSliders').style.display = "block";
-  }
-  else
+    document.getElementById('AdvancedRotationSliders').style.display = "block";    
+    settings.forEach(element => {
+      element.classList.add("expanded");
+    });
+    let checkboxs = document.querySelectorAll(".customCheckbox");
+    checkboxs.forEach(element => 
+    {
+      element.checked=true;      
+    });
+  } 
+  else 
   {
-    //document.getElementById('AdvancedRotationSettings').style.display = "none";
-    document.getElementById('AdvancedRotationSettings').classList.remove("expanded");
     document.getElementById('AdvancedRotationSliders').style.display = "none";
+    settings.forEach(element => 
+    {
+      element.classList.remove("expanded");
+    });
+
+    let checkboxs = document.querySelectorAll(".customCheckbox");
+    checkboxs.forEach(element => 
+    {
+      element.checked=false;      
+    });
   }
-};
+}
