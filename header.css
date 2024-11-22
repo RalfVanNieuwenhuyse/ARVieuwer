@@ -118,6 +118,7 @@ header nav ul li a {
 {
     .headerBSnavul{display: none;}
     header nav ul {display: none;}
-    .subModleViewerHeaderText{padding-right: 60px;}
+    .subModleViewerHeader{padding-left: 20px;}
+    .subModleViewerHeaderText{padding-right: 0px; padding-left: 20px;}
 }
 
