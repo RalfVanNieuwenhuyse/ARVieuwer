@@ -11,7 +11,13 @@ function updateTray(sliderElement)
 
 function syncValues(query, value) 
 {
-  let elements = document.querySelectorAll(query);  
+  let elements = document.querySelectorAll(query); 
+
+  if (elements.length <= 0) 
+  {
+    console.warn("there are no elements with query: " + query);  
+  } 
+
   elements.forEach(element => 
   {    
     element.value = value;
@@ -22,15 +28,8 @@ function syncValues(query, value)
   });
 }
 
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  var ScaleSliderValue = document.getElementById("ScaleSliderValue2");
-  var PitchSliderValue = document.getElementById("pitchSliderValue");
-  var RollSliderValue = document.getElementById("rollSliderValue");
-  var YawSliderValue = document.getElementById("yawSliderValue");
+document.addEventListener("DOMContentLoaded", function () {  
   
-  // Create multiple sliders in different divs
   const slider1 = new EllipticalSlider('slider1-container', 'slider1', {
       radiusX: 150,
       radiusY: 40,
@@ -44,13 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
       onChange: function(value) 
       {
         SetYawValue(value);
-        syncValues("#yawSlider",this.value);
-        syncValues("#YawSliderValue",this.value);
+        syncValues("#yawSlider",value);
+        syncValues("#yawSliderValue",value);
       }
   });
-
-  //SetYawValue(180);
-
+  
   const slider2 = new EllipticalSlider('slider2-container', 'slider2', {
       radiusX: 50,
       radiusY: 150,
@@ -63,9 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
       borderThickness: 5,
       onChange: function(value) 
       {
-        SetPitchValue(value); // Callback when value changes
-        syncValues("#pitchSlider",this.value);
-        syncValues("#PitchSliderValue",this.value);
+        SetPitchValue(value);
+        syncValues("#pitchSlider",value);
+        syncValues("#pitchSliderValue",value);
       }
     });
 
@@ -81,9 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
       borderThickness: 5,
       onChange: function(value) 
       {
-        SetRollValue(value); // Callback when value changes
-        syncValues("#rollSlider",this.value);
-        syncValues("#RollSliderValue",this.value);
+        SetRollValue(value);
+        syncValues("#rollSlider",value);
+        syncValues("#rollSliderValue",value);
       }
     });
 
@@ -108,21 +105,21 @@ document.addEventListener("DOMContentLoaded", function () {
           SetYawValue(this.value);
           slider1.setHandlePosition(-this.value);
           syncValues("#yawSlider",this.value);
-          syncValues("#YawSliderValue",this.value);
+          syncValues("#yawSliderValue",this.value);
         }
         else if (this.id === "pitchSlider") 
         {
           SetPitchValue(this.value);
           slider2.setHandlePosition(-this.value);
           syncValues("#pitchSlider",this.value);
-          syncValues("#PitchSliderValue",this.value);
+          syncValues("#pitchSliderValue",this.value);
         }
         else if (this.id === "rollSlider") 
         {
           SetRollValue(this.value);
           slider3.setHandlePosition(-this.value);
           syncValues("#rollSlider",this.value);
-          syncValues("#RollSliderValue",this.value);
+          syncValues("#rollSliderValue",this.value);
         }
         
         let Scalevalue = (this.value - this.min) / (this.max - this.min) * 100;
@@ -137,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
       let scaleValue = (slider.value - slider.min) / (slider.max - slider.min) * 100;
       slider.style.background = `linear-gradient(to right, rgb(0, 40, 85) 0%, rgb(0, 40, 85) ${scaleValue}%, rgb(211, 211, 211) ${scaleValue}%, rgb(211, 211, 211) 100%)`;
     });
-
     
     scaleSlider.oninput = function() 
     {        
@@ -149,213 +145,130 @@ document.addEventListener("DOMContentLoaded", function () {
       //extraslider.value = this.value;
       //updateTray(extraslider);
     }
-      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     
+    const InputFields = document.querySelectorAll('.sliderValue');
+      InputFields.forEach(inputField => {
+        inputField.oninput = function() 
+        {
+          let minValue = parseFloat(this.min) || 0.25;
+          let maxValue = parseFloat(this.max) || 2;
 
-      //TODO
-      //you see what you did above with the sliders now do it for the number fields works better looks better and less misery 
+          let inputValue = parseFloat(this.value);
+          
 
-      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          if (isNaN(inputValue))
+          {
+            inputValue = minValue;
+          } 
+          else if (inputValue < minValue) 
+          {
+            inputValue = minValue;
+          } 
+          else if (inputValue > maxValue) 
+          {
+            inputValue = maxValue;            
+          }
 
+          if (this.id === "ScaleSliderValue2") 
+          {
+            modelViewer.scale  = `${inputValue} ${inputValue} ${inputValue}`;
+            syncValues("#scaleSlider2",inputValue);
+            scaleSlider.value = inputValue;
+            updateTray(scaleSlider);
+          }
+          else if (this.id === "yawSliderValue")
+          {
+            SetYawValue(inputValue);
+            slider1.setHandlePosition(-inputValue); 
+            syncValues("#yawSlider",inputValue);
+          }
+          else if (this.id === "pitchSliderValue")
+          {
+            SetPitchValue(inputValue);
+            slider2.setHandlePosition(-inputValue); 
+            syncValues("#pitchSlider",inputValue);
+          }
+          else if (this.id === "rollSliderValue")
+          {
+            SetRollValue(inputValue);
+            slider3.setHandlePosition(-inputValue); 
+            syncValues("#rollSlider",inputValue);
+          }
 
-    ScaleSliderValue.oninput = function() {
-      // Define minimum and maximum values
-      let minScale = parseFloat(this.min) || 0.25;
-      let maxScale = parseFloat(this.max) || 2;
+        };
+      });
 
-      let scaleValue = parseFloat(this.value);
-      
-      if (isNaN(scaleValue))
-      {
-        scaleValue = minScale;
-      } 
-      else if (scaleValue < minScale) 
-      {
-        scaleValue = minScale;
-      } 
-      else if (scaleValue > maxScale) 
-      {
-        scaleValue = maxScale;
-        this.value = maxScale;
-      }
-      modelViewer.scale = `${scaleValue} ${scaleValue} ${scaleValue}`;
+      InputFields.forEach(inputField => {
+        inputField.onblur = function() 
+        {
+          let minValue = parseFloat(this.min) || 0.25;
+          let maxValue = parseFloat(this.max) || 2;
 
-      syncValues("#scaleSlider2",scaleValue);
-      //syncValues("#ScaleSliderValue2",scaleValue)
-      scaleSlider.value = scaleValue;
-      updateTray(scaleSlider);
-      //let extraslider = document.getElementById("scaleSlider2");
-      //extraslider.value = scaleValue;
-      //updateTray(extraslider);
-    }
+          let inputValue = parseFloat(this.value);
 
-    ScaleSliderValue.onblur = function()
-    {
-      let scaleValue = parseFloat(this.value);
-      
-      if (isNaN(scaleValue))
-      {
-        scaleValue = 1;
-        modelViewer.scale = `${scaleValue} ${scaleValue} ${scaleValue}`;      
-        scaleSlider.value = scaleValue;
-        updateTray(scaleSlider);
-        syncValues("#scaleSlider2",scaleValue);
-        syncValues("#ScaleSliderValue2",scaleValue)
-        //this.value = scaleValue;
-      }
-      syncValues("#ScaleSliderValue2",scaleValue)
-    }
-    PitchSliderValue.oninput = function() 
-    {
-      var minPitch = parseFloat(this.min) || -180;
-      var maxPitch = parseFloat(this.max) || 180;
+          if (inputValue < minValue) 
+          {
+            inputValue = minValue;
+          } 
+          else if (inputValue > maxValue) 
+          {
+            inputValue = maxValue;            
+          }
 
-      let PitchValue = parseFloat(this.value);
-      
-      if (isNaN(PitchValue))
-      {
-        PitchValue = minPitch;
-        return;             
-      } 
-      else if (PitchValue < minPitch) 
-      {
-        PitchValue = minPitch;
-        this.value = minPitch;
-      } 
-      else if (PitchValue > maxPitch) 
-      {
-        PitchValue = maxPitch;
-        this.value = maxPitch;
-      }
-      SetPitchValue(PitchValue);
-      slider2.setHandlePosition(-PitchValue); 
-      let normalSlider = document.getElementById('pitchSlider');            
-      normalSlider.value = PitchValue;
-      updateTray(normalSlider);           
-    }
-
-    PitchSliderValue.onblur = function()
-    {
-      let PitchValue = parseFloat(this.value);
-      
-      if (isNaN(PitchValue))
-      {
-        PitchValue = 0;
-             
-        SetPitchValue(PitchValue);
-        slider2.setHandlePosition(PitchValue); 
-        let normalSlider = document.getElementById('pitchSlider');            
-        normalSlider.value = PitchValue;
-        updateTray(normalSlider);
-        this.value = PitchValue;
-      }
-    }
-
-    RollSliderValue.oninput = function() 
-    {
-      var minRoll = parseFloat(this.min) || -180;
-      var maxRoll = parseFloat(this.max) || 180;
-
-      let RollValue = parseFloat(this.value);
-      
-      if (isNaN(RollValue))
-      {
-        RollValue = minRoll;
-        return;             
-      } 
-      else if (RollValue < minRoll) 
-      {
-        RollValue = minRoll;
-        this.value = minRoll;
-      } 
-      else if (RollValue > maxRoll) 
-      {
-        RollValue = maxRoll;
-        this.value = maxRoll;
-      }
-      SetRollValue(RollValue);
-      slider3.setHandlePosition(-RollValue); 
-      let normalSlider = document.getElementById('rollSlider');            
-      normalSlider.value = RollValue;
-      updateTray(normalSlider);           
-    }
-
-    RollSliderValue.onblur = function()
-    {
-      let RollValue = parseFloat(this.value);
-      
-      if (isNaN(RollValue))
-      {
-        RollValue = 0;
-             
-        SetRollValue(RollValue);
-        slider3.setHandlePosition(RollValue); 
-        let normalSlider = document.getElementById('rollSlider');            
-        normalSlider.value = RollValue;
-        updateTray(normalSlider);
-        this.value = RollValue;      
-      }
-    }
-
-    YawSliderValue.oninput = function() 
-    {
-      var minYaw = parseFloat(this.min) || -180;
-      var maxYaw = parseFloat(this.max) || 180;
-
-      let YawValue = parseFloat(this.value);
-      
-      if (isNaN(YawValue))
-      {
-        YawValue = minYaw;
-        return;             
-      } 
-      else if (YawValue < minYaw) 
-      {
-        YawValue = minYaw;
-        this.value = minYaw;
-      } 
-      else if (YawValue > maxYaw) 
-      {
-        YawValue = maxYaw;
-        this.value = maxYaw;
-      }
-
-      
-      SetYawValue(YawValue);
-      slider1.setHandlePosition(-YawValue); 
-      let normalSlider = document.getElementById('yawSlider');            
-      normalSlider.value = YawValue;
-      updateTray(normalSlider);           
-    }
-
-    YawSliderValue.onblur = function()
-    {
-      let YawValue = parseFloat(this.value);
-      
-      if (isNaN(YawValue))
-      {
-        YawValue = 0;
-        this.value = YawValue;
-        SetYawValue(YawValue);
-        slider1.setHandlePosition(-YawValue); 
-        let normalSlider = document.getElementById('yawSlider');            
-        normalSlider.value = YawValue;
-        updateTray(normalSlider);      
-      }
-    }
-
+          if (this.id === "ScaleSliderValue2") 
+          {
+            if (isNaN(inputValue))
+            {
+              inputValue = 1;
+            }
+            modelViewer.scale  = `${inputValue} ${inputValue} ${inputValue}`;
+            syncValues("#scaleSlider2",inputValue);
+            scaleSlider.value = inputValue;
+            updateTray(scaleSlider);
+            syncValues("#ScaleSliderValue2", inputValue);
+          }
+          else if (this.id === "yawSliderValue")
+          {            
+            if (isNaN(inputValue))
+            {
+              inputValue = 0;
+            }
+            SetYawValue(inputValue);
+            slider1.setHandlePosition(-inputValue); 
+            syncValues("#yawSlider",inputValue);
+            syncValues("#yawSliderValue", inputValue);
+          }
+          else if (this.id === "pitchSliderValue")
+          {
+            if (isNaN(inputValue))
+            {
+              inputValue = 0;
+            }
+            SetPitchValue(inputValue);
+            slider2.setHandlePosition(-inputValue); 
+            syncValues("#pitchSlider",inputValue);
+            syncValues("#pitchSliderValue", inputValue);
+          }
+          else if (this.id === "rollSliderValue")
+          {
+            if (isNaN(inputValue))
+            {
+              inputValue = 0;
+            }
+            SetRollValue(inputValue);
+            slider3.setHandlePosition(-inputValue); 
+            syncValues("#rollSlider",inputValue);
+            syncValues("#rollSliderValue", inputValue);
+          }
+        };
+      });
 });//end document.addEventListener("DOMContentLoaded", function ())
 
 var rotationSelector = document.getElementById("rotationSelector");
 
 function selectSlider(selector) 
 {
-  var selected = selector.querySelector('input[name="rotation"]:checked');
-  /*console.log(selected.value);*/
+  var selected = selector.querySelector('input[name="rotation"]:checked');  
   if (selected.value == "Roll") 
   {
       var RollSlider1 = document.getElementById("slider1-container");
@@ -424,19 +337,14 @@ function selectSlider(selector)
   }
 
   synchronizeSelections(selected.value);
-
 };
 
-
-function synchronizeSelections(value) {
-  // Select all forms within the AdvancedRotationSettings container
+function synchronizeSelections(value) {  
   let forms = document.querySelectorAll('.AdvancedRotationSettings form');
   if (!forms.length) {
       console.warn("No forms found in .AdvancedRotationSettings.");
       return;
   }
-
-  // Iterate through forms and update the radio buttons
   forms.forEach(form => {
       let radio = form.querySelector(`input[name="rotation"][value="${value}"]`);
       if (radio) {
@@ -447,10 +355,8 @@ function synchronizeSelections(value) {
   });
 }
 
-
 if(rotationSelector != null)
 {
-  /*rotationSelector.oninput = selectSlider;*/
   window.addEventListener('DOMContentLoaded', () => {
     selectSlider(rotationSelector);
   });
