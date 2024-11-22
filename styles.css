@@ -833,6 +833,11 @@ input[type="radio"]:checked::after {
   flex-grow: 1;
 }
 
+.DispplayOnlyOnImageBackground2
+{
+  display: none;
+}
+
 @media all and (min-width: 480px) 
 {
   .deskContent {display:block;}
