@@ -224,6 +224,14 @@
       display: none;
     }
 
+    .VarientsWrapper
+    {
+      display: none;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
 
     </style>
   </head>
@@ -396,6 +404,9 @@
           </div>
         </div>
       </div>
+
+      <div id="Variantselector" class="VarientsWrapper"><select id="variant"></select> :Variant</div>
+
     </model-viewer>
 
     <div id="myPopup" class="popup">
@@ -475,18 +486,57 @@
 
           <div class="slider-item" data-model="asset/Amani/AmaniModel5.glb">
             <img src="asset/Amani/AmaniModel5.webp" alt="Window I think not">model5</div>
+
+          <div class="slider-item" data-model="asset/Dev/AmaniVariant.glb">
+            <img src="asset/Dev/dev_tools_icon.png" alt="Window I think not">model5</div>
             
         </div>
         <!--<div class="deskContent"><button id="next" class="nav-arrow">&#10095;</button></div>-->
       </div>    
     </div>
     <!--<button onclick="testing()">test</button>-->
+    <div id="Variantselector" style="display: none;">Variant: <select id="variant"></select></div>
     
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script>
       const modelViewer = document.getElementById('model-viewer');
       const sliderItems = document.querySelectorAll('.slider-item');
+
+
+      const select = document.querySelector('#variant');
+
+      modelViewer.addEventListener('load', () => {
+      select.replaceChildren();
+
+      const names = modelViewer.availableVariants;
+      for (const name of names) {
+          const option = document.createElement('option');
+          option.value = name;
+          option.textContent = name;
+          select.appendChild(option);
+      }
+
+      const parentDiv = document.getElementById('Variantselector');
+      if (names.length === 0) {
+          parentDiv.style.display = 'none'; // Hide the selector if no variants exist
+      } else {
+          parentDiv.style.display = 'block';
+      }
+
+      // Set the select element's value to the currently applied variant
+      if (modelViewer.variantName) {
+          select.value = modelViewer.variantName;
+      } else if (names.length > 0) {
+          select.value = names[0]; // Default to the first option if no variant is set
+      }
+      });
+
+      select.addEventListener('input', (event) => {
+          modelViewer.variantName = event.target.value;
+      });
+
+
       
       const loadModelInfo = (modelFile) => 
       {
@@ -543,7 +593,6 @@
           item.parentElement.classList.add('active');
           
         }
-
 
         modelViewer.src = selectedModel;
 
