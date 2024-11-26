@@ -555,7 +555,7 @@
           <div class="slider-item" data-model="asset/Amani/AmaniModel5.glb">
             <img src="asset/Amani/AmaniModel5.webp" alt="Window I think not">model5</div>
 
-          <div class="slider-item" data-model="asset/Dev/AmaniVariant.glb">
+          <div class="slider-item" data-model="asset/Dev/AmaniVariant02.glb">
             <img src="asset/Dev/dev_tools_icon.png" alt="Window I think not">model5</div>
             
         </div>
@@ -575,29 +575,36 @@
       const select = document.querySelector('#variant');
 
       modelViewer.addEventListener('load', () => {
-      select.replaceChildren();
+        select.replaceChildren();
 
-      const names = modelViewer.availableVariants;
-      for (const name of names) {
-          const option = document.createElement('option');
-          option.value = name;
-          option.textContent = name;
-          select.appendChild(option);
-      }
+        const names = modelViewer.availableVariants;
 
-      const parentDiv = document.getElementById('Variantselector');
-      if (names.length === 0) {
-          parentDiv.style.display = 'none'; // Hide the selector if no variants exist
-      } else {
-          parentDiv.style.display = 'block';
-      }
+        for (const name of names) {
+            const option = document.createElement('option');
+            option.value = name;
+            option.textContent = name;
+            select.appendChild(option);
+        }
 
-      // Set the select element's value to the currently applied variant
-      if (modelViewer.variantName) {
-          select.value = modelViewer.variantName;
-      } else if (names.length > 0) {
-          select.value = names[0]; // Default to the first option if no variant is set
-      }
+        const parentDiv = document.getElementById('Variantselector');
+        if (names.length === 0) {
+            parentDiv.style.display = 'none'; // Hide the selector if no variants exist
+        } else {
+            parentDiv.style.display = 'block';
+        }
+
+        // Reset modelViewer to the first variant and update the select element
+        if (names.length > 0) {
+            const firstVariant = names[0];
+            modelViewer.variantName = firstVariant; // Reset to the first variant
+            select.value = firstVariant; // Sync the select element to the first variant
+        }
+      });
+
+      modelViewer.addEventListener('variant-applied', (event) => {
+        console.log(modelViewer.variantName);
+        select.value = modelViewer.variantName;
+        modelViewer.variantName = modelViewer.variantName;
       });
 
       select.addEventListener('input', (event) => {
