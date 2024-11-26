@@ -574,11 +574,11 @@
 
       const select = document.querySelector('#variant');
 
-      modelViewer.addEventListener('load', () => {
+      modelViewer.addEventListener('load', () => 
+      {
         select.replaceChildren();
 
         const names = modelViewer.availableVariants;
-
         for (const name of names) {
             const option = document.createElement('option');
             option.value = name;
@@ -593,18 +593,24 @@
             parentDiv.style.display = 'block';
         }
 
-        // Reset modelViewer to the first variant and update the select element
-        if (names.length > 0) {
-            const firstVariant = names[0];
-            modelViewer.variantName = firstVariant; // Reset to the first variant
-            select.value = firstVariant; // Sync the select element to the first variant
+        // Set the select element's value to the currently applied variant
+        if (modelViewer.variantName) {
+            select.value = modelViewer.variantName;
+        } else if (names.length > 0) {
+            select.value = names[0];
         }
+
+        if(!names.includes(modelViewer.variantName))
+        {
+          select.value = names[0];
+        }
+        
       });
 
       modelViewer.addEventListener('variant-applied', (event) => {
-        console.log(modelViewer.variantName);
+        //console.log(modelViewer.variantName);
         select.value = modelViewer.variantName;
-        modelViewer.variantName = modelViewer.variantName;
+        //modelViewer.variantName = modelViewer.variantName;
       });
 
       select.addEventListener('input', (event) => {
