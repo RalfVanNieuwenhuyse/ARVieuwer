@@ -83,3 +83,15 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 //const modelViewer = document.getElementById('model-viewer');
+
+const selectElement = document.querySelector('.select');
+selectElement.addEventListener('click', function() {
+  // Add 'open' class when select is clicked (dropdown is toggled)
+  selectElement.classList.toggle('open');
+});
+
+document.addEventListener('click', function(event) {
+  if (!selectElement.contains(event.target)) {
+    selectElement.classList.remove('open');
+  }
+});
