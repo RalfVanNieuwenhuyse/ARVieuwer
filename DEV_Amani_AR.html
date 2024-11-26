@@ -275,9 +275,7 @@
       overflow: hidden;
     }
     /* Arrow */
-    .select {
-      position: relative; /* Ensure .select is the positioning context */
-    }
+    
 
     .select::after {
       content: url("asset/arrowDown.svg");
@@ -296,6 +294,22 @@
     .select.open::after {
       top:3px;
       transform: rotate(180deg); /* Rotate by 180 degrees */
+    }
+
+    @media all and (max-width: 479px) 
+    {
+      .VarientsWrapper
+      {
+        transform: translateX(-50%);
+        right: auto;
+        left: 50%;
+        bottom: 50px;
+      }
+
+      .select
+      {
+        width: 175px;
+      }
     }
 
     </style>

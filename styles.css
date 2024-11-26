@@ -396,6 +396,7 @@ img
   color: var(--Text-white);
   /*border-radius: 5px;*/
   height: 25px;
+  width: 175px;
   cursor: pointer;
   z-index: 3;
   padding: 4px 50px;
@@ -406,7 +407,7 @@ img
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
-  bottom: 16px;
+  bottom: 15px;
   transition: var(--Default-transition);
 }
 
