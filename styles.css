@@ -541,7 +541,8 @@ img
   background-color:var(--Light-blue-bg-color); 
   border-radius: 10px; 
   padding: 10px; 
-  pointer-events: all;  
+  pointer-events: all;
+  touch-action: all;
 }
 
 .SliderSelector2
@@ -553,7 +554,8 @@ img
   background-color:var(--Light-blue-bg-color); 
   border-radius: 10px; 
   padding: 10px; 
-  pointer-events: all;  
+  pointer-events: all;
+  touch-action: all;
 }
 
 .PositioningSlider
@@ -652,6 +654,7 @@ input[type="radio"]:checked::after {
   border-radius: 10px;  
   transform: translateX(-50%);   
   pointer-events: all; 
+  touch-action: all;
 }
 
 .sliderScale::-webkit-slider-thumb
@@ -683,6 +686,7 @@ input[type="radio"]:checked::after {
   width: 100%;
   height: 100%;
   pointer-events: none;
+  touch-action: none;
 }
 
 .cursorpointer
@@ -700,6 +704,7 @@ input[type="radio"]:checked::after {
   background: linear-gradient(to right, var(--Renson-blue-color) 0%, var(--Renson-blue-color) 50%, rgb(211, 211, 211) 50%, rgb(211, 211, 211) 100%);
   border-radius: 10px;  
   pointer-events: all; 
+  touch-action: all;
   margin-right: 5px;
   margin-bottom: 10px;
 }
