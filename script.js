@@ -96,7 +96,7 @@ document.addEventListener('click', function(event) {
   }
 });
 
-document.addEventListener('Touch', function(event) {
+document.addEventListener("touchstart", function(event) {
   if (!selectElement.contains(event.target)) {
     selectElement.classList.remove('open');
   }
