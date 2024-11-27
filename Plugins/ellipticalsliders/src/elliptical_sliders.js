@@ -62,6 +62,24 @@ class EllipticalSlider {
                 }
             }
         });
+
+        this.sliderHandle.addEventListener("touchstart", () => {
+            isDragging = true;
+        });
+
+        document.addEventListener("touchend", () => {
+            isDragging = false;
+        });
+
+        document.addEventListener("touchmove", (e) => {
+            if (isDragging) {
+                this.currentValue = this.moveHandle(e);
+                if (this.options.onChange) {
+                    this.options.onChange(this.currentValue); // Trigger the onChange callback
+                }
+            }
+        });
+        
         this.setHandlePosition(this.currentValue);
     }
 
