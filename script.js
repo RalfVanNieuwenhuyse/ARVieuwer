@@ -95,3 +95,9 @@ document.addEventListener('click', function(event) {
     selectElement.classList.remove('open');
   }
 });
+
+document.addEventListener('Touch', function(event) {
+  if (!selectElement.contains(event.target)) {
+    selectElement.classList.remove('open');
+  }
+});
