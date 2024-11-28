@@ -141,14 +141,23 @@ model-viewer > #ar-prompt > img {
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
-  font-size: 36px;
+  right: 0px;
+  font-size: 25px;
   margin-left: 50px;
   font-family: "Lato", sans-serif;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-top: 5px;
+}
+
+.sidenav .closebtn:hover 
+{
+  background-color: var(--Renson-blue-color);
+  color: var(--Text-white);
 }
 
 .sidenavLink {
-  padding: 8px 8px 8px 32px;
+  padding: 15px 10px 15px 10px;
   text-decoration: none;
   font-size: 25px;
   color: var(--Renson-blue-color);
