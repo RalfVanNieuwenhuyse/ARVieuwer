@@ -65,7 +65,7 @@ model-viewer {
 #ar-button {
   background-image: url(ar_icon_R.png);
   background-repeat: no-repeat;
-  background-size: 15px 15px;
+  background-size: 18px 18px;
   background-position: 12px 50%;
   background-color: var(--Default-bg-color);
   position: absolute;
@@ -77,8 +77,8 @@ model-viewer {
   font-family: Roboto Regular, Helvetica Neue, sans-serif;
   font-size: 14px;
   color:var(--Renson-blue-color);
-  height: 25px;
-  line-height: 25px;
+  height: 28px;
+  line-height: 28px;
   /*border-radius: 18px;*/
   border: 1px solid #DADCE0;
   /*filter: brightness(0) saturate(100%) invert(11%) sepia(56%) saturate(2766%) hue-rotate(191deg) brightness(99%) contrast(106%);*/
