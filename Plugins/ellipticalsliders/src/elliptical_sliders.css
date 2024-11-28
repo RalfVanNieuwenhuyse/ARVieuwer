@@ -21,6 +21,7 @@
     transform: translate(-50%, -50%);
     pointer-events: all;
     touch-action: auto;
+    border: 2px solid white;
 }
 
 .ellipse-slider-value {
@@ -33,4 +34,29 @@
     position: relative;
     pointer-events: none;
     touch-action: none;
+}
+
+.ellipse-slider-wrapper::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(205, 205, 205, 0.5), inset 0 0 20px 10px rgba(205, 205, 205, 0.5);
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+    pointer-events: none;
+}
+
+.ellipse-slider-wrapper:hover::before 
+{
+    opacity: 1;
+}
+
+.ellipse-slider-wrapper:active::before
+{
+    opacity: 1;
 }
