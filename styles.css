@@ -77,7 +77,7 @@ model-viewer {
   font-family: Roboto Regular, Helvetica Neue, sans-serif;
   font-size: 14px;
   color:var(--Renson-blue-color);
-  height: 36px;
+  height: 25px;
   line-height: 25px;
   /*border-radius: 18px;*/
   border: 1px solid #DADCE0;
