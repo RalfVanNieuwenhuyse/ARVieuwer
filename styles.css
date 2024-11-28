@@ -565,6 +565,8 @@ img
   top: 40%; 
   scale:1; 
   transform: translateX(-50%) translateY(-50%);
+  margin: 0px !important;
+  margin-top: 20px !important;
 }
 
 input[type="radio"] {
@@ -844,6 +846,65 @@ input[type="radio"]:checked::after {
   display: none;
 }
 
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 10px red;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: var(--Renson-blue-color);
+  background-color: var(--Light-blue-bg-color);
+  background-image: none;
+  cursor: pointer;
+  font-weight: 550;
+  font-size: 15px;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 200px;
+  height: 30px;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+/* Arrow */
+.select::after {
+  content: url("asset/arrowDown.svg");
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  transform: rotate(0deg);
+  width: 15px;
+  /*height: 20px;*/
+  background-color: inherit;
+  transition: .3s all ease;
+  pointer-events: none;
+  touch-action: none;
+  filter: var(--Renson-blue-filter);     
+}
+
+.select.open::after {
+  top:3px;
+  transform: rotate(180deg);
+}
+
+.VarientsWrapper
+{
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
 @media all and (min-width: 480px) 
 {
   .deskContent {display:block;}
@@ -858,5 +919,14 @@ input[type="radio"]:checked::after {
   header nav ul {display: none;}
   .RensonButtonInput{height: 30px; padding-bottom: 2px;}
   .RensonButtonClear{height: 30px; top:50px;}
-
+  .VarientsWrapper
+  {
+    transform: translateX(-50%);
+    right: auto;
+    left: 50%;
+    bottom: 50px;
+  }
+  .select{width: 175px;}
+  .sliderScale{bottom: 50px;}
+  .PositioningSlider{top: 48%;}
 }

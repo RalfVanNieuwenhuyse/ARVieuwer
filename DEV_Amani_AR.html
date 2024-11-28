@@ -225,14 +225,6 @@
       display: none;
     }
 
-    .VarientsWrapper
-    {
-      display: none;
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-    }
-
     /*#variant {
       background-color: lightblue;
       color: white;
@@ -246,73 +238,6 @@
       --darkgray: #2c3e50;
     }
 
-    select {
-      /* Reset Select */
-      appearance: none;
-      outline: 10px red;
-      border: 0;
-      box-shadow: none;
-      /* Personalize */
-      flex: 1;
-      padding: 0 1em;
-      color: var(--Renson-blue-color);
-      background-color: var(--Light-blue-bg-color);
-      background-image: none;
-      cursor: pointer;
-      font-weight: 550;
-      font-size: 15px;
-    }
-    /* Remove IE arrow */
-    select::-ms-expand {
-      display: none;
-    }
-    /* Custom Select wrapper */
-    .select {
-      position: relative;
-      display: flex;
-      width: 200px;
-      height: 30px;
-      border-radius: 0px;
-      overflow: hidden;
-    }
-    /* Arrow */
-    
-
-    .select::after {
-      content: url("asset/arrowDown.svg");
-      position: absolute;
-      top: 5px;
-      right: 8px;
-      transform: rotate(0deg);
-      width: 15px;
-      /*height: 20px;*/
-      background-color: inherit;
-      transition: .3s all ease;
-      pointer-events: none;
-      touch-action: none;
-      filter: var(--Renson-blue-filter);     
-    }
-
-    .select.open::after {
-      top:3px;
-      transform: rotate(180deg); /* Rotate by 180 degrees */
-    }
-
-    @media all and (max-width: 479px) 
-    {
-      .VarientsWrapper
-      {
-        transform: translateX(-50%);
-        right: auto;
-        left: 50%;
-        bottom: 50px;
-      }
-
-      .select
-      {
-        width: 175px;
-      }
-    }
 
     </style>
   </head>
@@ -607,54 +532,6 @@
       const modelViewer = document.getElementById('model-viewer');
       const sliderItems = document.querySelectorAll('.slider-item');
 
-
-      const select = document.querySelector('#variant');
-
-      modelViewer.addEventListener('load', () => 
-      {
-        select.replaceChildren();
-
-        const names = modelViewer.availableVariants;
-        for (const name of names) {
-            const option = document.createElement('option');
-            option.value = name;
-            option.textContent = name;
-            select.appendChild(option);
-        }
-
-        const parentDiv = document.getElementById('Variantselector');
-        if (names.length === 0) {
-            parentDiv.style.display = 'none'; // Hide the selector if no variants exist
-        } else {
-            parentDiv.style.display = 'block';
-        }
-
-        // Set the select element's value to the currently applied variant
-        if (modelViewer.variantName) {
-            select.value = modelViewer.variantName;
-        } else if (names.length > 0) {
-            select.value = names[0];
-        }
-
-        if(!names.includes(modelViewer.variantName))
-        {
-          select.value = names[0];
-        }
-        
-      });
-
-      modelViewer.addEventListener('variant-applied', (event) => {
-        //console.log(modelViewer.variantName);
-        select.value = modelViewer.variantName;
-        //modelViewer.variantName = modelViewer.variantName;
-      });
-
-      select.addEventListener('input', (event) => {
-          modelViewer.variantName = event.target.value;
-      });
-
-
-      
       const loadModelInfo = (modelFile) => 
       {
         fetch(`asset/Amani/${modelFile}`)

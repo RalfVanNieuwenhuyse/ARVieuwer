@@ -84,20 +84,73 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 //const modelViewer = document.getElementById('model-viewer');
 
+
 const selectElement = document.querySelector('.select');
-selectElement.addEventListener('click', function() {
-  // Add 'open' class when select is clicked (dropdown is toggled)
-  selectElement.classList.toggle('open');
-});
 
-document.addEventListener('click', function(event) {
-  if (!selectElement.contains(event.target)) {
-    selectElement.classList.remove('open');
-  }
-});
+if(selectElement)
+{
+  selectElement.addEventListener('click', function() {
+    // Add 'open' class when select is clicked (dropdown is toggled)
+    selectElement.classList.toggle('open');
+  });
+  
+  document.addEventListener('click', function(event) {
+    if (!selectElement.contains(event.target)) {
+      selectElement.classList.remove('open');
+    }
+  });
+  
+  document.addEventListener("touchstart", function(event) {
+    if (!selectElement.contains(event.target)) {
+      selectElement.classList.remove('open');
+    }
+  });
+}
 
-document.addEventListener("touchstart", function(event) {
-  if (!selectElement.contains(event.target)) {
-    selectElement.classList.remove('open');
-  }
-});
+
+const select = document.querySelector('#variant');
+if(select)
+{
+  modelViewer.addEventListener('load', () => 
+  {
+    select.replaceChildren();
+
+    const names = modelViewer.availableVariants;
+    for (const name of names) {
+        const option = document.createElement('option');
+        option.value = name;
+        option.textContent = name;
+        select.appendChild(option);
+    }
+
+    const parentDiv = document.getElementById('Variantselector');
+    if (names.length === 0) {
+        parentDiv.style.display = 'none'; // Hide the selector if no variants exist
+    } else {
+        parentDiv.style.display = 'block';
+    }
+
+    // Set the select element's value to the currently applied variant
+    if (modelViewer.variantName) {
+        select.value = modelViewer.variantName;
+    } else if (names.length > 0) {
+        select.value = names[0];
+    }
+
+    if(!names.includes(modelViewer.variantName))
+    {
+      select.value = names[0];
+    }
+    
+  });
+
+  modelViewer.addEventListener('variant-applied', (event) => {
+    //console.log(modelViewer.variantName);
+    select.value = modelViewer.variantName;
+    //modelViewer.variantName = modelViewer.variantName;
+  });
+
+  select.addEventListener('input', (event) => {
+      modelViewer.variantName = event.target.value;
+  });
+}

@@ -73,6 +73,18 @@
       height: 100%;
     }
 
+    @media all and (max-width: 479px) 
+    {      
+      .VarientsWrapper
+      {
+        transform: translateX(-50%);
+        right: auto;
+        left: 50%;
+        bottom: 10px !important;
+      }
+      
+    }
+
     </style>
   </head>
 
@@ -213,6 +225,7 @@
           </div>
         </div>
       </div>
+      <div id="Variantselector" class="VarientsWrapper"><div class="select"><select id="variant"></select></div></div>
     </model-viewer>
 
     <div class="phoneContent">
